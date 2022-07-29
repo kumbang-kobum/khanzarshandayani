@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="297" pageHeight="421" columnWidth="257" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e3c01d9-59ec-4393-9ff9-059810afe1e1">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
@@ -337,20 +337,12 @@
 				<text><![CDATA[diagnosa di atas pada :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="1" y="285" width="256" height="12" uuid="b3cd9458-de5c-41ed-8843-c789f410b4ea"/>
-				<textElement markup="none">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["No.Antrian "+$F{temp13}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="1" y="272" width="256" height="12" uuid="bb3f0ad3-7bd4-44d2-9703-fb342bf61e57"/>
 				<textElement markup="none">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Tanggal "+$F{temp10}+" di "+$F{temp17}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Tanggal "+$F{temp10}+" di Poliklinik "+$F{temp17}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="129" y="298" width="128" height="12" uuid="9a26df3b-d135-41c6-bfce-69d5ae540e07"/>
@@ -398,7 +390,7 @@
 					<font fontName="Tahoma" size="9" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[SURAT KETERANGAN]]></text>
+				<text><![CDATA[SURAT KETERANGAN KONTROL]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="2" y="13" width="255" height="10" uuid="c543d972-5b32-4c8f-8353-7f92cea8dc41"/>
@@ -432,6 +424,40 @@
 					<jr:codeExpression><![CDATA[$F{temp12}]]></jr:codeExpression>
 				</jr:barbecue>
 			</componentElement>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="223" y="2" width="33" height="33" uuid="7ff51b65-cef0-47bf-98fc-f6f3ba09e8f1"/>
+				<imageExpression><![CDATA["/naira/kars4bintang.png"]]></imageExpression>
+			</image>
+			<componentElement>
+				<reportElement x="130" y="330" width="120" height="30" uuid="9134339d-5a07-4256-8ba3-3c1f6633e597"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["( "+$F{temp15}+" )"]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<staticText>
+				<reportElement x="1" y="284" width="256" height="12" uuid="7bcd5eb8-743c-4ae8-95c3-17b1accd789b"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Expired :___________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="340" width="120" height="12" uuid="aec2a0f6-a83f-4ac9-9516-78e4fc5cb8a3"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Whatsapp Pendafatran :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="353" width="120" height="12" uuid="6ed7759f-f0ce-47f8-a44d-bfeba3744234"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[0811-725-127]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>

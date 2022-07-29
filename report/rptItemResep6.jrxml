@@ -183,14 +183,6 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{no_rawat}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="96" y="124" width="36" height="9" uuid="47e438d6-d41f-4e56-bae7-3339b6ac2ad0"/>
-				<textElement textAlignment="Right">
-					<font fontName="Tahoma" size="6" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{jml_dr}+" "+$F{nm_racik}]]></textFieldExpression>
-			</textField>
 			<image scaleImage="FillFrame" onErrorType="Blank">
 				<reportElement x="2" y="2" width="24" height="26" uuid="5678279d-fd30-46e6-8d47-3fe12a89b53b"/>
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
