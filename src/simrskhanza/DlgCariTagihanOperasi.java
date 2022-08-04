@@ -1897,12 +1897,12 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
     private void kdmemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdmemKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
-            Sequel.cariIsi("select nm_pasien from pasien where no_rkm_medis=?", nmmem,kdmem.getText());         
+            Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=?", nmmem,kdmem.getText());         
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
-            Sequel.cariIsi("select nm_pasien from pasien where no_rkm_medis=?", nmmem,kdmem.getText());
+            Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=?", nmmem,kdmem.getText());
             Tgl2.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            Sequel.cariIsi("select nm_pasien from pasien where no_rkm_medis=?", nmmem,kdmem.getText());
+            Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=?", nmmem,kdmem.getText());
             TCari.requestFocus();   
         }
     }//GEN-LAST:event_kdmemKeyPressed
@@ -2883,16 +2883,16 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                 param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
                 param.put("norawat",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());  
                 param.put("tanggaloperasi",tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString());  
-                kodeoperator=Sequel.cariIsi("select operator1 from operasi where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' and tgl_operasi='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()+"'");
+                kodeoperator=Sequel.cariIsi("select operasi.operator1 from operasi where operasi.no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' and tgl_operasi='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()+"'");
                 finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",kodeoperator);
                 param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbDokter.getValueAt(tbDokter.getSelectedRow()+1,5).toString()+"\nID "+(finger.equals("")?kodeoperator:finger)+"\n"+Valid.SetTgl3(tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()));  
             
-                if(Sequel.cariIsi("select status_lanjut from reg_periksa where no_rawat=?",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()).equals("Ralan")){
+                if(Sequel.cariIsi("select reg_periksa.status_lanjut from reg_periksa where reg_periksa.no_rawat=?",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()).equals("Ralan")){
                     try {
                         try {
                             rs=koneksi.prepareStatement(
                                     "select no_rawat, tgl_perawatan, jam_rawat, suhu_tubuh, tensi, nadi, respirasi, tinggi, berat, gcs, keluhan, pemeriksaan, alergi, "+
-                                    "imun_ke, rtl, penilaian from pemeriksaan_ralan where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' "+
+                                    "rtl, penilaian from pemeriksaan_ralan where no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' "+
                                     "order by tgl_perawatan, jam_rawat desc limit 1").executeQuery();
                             if(rs.next()){
                                 param.put("tgl_perawatan",rs.getDate("tgl_perawatan"));
@@ -3056,9 +3056,9 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                     berkas.setJudul("::[ Berkas Digital Perawatan ]::","berkasrawat/pages");
                     try {
                         if(akses.gethapus_berkas_digital_perawatan()==true){
-                            berkas.loadURL("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/"+"berkasrawat/login2.php?act=login&usere=admin&passwordte=akusayangsamakamu&no_rawat="+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
+                            berkas.loadURL("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/"+"berkasrawat/login2.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&no_rawat="+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
                         }else{
-                            berkas.loadURL("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/"+"berkasrawat/login2nonhapus.php?act=login&usere=admin&passwordte=akusayangsamakamu&no_rawat="+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
+                            berkas.loadURL("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/"+"berkasrawat/login2nonhapus.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&no_rawat="+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
                         }   
                     } catch (Exception ex) {
                         System.out.println("Notifikasi : "+ex);

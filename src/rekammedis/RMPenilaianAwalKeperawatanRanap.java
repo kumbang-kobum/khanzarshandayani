@@ -67,8 +67,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
-        DlgRiwayatPersalinan.setSize(650,192);
-        
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","NIP Pengkaji 1","Nama Pengkaji 1","NIP Pengkaji 2","Nama Pengkaji 2","Kode DPJP","Nama DPJP",
             "Tgl.Asuhan","Macam Kasus","Anamnesis","Tiba Di Ruang Rawat","Cara Masuk","Riwayat Penyakit Saat Ini","Riwayat Penyakit Dahulu","Riwayat Penyakit Keluarga",
@@ -76,7 +74,19 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             "Riwayat Alergi","Merokok","Batang/Hari","Alkohol","Gelas/Hari","Obat Tidur","Olah Raga","Kesadaran Mental","Keadaan Umum","GCS(E,V,M)","TD(mmHg)",
             "Nadi(x/menit)","RR(x/menit)","Suhu(°C)","SpO2(%)","BB(Kg)","TB(cm)","Kepala","Wajah","Leher","Kejang","Sensorik","Pulsasi","Sirkulasi","Denyut Nadi",
             "Retraksi","Pola Nafas","Suara Nafas","Batuk & Sekresi","Volume","Jenis Pernafasaan","Irama","Mulut","Lidah","Gigi","Tenggorokan","Abdomen","Peistatik Usus",
-            "Anus","Sensorik","Penglihatan","Alat Bantu Penglihatan"
+            "Anus","Sensorik","Penglihatan","Alat Bantu Penglihatan","Motorik","Pendengaran","Bicara","Otot","Kulit","Warna Kulit","Turgor","Resiko Decubitas",
+            "Oedema","Pergerakan Sendi","Kekuatan Otot","Fraktur","Nyeri Sendi","Frekuensi BAB","x/","Konsistensi BAB","Warna BAB","Frekuensi BAK","x/","Warna BAK",
+            "Lain-lain BAK","Mandi","Makan/Minum","Berpakaian","Eliminasi","Berpindah","Porsi Makan","Frekuensi Makan","Jenis Makanan","Lama Tidur","Gangguan Tidur",
+            "a. Aktifitas Sehari-hari","b. Berjalan","c. Aktifitas","d. Alat Ambulasi","e. Ekstremitas Atas","f. Ekstremitas Bawah","g. Kemampuan Menggenggam",
+            "h. Kemampuan Koordinasi","i. Kesimpulan Gangguan Fungsi","a. Kondisi Psikologis","b. Adakah Perilaku","c. Gangguan Jiwa di Masa Lalu","d. Hubungan Pasien",
+            "e. Agama","f. Tinggal Dengan","g. Pekerjaan","h. Pembayaran","i. Nilai-nilai Kepercayaan","j. Bahasa Sehari-hari","k. Pendidikan Pasien","l. Pendidikan P.J.",
+            "m. Edukasi Diberikan Kepada","Nyeri","Penyebab Nyeri","Kualitas Nyeri","Lokasi Nyeri","Nyeri Menyebar","Skala Nyeri","Waktu / Durasi","Nyeri Hilang Bila",
+            "Diberitahukan Pada Dokter","Skala Morse 1","N.M. 1","Skala Morse 2","N.M. 2","Skala Morse 3","N.M. 3","Skala Morse 4","N.M. 4","Skala Morse 5","N.M. 5",
+            "Skala Morse 6","N.M. 6","T.M.","Skala Sydney 1","N.S. 1","Skala Sydney 2","N.S. 2","Skala Sydney 3","N.S. 3","Skala Sydney 4","N.S. 4",
+            "Skala Sydney 5","N.S. 5","Skala Sydney 6","N.S. 6","Skala Sydney 7","N.S. 7","Skala Sydney 8","N.S. 8","Skala Sydney 9","N.S. 9","Skala Sydney 10","N.S. 10",
+            "Skala Sydney 11","N.S. 11","T.S.","1. Apakah ada penurunan BB yang tidak diinginkan selama 6 bulan terakhir ?","Skor 1","2. Apakah asupan makan berkurang karena tidak nafsu makan ?",
+            "Skor 2","Total Skor","Pasien dengan diagnosis khusus","Keterangan Diagnosa Khusus","Sudah dibaca dan diketahui oleh Dietisen","Jam Dibaca Dietisen",
+            "Rencana Keperawatan Lainnya"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -86,7 +96,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 67; i++) {
+        for (i = 0; i < 175; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -222,6 +232,222 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                 column.setPreferredWidth(140);
             }else if(i==66){
                 column.setPreferredWidth(119);
+            }else if(i==67){
+                column.setPreferredWidth(65);
+            }else if(i==68){
+                column.setPreferredWidth(74);
+            }else if(i==69){
+                column.setPreferredWidth(140);
+            }else if(i==70){
+                column.setPreferredWidth(41);
+            }else if(i==71){
+                column.setPreferredWidth(91);
+            }else if(i==72){
+                column.setPreferredWidth(66);
+            }else if(i==73){
+                column.setPreferredWidth(44);
+            }else if(i==74){
+                column.setPreferredWidth(159);
+            }else if(i==75){
+                column.setPreferredWidth(140);
+            }else if(i==76){
+                column.setPreferredWidth(94);
+            }else if(i==77){
+                column.setPreferredWidth(79);
+            }else if(i==78){
+                column.setPreferredWidth(140);
+            }else if(i==79){
+                column.setPreferredWidth(140);
+            }else if(i==80){
+                column.setPreferredWidth(79);
+            }else if(i==81){
+                column.setPreferredWidth(80);
+            }else if(i==82){
+                column.setPreferredWidth(85);
+            }else if(i==83){
+                column.setPreferredWidth(80);
+            }else if(i==84){
+                column.setPreferredWidth(79);
+            }else if(i==85){
+                column.setPreferredWidth(80);
+            }else if(i==86){
+                column.setPreferredWidth(80);
+            }else if(i==87){
+                column.setPreferredWidth(80);
+            }else if(i==88){
+                column.setPreferredWidth(103);
+            }else if(i==89){
+                column.setPreferredWidth(103);
+            }else if(i==90){
+                column.setPreferredWidth(103);
+            }else if(i==91){
+                column.setPreferredWidth(103);
+            }else if(i==92){
+                column.setPreferredWidth(103);
+            }else if(i==93){
+                column.setPreferredWidth(68);
+            }else if(i==94){
+                column.setPreferredWidth(90);
+            }else if(i==95){
+                column.setPreferredWidth(140);
+            }else if(i==96){
+                column.setPreferredWidth(65);
+            }else if(i==97){
+                column.setPreferredWidth(108);
+            }else if(i==98){
+                column.setPreferredWidth(120);
+            }else if(i==99){
+                column.setPreferredWidth(180);
+            }else if(i==100){
+                column.setPreferredWidth(67);
+            }else if(i==101){
+                column.setPreferredWidth(104);
+            }else if(i==102){
+                column.setPreferredWidth(140);
+            }else if(i==103){
+                column.setPreferredWidth(140);
+            }else if(i==104){
+                column.setPreferredWidth(170);
+            }else if(i==105){
+                column.setPreferredWidth(170);
+            }else if(i==106){
+                column.setPreferredWidth(161);
+            }else if(i==107){
+                column.setPreferredWidth(106);
+            }else if(i==108){
+                column.setPreferredWidth(250);
+            }else if(i==109){
+                column.setPreferredWidth(157);
+            }else if(i==110){
+                column.setPreferredWidth(105);
+            }else if(i==111){
+                column.setPreferredWidth(55);
+            }else if(i==112){
+                column.setPreferredWidth(140);
+            }else if(i==113){
+                column.setPreferredWidth(90);
+            }else if(i==114){
+                column.setPreferredWidth(90);
+            }else if(i==115){
+                column.setPreferredWidth(150);
+            }else if(i==116){
+                column.setPreferredWidth(110);
+            }else if(i==117){
+                column.setPreferredWidth(110);
+            }else if(i==118){
+                column.setPreferredWidth(95);
+            }else if(i==119){
+                column.setPreferredWidth(150);
+            }else if(i==120){
+                column.setPreferredWidth(80);
+            }else if(i==121){
+                column.setPreferredWidth(140);
+            }else if(i==122){
+                column.setPreferredWidth(140);
+            }else if(i==123){
+                column.setPreferredWidth(100);
+            }else if(i==124){
+                column.setPreferredWidth(85);
+            }else if(i==125){
+                column.setPreferredWidth(65);
+            }else if(i==126){
+                column.setPreferredWidth(80);
+            }else if(i==127){
+                column.setPreferredWidth(140);
+            }else if(i==128){
+                column.setPreferredWidth(140);
+            }else if(i==129){
+                column.setPreferredWidth(77);
+            }else if(i==130){
+                column.setPreferredWidth(40);
+            }else if(i==131){
+                column.setPreferredWidth(77);
+            }else if(i==132){
+                column.setPreferredWidth(40);
+            }else if(i==133){
+                column.setPreferredWidth(177);
+            }else if(i==134){
+                column.setPreferredWidth(40);
+            }else if(i==135){
+                column.setPreferredWidth(77);
+            }else if(i==136){
+                column.setPreferredWidth(40);
+            }else if(i==137){
+                column.setPreferredWidth(162);
+            }else if(i==138){
+                column.setPreferredWidth(40);
+            }else if(i==139){
+                column.setPreferredWidth(162);
+            }else if(i==140){
+                column.setPreferredWidth(40);
+            }else if(i==141){
+                column.setPreferredWidth(40);
+            }else if(i==142){
+                column.setPreferredWidth(82);
+            }else if(i==143){
+                column.setPreferredWidth(40);
+            }else if(i==144){
+                column.setPreferredWidth(82);
+            }else if(i==145){
+                column.setPreferredWidth(40);
+            }else if(i==146){
+                column.setPreferredWidth(82);
+            }else if(i==147){
+                column.setPreferredWidth(40);
+            }else if(i==148){
+                column.setPreferredWidth(82);
+            }else if(i==149){
+                column.setPreferredWidth(40);
+            }else if(i==150){
+                column.setPreferredWidth(82);
+            }else if(i==151){
+                column.setPreferredWidth(40);
+            }else if(i==152){
+                column.setPreferredWidth(82);
+            }else if(i==153){
+                column.setPreferredWidth(40);
+            }else if(i==154){
+                column.setPreferredWidth(82);
+            }else if(i==155){
+                column.setPreferredWidth(40);
+            }else if(i==156){
+                column.setPreferredWidth(82);
+            }else if(i==157){
+                column.setPreferredWidth(40);
+            }else if(i==158){
+                column.setPreferredWidth(82);
+            }else if(i==159){
+                column.setPreferredWidth(40);
+            }else if(i==160){
+                column.setPreferredWidth(86);
+            }else if(i==161){
+                column.setPreferredWidth(44);
+            }else if(i==162){
+                column.setPreferredWidth(86);
+            }else if(i==163){
+                column.setPreferredWidth(44);
+            }else if(i==164){
+                column.setPreferredWidth(40);
+            }else if(i==165){
+                column.setPreferredWidth(380);
+            }else if(i==166){
+                column.setPreferredWidth(40);
+            }else if(i==167){
+                column.setPreferredWidth(317);
+            }else if(i==168){
+                column.setPreferredWidth(40);
+            }else if(i==169){
+                column.setPreferredWidth(58);
+            }else if(i==170){
+                column.setPreferredWidth(165);
+            }else if(i==171){
+                column.setPreferredWidth(149);
+            }else if(i==172){
+                column.setPreferredWidth(209);
+            }else if(i==173){
+                column.setPreferredWidth(107);
+            }else if(i==174){
+                column.setPreferredWidth(200);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -499,29 +725,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DlgRiwayatPersalinan = new javax.swing.JDialog();
-        internalFrame4 = new widget.InternalFrame();
-        panelBiasa2 = new widget.PanelBiasa();
-        TanggalPersalinan = new widget.Tanggal();
-        jLabel99 = new widget.Label();
-        BtnKeluarKehamilan = new widget.Button();
-        jLabel106 = new widget.Label();
-        UsiaHamil = new widget.TextBox();
-        BtnSimpanRiwayatKehamilan = new widget.Button();
-        jLabel107 = new widget.Label();
-        TempatPersalinan = new widget.TextBox();
-        jLabel105 = new widget.Label();
-        JenisPersalinan = new widget.TextBox();
-        jLabel108 = new widget.Label();
-        JK = new widget.ComboBox();
-        jLabel109 = new widget.Label();
-        Penolong = new widget.TextBox();
-        jLabel110 = new widget.Label();
-        BBPB = new widget.TextBox();
-        jLabel111 = new widget.Label();
-        Penyulit = new widget.TextBox();
-        jLabel112 = new widget.Label();
-        Keadaan = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         panelGlass8 = new widget.panelisi();
         BtnSimpan = new widget.Button();
@@ -1025,182 +1228,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         scrollPane6 = new widget.ScrollPane();
         DetailRencana = new widget.TextArea();
 
-        DlgRiwayatPersalinan.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        DlgRiwayatPersalinan.setName("DlgRiwayatPersalinan"); // NOI18N
-        DlgRiwayatPersalinan.setUndecorated(true);
-        DlgRiwayatPersalinan.setResizable(false);
-
-        internalFrame4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Riwayat Persalinan Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 50))); // NOI18N
-        internalFrame4.setName("internalFrame4"); // NOI18N
-        internalFrame4.setLayout(new java.awt.BorderLayout(1, 1));
-
-        panelBiasa2.setName("panelBiasa2"); // NOI18N
-        panelBiasa2.setLayout(null);
-
-        TanggalPersalinan.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalPersalinan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-06-2022" }));
-        TanggalPersalinan.setDisplayFormat("dd-MM-yyyy");
-        TanggalPersalinan.setName("TanggalPersalinan"); // NOI18N
-        TanggalPersalinan.setOpaque(false);
-        panelBiasa2.add(TanggalPersalinan);
-        TanggalPersalinan.setBounds(530, 10, 95, 23);
-
-        jLabel99.setText("Tempat Persalinan :");
-        jLabel99.setName("jLabel99"); // NOI18N
-        panelBiasa2.add(jLabel99);
-        jLabel99.setBounds(0, 10, 110, 23);
-
-        BtnKeluarKehamilan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/cross.png"))); // NOI18N
-        BtnKeluarKehamilan.setMnemonic('U');
-        BtnKeluarKehamilan.setText("Tutup");
-        BtnKeluarKehamilan.setToolTipText("Alt+U");
-        BtnKeluarKehamilan.setName("BtnKeluarKehamilan"); // NOI18N
-        BtnKeluarKehamilan.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnKeluarKehamilan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnKeluarKehamilanActionPerformed(evt);
-            }
-        });
-        panelBiasa2.add(BtnKeluarKehamilan);
-        BtnKeluarKehamilan.setBounds(530, 130, 100, 30);
-
-        jLabel106.setText("Usia Hamil :");
-        jLabel106.setName("jLabel106"); // NOI18N
-        panelBiasa2.add(jLabel106);
-        jLabel106.setBounds(430, 40, 96, 23);
-
-        UsiaHamil.setHighlighter(null);
-        UsiaHamil.setName("UsiaHamil"); // NOI18N
-        UsiaHamil.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                UsiaHamilKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(UsiaHamil);
-        UsiaHamil.setBounds(530, 40, 95, 23);
-
-        BtnSimpanRiwayatKehamilan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
-        BtnSimpanRiwayatKehamilan.setMnemonic('S');
-        BtnSimpanRiwayatKehamilan.setText("Simpan");
-        BtnSimpanRiwayatKehamilan.setToolTipText("Alt+S");
-        BtnSimpanRiwayatKehamilan.setName("BtnSimpanRiwayatKehamilan"); // NOI18N
-        BtnSimpanRiwayatKehamilan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSimpanRiwayatKehamilanActionPerformed(evt);
-            }
-        });
-        panelBiasa2.add(BtnSimpanRiwayatKehamilan);
-        BtnSimpanRiwayatKehamilan.setBounds(420, 130, 100, 30);
-
-        jLabel107.setText("Tanggal/Tahun :");
-        jLabel107.setName("jLabel107"); // NOI18N
-        panelBiasa2.add(jLabel107);
-        jLabel107.setBounds(430, 10, 96, 23);
-
-        TempatPersalinan.setHighlighter(null);
-        TempatPersalinan.setName("TempatPersalinan"); // NOI18N
-        TempatPersalinan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TempatPersalinanKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(TempatPersalinan);
-        TempatPersalinan.setBounds(114, 10, 290, 23);
-
-        jLabel105.setText("Jenis Persalinan :");
-        jLabel105.setName("jLabel105"); // NOI18N
-        panelBiasa2.add(jLabel105);
-        jLabel105.setBounds(0, 40, 110, 23);
-
-        JenisPersalinan.setHighlighter(null);
-        JenisPersalinan.setName("JenisPersalinan"); // NOI18N
-        JenisPersalinan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JenisPersalinanKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(JenisPersalinan);
-        JenisPersalinan.setBounds(114, 40, 290, 23);
-
-        jLabel108.setText("Jenis Kelamin :");
-        jLabel108.setName("jLabel108"); // NOI18N
-        panelBiasa2.add(jLabel108);
-        jLabel108.setBounds(430, 70, 96, 23);
-
-        JK.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki-Laki", "Perempuan" }));
-        JK.setName("JK"); // NOI18N
-        JK.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JKKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(JK);
-        JK.setBounds(530, 70, 95, 23);
-
-        jLabel109.setText("Penolong :");
-        jLabel109.setName("jLabel109"); // NOI18N
-        panelBiasa2.add(jLabel109);
-        jLabel109.setBounds(0, 70, 110, 23);
-
-        Penolong.setHighlighter(null);
-        Penolong.setName("Penolong"); // NOI18N
-        Penolong.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PenolongKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(Penolong);
-        Penolong.setBounds(114, 70, 290, 23);
-
-        jLabel110.setText("BB/PB :");
-        jLabel110.setName("jLabel110"); // NOI18N
-        panelBiasa2.add(jLabel110);
-        jLabel110.setBounds(430, 100, 96, 23);
-
-        BBPB.setHighlighter(null);
-        BBPB.setName("BBPB"); // NOI18N
-        BBPB.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                BBPBKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(BBPB);
-        BBPB.setBounds(530, 100, 95, 23);
-
-        jLabel111.setText("Penyulit :");
-        jLabel111.setName("jLabel111"); // NOI18N
-        panelBiasa2.add(jLabel111);
-        jLabel111.setBounds(0, 100, 110, 23);
-
-        Penyulit.setHighlighter(null);
-        Penyulit.setName("Penyulit"); // NOI18N
-        Penyulit.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PenyulitKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(Penyulit);
-        Penyulit.setBounds(114, 100, 290, 23);
-
-        jLabel112.setText("Keadaan :");
-        jLabel112.setName("jLabel112"); // NOI18N
-        panelBiasa2.add(jLabel112);
-        jLabel112.setBounds(0, 130, 110, 23);
-
-        Keadaan.setHighlighter(null);
-        Keadaan.setName("Keadaan"); // NOI18N
-        Keadaan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                KeadaanKeyPressed(evt);
-            }
-        });
-        panelBiasa2.add(Keadaan);
-        Keadaan.setBounds(114, 130, 290, 23);
-
-        internalFrame4.add(panelBiasa2, java.awt.BorderLayout.CENTER);
-
-        DlgRiwayatPersalinan.getContentPane().add(internalFrame4, java.awt.BorderLayout.CENTER);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
@@ -1482,7 +1509,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         Anamnesis.setBounds(74, 100, 130, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-06-2022 09:23:16" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-07-2022 08:02:31" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1697,7 +1724,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         jLabel32.setText("Riwayat Penyakit Dahulu :");
         jLabel32.setName("jLabel32"); // NOI18N
         FormInput.add(jLabel32);
-        jLabel32.setBounds(450, 150, 150, 23);
+        jLabel32.setBounds(460, 150, 140, 23);
 
         scrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane4.setName("scrollPane4"); // NOI18N
@@ -3169,10 +3196,10 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         FormInput.add(jLabel175);
         jLabel175.setBounds(411, 1180, 40, 23);
 
-        jLabel177.setText("Jenis Makanan :");
+        jLabel177.setText("Jenis Makanan");
         jLabel177.setName("jLabel177"); // NOI18N
         FormInput.add(jLabel177);
-        jLabel177.setBounds(430, 1180, 97, 23);
+        jLabel177.setBounds(430, 1180, 92, 23);
 
         PolaNutrisiJenis.setHighlighter(null);
         PolaNutrisiJenis.setName("PolaNutrisiJenis"); // NOI18N
@@ -3182,7 +3209,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             }
         });
         FormInput.add(PolaNutrisiJenis);
-        PolaNutrisiJenis.setBounds(531, 1180, 323, 23);
+        PolaNutrisiJenis.setBounds(526, 1180, 328, 23);
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel56.setText("c. Pola Tidur :");
@@ -3234,10 +3261,10 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         FormInput.add(jLabel180);
         jLabel180.setBounds(10, 1240, 180, 23);
 
-        jLabel179.setText("a. Kemampuan Aktifitas Sehari-hari  :");
+        jLabel179.setText("a. Kemampuan Aktifitas Sehari-hari :");
         jLabel179.setName("jLabel179"); // NOI18N
         FormInput.add(jLabel179);
-        jLabel179.setBounds(0, 1260, 227, 23);
+        jLabel179.setBounds(0, 1260, 224, 23);
 
         AktifitasSehari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mandiri", "Bantuan minimal", "Bantuan Sebagian", "Ketergantungan Total" }));
         AktifitasSehari2.setName("AktifitasSehari2"); // NOI18N
@@ -3247,12 +3274,12 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             }
         });
         FormInput.add(AktifitasSehari2);
-        AktifitasSehari2.setBounds(231, 1260, 158, 23);
+        AktifitasSehari2.setBounds(228, 1260, 158, 23);
 
         jLabel181.setText("b. Berjalan :");
         jLabel181.setName("jLabel181"); // NOI18N
         FormInput.add(jLabel181);
-        jLabel181.setBounds(399, 1260, 70, 23);
+        jLabel181.setBounds(395, 1260, 70, 23);
 
         Berjalan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Penurunan Kekuatan/ROM", "Paralisis", "Sering Jatuh", "Deformitas", "Hilang keseimbangan", "Riwayat Patah Tulang", "Lain-lain" }));
         Berjalan.setName("Berjalan"); // NOI18N
@@ -3262,7 +3289,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             }
         });
         FormInput.add(Berjalan);
-        Berjalan.setBounds(473, 1260, 178, 23);
+        Berjalan.setBounds(469, 1260, 178, 23);
 
         KeteranganBerjalan.setFocusTraversalPolicyProvider(true);
         KeteranganBerjalan.setName("KeteranganBerjalan"); // NOI18N
@@ -3272,7 +3299,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             }
         });
         FormInput.add(KeteranganBerjalan);
-        KeteranganBerjalan.setBounds(654, 1260, 200, 23);
+        KeteranganBerjalan.setBounds(650, 1260, 204, 23);
 
         jLabel182.setText("c. Aktifitas :");
         jLabel182.setName("jLabel182"); // NOI18N
@@ -3402,7 +3429,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             }
         });
         FormInput.add(KeteranganKemampuanKoordinasi);
-        KeteranganKemampuanKoordinasi.setBounds(331, 1350, 137, 23);
+        KeteranganKemampuanKoordinasi.setBounds(331, 1350, 147, 23);
 
         jLabel188.setText("i. Kesimpulan Gangguan Fungsi :");
         jLabel188.setName("jLabel188"); // NOI18N
@@ -4950,7 +4977,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-06-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-07-2022" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -4964,7 +4991,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-06-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-07-2022" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5137,13 +5164,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         }else if(KdDPJP.getText().trim().equals("")||NmDPJP.getText().trim().equals("")){
             Valid.textKosong(BtnDPJP,"DPJP");
         }else if(RPS.getText().trim().equals("")){
-            Valid.textKosong(RPS,"Keluhan Utama");
-        }else if(RPD.getText().trim().equals("")){
-            Valid.textKosong(RPD,"Riwayat Penyakit Keluarga");
-        }else if(RPK.getText().trim().equals("")){
-            Valid.textKosong(RPK,"Penyakit Selama Kehamilan");
-        }else if(RPO.getText().trim().equals("")){
-            Valid.textKosong(RPO,"Riwayat Pembedahan");
+            Valid.textKosong(RPS,"Riwayat Penyakit Sekarang");
         }else{
             if(Sequel.menyimpantf("penilaian_awal_keperawatan_ranap","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",193,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Anamnesis.getSelectedItem().toString(),KetAnamnesis.getText(),TibadiRuang.getSelectedItem().toString(),MacamKasus.getSelectedItem().toString(), 
@@ -5242,13 +5263,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         }else if(KdDPJP.getText().trim().equals("")||NmDPJP.getText().trim().equals("")){
             Valid.textKosong(BtnDPJP,"DPJP");
         }else if(RPS.getText().trim().equals("")){
-            Valid.textKosong(RPS,"Keluhan Utama");
-        }else if(RPD.getText().trim().equals("")){
-            Valid.textKosong(RPD,"Riwayat Penyakit Keluarga");
-        }else if(RPK.getText().trim().equals("")){
-            Valid.textKosong(RPK,"Penyakit Selama Kehamilan");
-        }else if(RPO.getText().trim().equals("")){
-            Valid.textKosong(RPO,"Riwayat Pembedahan");
+            Valid.textKosong(RPS,"Riwayat Penyakit Sekarang");
         }else{
             if(tbObat.getSelectedRow()>-1){
                 if(akses.getkode().equals("Admin Utama")){
@@ -5305,61 +5320,65 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                 BufferedWriter bw; 
                 
                 ps=koneksi.prepareStatement(
-                    "select penilaian_awal_keperawatan_ranap.no_rawat,penilaian_awal_keperawatan_ranap.tanggal,penilaian_awal_keperawatan_ranap.informasi,"+
-                    "penilaian_awal_keperawatan_ranap.tiba_diruang_rawat,penilaian_awal_keperawatan_ranap.cara_masuk,penilaian_awal_keperawatan_ranap.keluhan,"+
-                    "penilaian_awal_keperawatan_ranap.rpk,penilaian_awal_keperawatan_ranap.psk,penilaian_awal_keperawatan_ranap.rp,penilaian_awal_keperawatan_ranap.alergi,"+
-                    "penilaian_awal_keperawatan_ranap.komplikasi_sebelumnya,penilaian_awal_keperawatan_ranap.keterangan_komplikasi_sebelumnya,penilaian_awal_keperawatan_ranap.riwayat_mens_umur,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_mens_lamanya,penilaian_awal_keperawatan_ranap.riwayat_mens_banyaknya,penilaian_awal_keperawatan_ranap.riwayat_mens_siklus,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_mens_ket_siklus,penilaian_awal_keperawatan_ranap.riwayat_mens_dirasakan,penilaian_awal_keperawatan_ranap.riwayat_perkawinan_status,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_perkawinan_ket_status,penilaian_awal_keperawatan_ranap.riwayat_perkawinan_usia1,penilaian_awal_keperawatan_ranap.riwayat_perkawinan_ket_usia1,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_perkawinan_usia2,penilaian_awal_keperawatan_ranap.riwayat_perkawinan_ket_usia2,penilaian_awal_keperawatan_ranap.riwayat_perkawinan_usia3,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_perkawinan_ket_usia3,penilaian_awal_keperawatan_ranap.riwayat_persalinan_g,penilaian_awal_keperawatan_ranap.riwayat_persalinan_p,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_persalinan_a,penilaian_awal_keperawatan_ranap.riwayat_persalinan_hidup,penilaian_awal_keperawatan_ranap.riwayat_hamil_hpht,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_hamil_usiahamil,penilaian_awal_keperawatan_ranap.riwayat_hamil_tp,penilaian_awal_keperawatan_ranap.riwayat_hamil_imunisasi,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_hamil_anc,penilaian_awal_keperawatan_ranap.riwayat_hamil_ancke,penilaian_awal_keperawatan_ranap.riwayat_hamil_ket_ancke,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_hamil_keluhan_hamil_muda,penilaian_awal_keperawatan_ranap.riwayat_hamil_keluhan_hamil_tua,penilaian_awal_keperawatan_ranap.riwayat_kb,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_kb_lamanya,penilaian_awal_keperawatan_ranap.riwayat_kb_komplikasi,penilaian_awal_keperawatan_ranap.riwayat_kb_ket_komplikasi,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_kb_kapaberhenti,penilaian_awal_keperawatan_ranap.riwayat_kb_alasanberhenti,penilaian_awal_keperawatan_ranap.riwayat_genekologi,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_kebiasaan_obat,penilaian_awal_keperawatan_ranap.riwayat_kebiasaan_ket_obat,penilaian_awal_keperawatan_ranap.riwayat_kebiasaan_merokok,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_kebiasaan_ket_merokok,penilaian_awal_keperawatan_ranap.riwayat_kebiasaan_alkohol,penilaian_awal_keperawatan_ranap.riwayat_kebiasaan_ket_alkohol,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_kebiasaan_narkoba,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_mental,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_keadaan_umum,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_gcs,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_td,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_nadi,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_rr,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_suhu,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_spo2,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_bb,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_tb,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_lila,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_tfu,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_tbj,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_letak,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_presentasi,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_penurunan,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_his,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_kekuatan,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_lamanya,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_djj,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_ket_djj,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_portio,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_pembukaan,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_ketuban,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_hodge,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_panggul,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_inspekulo,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_ket_inspekulo,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_lakmus,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_ket_lakmus,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_ctg,penilaian_awal_keperawatan_ranap.pemeriksaan_kebidanan_ket_ctg,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_umum_kepala,penilaian_awal_keperawatan_ranap.pemeriksaan_umum_muka,penilaian_awal_keperawatan_ranap.pemeriksaan_umum_mata,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_umum_hidung,penilaian_awal_keperawatan_ranap.pemeriksaan_umum_telinga,penilaian_awal_keperawatan_ranap.pemeriksaan_umum_mulut,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_umum_leher,penilaian_awal_keperawatan_ranap.pemeriksaan_umum_dada,penilaian_awal_keperawatan_ranap.pemeriksaan_umum_perut,"+
-                    "penilaian_awal_keperawatan_ranap.pemeriksaan_umum_genitalia,penilaian_awal_keperawatan_ranap.pemeriksaan_umum_ekstrimitas,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_kemampuan_aktifitas,"+
-                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_berjalan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ket_berjalan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_aktivitas,"+
-                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ambulasi,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_atas,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ket_ekstrimitas_atas,"+
-                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_bawah,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ket_ekstrimitas_bawah,"+
-                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_kemampuan_menggenggam,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ket_kemampuan_menggenggam,"+
-                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_koordinasi,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ket_koordinasi,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_gangguan_fungsi,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_kondisipsiko,penilaian_awal_keperawatan_ranap.riwayat_psiko_adakah_prilaku,penilaian_awal_keperawatan_ranap.riwayat_psiko_ket_adakah_prilaku,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_gangguan_jiwa,penilaian_awal_keperawatan_ranap.riwayat_psiko_hubungan_pasien,penilaian_awal_keperawatan_ranap.riwayat_psiko_tinggal_dengan,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_ket_tinggal_dengan,penilaian_awal_keperawatan_ranap.riwayat_psiko_budaya,penilaian_awal_keperawatan_ranap.riwayat_psiko_ket_budaya,"+
-                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_pend_pj,penilaian_awal_keperawatan_ranap.riwayat_psiko_edukasi_pada,penilaian_awal_keperawatan_ranap.riwayat_psiko_ket_edukasi_pada,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri,penilaian_awal_keperawatan_ranap.penilaian_nyeri_penyebab,penilaian_awal_keperawatan_ranap.penilaian_nyeri_ket_penyebab,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri_kualitas,penilaian_awal_keperawatan_ranap.penilaian_nyeri_ket_kualitas,penilaian_awal_keperawatan_ranap.penilaian_nyeri_lokasi,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri_menyebar,penilaian_awal_keperawatan_ranap.penilaian_nyeri_skala,penilaian_awal_keperawatan_ranap.penilaian_nyeri_waktu,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri_hilang,penilaian_awal_keperawatan_ranap.penilaian_nyeri_ket_hilang,penilaian_awal_keperawatan_ranap.penilaian_nyeri_diberitahukan_dokter,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri_jam_diberitahukan_dokter,penilaian_awal_keperawatan_ranap.penilaian_jatuh_skala1,penilaian_awal_keperawatan_ranap.penilaian_jatuh_nilai1,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_jatuh_skala2,penilaian_awal_keperawatan_ranap.penilaian_jatuh_nilai2,penilaian_awal_keperawatan_ranap.penilaian_jatuh_skala3,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_jatuh_nilai3,penilaian_awal_keperawatan_ranap.penilaian_jatuh_skala4,penilaian_awal_keperawatan_ranap.penilaian_jatuh_nilai4,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_jatuh_skala5,penilaian_awal_keperawatan_ranap.penilaian_jatuh_nilai5,penilaian_awal_keperawatan_ranap.penilaian_jatuh_skala6,"+
-                    "penilaian_awal_keperawatan_ranap.penilaian_jatuh_nilai6,penilaian_awal_keperawatan_ranap.penilaian_jatuh_totalnilai,penilaian_awal_keperawatan_ranap.skrining_gizi1,"+
-                    "penilaian_awal_keperawatan_ranap.nilai_gizi1,penilaian_awal_keperawatan_ranap.skrining_gizi2,penilaian_awal_keperawatan_ranap.nilai_gizi2,bahasa_pasien.nama_bahasa,"+
-                    "penilaian_awal_keperawatan_ranap.nilai_total_gizi,penilaian_awal_keperawatan_ranap.skrining_gizi_diagnosa_khusus,penilaian_awal_keperawatan_ranap.skrining_gizi_ket_diagnosa_khusus,"+
-                    "penilaian_awal_keperawatan_ranap.skrining_gizi_diketahui_dietisen,penilaian_awal_keperawatan_ranap.skrining_gizi_jam_diketahui_dietisen,penilaian_awal_keperawatan_ranap.masalah,"+
-                    "penilaian_awal_keperawatan_ranap.rencana,penilaian_awal_keperawatan_ranap.nip1,penilaian_awal_keperawatan_ranap.nip2,penilaian_awal_keperawatan_ranap.kd_dokter, "+
-                    "pasien.tgl_lahir,pasien.jk,pengkaji1.nama as pengkaji1,pengkaji2.nama as pengkaji2,dokter.nm_dokter,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.agama,pasien.pekerjaan,pasien.pnd,penjab.png_jawab "+
+                    "select penilaian_awal_keperawatan_ranap.no_rawat,penilaian_awal_keperawatan_ranap.tanggal,penilaian_awal_keperawatan_ranap.informasi,penilaian_awal_keperawatan_ranap.ket_informasi,penilaian_awal_keperawatan_ranap.tiba_diruang_rawat,"+
+                    "penilaian_awal_keperawatan_ranap.kasus_trauma,penilaian_awal_keperawatan_ranap.cara_masuk,penilaian_awal_keperawatan_ranap.rps,penilaian_awal_keperawatan_ranap.rpd,penilaian_awal_keperawatan_ranap.rpk,penilaian_awal_keperawatan_ranap.rpo,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_pembedahan,penilaian_awal_keperawatan_ranap.riwayat_dirawat_dirs,penilaian_awal_keperawatan_ranap.alat_bantu_dipakai,penilaian_awal_keperawatan_ranap.riwayat_kehamilan,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_kehamilan_perkiraan,penilaian_awal_keperawatan_ranap.riwayat_tranfusi,penilaian_awal_keperawatan_ranap.riwayat_alergi,penilaian_awal_keperawatan_ranap.riwayat_merokok,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_merokok_jumlah,penilaian_awal_keperawatan_ranap.riwayat_alkohol,penilaian_awal_keperawatan_ranap.riwayat_alkohol_jumlah,penilaian_awal_keperawatan_ranap.riwayat_narkoba,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_olahraga,penilaian_awal_keperawatan_ranap.pemeriksaan_mental,penilaian_awal_keperawatan_ranap.pemeriksaan_keadaan_umum,penilaian_awal_keperawatan_ranap.pemeriksaan_gcs,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_td,penilaian_awal_keperawatan_ranap.pemeriksaan_nadi,penilaian_awal_keperawatan_ranap.pemeriksaan_rr,penilaian_awal_keperawatan_ranap.pemeriksaan_suhu,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_spo2,penilaian_awal_keperawatan_ranap.pemeriksaan_bb,penilaian_awal_keperawatan_ranap.pemeriksaan_tb,penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_kepala,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_kepala_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_wajah,penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_wajah_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_leher,penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_kejang,penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_kejang_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_susunan_sensorik,penilaian_awal_keperawatan_ranap.pemeriksaan_kardiovaskuler_denyut_nadi,penilaian_awal_keperawatan_ranap.pemeriksaan_kardiovaskuler_sirkulasi,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_kardiovaskuler_sirkulasi_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_kardiovaskuler_pulsasi,penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_pola_nafas,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_retraksi,penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_suara_nafas,penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_volume_pernafasan,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_jenis_pernafasan,penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_jenis_pernafasan_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_irama_nafas,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_respirasi_batuk,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_mulut,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_mulut_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_gigi,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_gigi_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_lidah,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_lidah_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_tenggorokan,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_tenggorokan_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_abdomen,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_abdomen_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_peistatik_usus,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_anus,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_pengelihatan,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_pengelihatan_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_alat_bantu_penglihatan,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_pendengaran,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_bicara,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_bicara_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_sensorik,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_motorik,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_kekuatan_otot,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_warnakulit,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_turgor,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_integument_kulit,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_dekubitas,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_pergerakan_sendi,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_kekauatan_otot,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_nyeri_sendi,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_nyeri_sendi_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_oedema,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_oedema_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_fraktur,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_fraktur_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bab_frekuensi_jumlah,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bab_frekuensi_durasi,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bab_konsistensi,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bab_warna,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_frekuensi_jumlah,"+
+                    "penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_frekuensi_durasi,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_warna,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_lainlain,"+
+                    "penilaian_awal_keperawatan_ranap.pola_aktifitas_makanminum,penilaian_awal_keperawatan_ranap.pola_aktifitas_mandi,penilaian_awal_keperawatan_ranap.pola_aktifitas_eliminasi,penilaian_awal_keperawatan_ranap.pola_aktifitas_berpakaian,"+
+                    "penilaian_awal_keperawatan_ranap.pola_aktifitas_berpindah,penilaian_awal_keperawatan_ranap.pola_nutrisi_frekuesi_makan,penilaian_awal_keperawatan_ranap.pola_nutrisi_jenis_makanan,penilaian_awal_keperawatan_ranap.pola_nutrisi_porsi_makan,"+
+                    "penilaian_awal_keperawatan_ranap.pola_tidur_lama_tidur,penilaian_awal_keperawatan_ranap.pola_tidur_gangguan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_kemampuan_sehari,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_aktifitas,"+
+                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_berjalan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_berjalan_keterangan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ambulasi,"+
+                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_atas,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_atas_keterangan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_bawah,"+
+                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_bawah_keterangan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_menggenggam,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_menggenggam_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_koordinasi,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_koordinasi_keterangan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_kesimpulan,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_kondisi_psiko,penilaian_awal_keperawatan_ranap.riwayat_psiko_gangguan_jiwa,penilaian_awal_keperawatan_ranap.riwayat_psiko_perilaku,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_perilaku_keterangan,penilaian_awal_keperawatan_ranap.riwayat_psiko_hubungan_keluarga,penilaian_awal_keperawatan_ranap.riwayat_psiko_tinggal,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_tinggal_keterangan,penilaian_awal_keperawatan_ranap.riwayat_psiko_nilai_kepercayaan,penilaian_awal_keperawatan_ranap.riwayat_psiko_nilai_kepercayaan_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.riwayat_psiko_pendidikan_pj,penilaian_awal_keperawatan_ranap.riwayat_psiko_edukasi_diberikan,penilaian_awal_keperawatan_ranap.riwayat_psiko_edukasi_diberikan_keterangan,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri,penilaian_awal_keperawatan_ranap.penilaian_nyeri_penyebab,penilaian_awal_keperawatan_ranap.penilaian_nyeri_ket_penyebab,penilaian_awal_keperawatan_ranap.penilaian_nyeri_kualitas,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri_ket_kualitas,penilaian_awal_keperawatan_ranap.penilaian_nyeri_lokasi,penilaian_awal_keperawatan_ranap.penilaian_nyeri_menyebar,penilaian_awal_keperawatan_ranap.penilaian_nyeri_skala,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri_waktu,penilaian_awal_keperawatan_ranap.penilaian_nyeri_hilang,penilaian_awal_keperawatan_ranap.penilaian_nyeri_ket_hilang,penilaian_awal_keperawatan_ranap.penilaian_nyeri_diberitahukan_dokter,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_nyeri_jam_diberitahukan_dokter,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_skala1,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_nilai1,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_skala2,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_nilai2,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_skala3,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_nilai3,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_skala4,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_nilai4,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_skala5,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_nilai5,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_skala6,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_nilai6,penilaian_awal_keperawatan_ranap.penilaian_jatuhmorse_totalnilai,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala1,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai1,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala2,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai2,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala3,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai3,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala4,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai4,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala5,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai5,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala6,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai6,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala7,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai7,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala8,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai8,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala9,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai9,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala10,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai10,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_skala11,penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_nilai11,"+
+                    "penilaian_awal_keperawatan_ranap.penilaian_jatuhsydney_totalnilai,penilaian_awal_keperawatan_ranap.skrining_gizi1,penilaian_awal_keperawatan_ranap.nilai_gizi1,penilaian_awal_keperawatan_ranap.skrining_gizi2,"+
+                    "penilaian_awal_keperawatan_ranap.nilai_gizi2,penilaian_awal_keperawatan_ranap.nilai_total_gizi,penilaian_awal_keperawatan_ranap.skrining_gizi_diagnosa_khusus,penilaian_awal_keperawatan_ranap.skrining_gizi_ket_diagnosa_khusus,"+
+                    "penilaian_awal_keperawatan_ranap.skrining_gizi_diketahui_dietisen,penilaian_awal_keperawatan_ranap.skrining_gizi_jam_diketahui_dietisen,penilaian_awal_keperawatan_ranap.rencana,penilaian_awal_keperawatan_ranap.nip1,"+
+                    "penilaian_awal_keperawatan_ranap.nip2,penilaian_awal_keperawatan_ranap.kd_dokter,pasien.tgl_lahir,pasien.jk,pengkaji1.nama as pengkaji1,pengkaji2.nama as pengkaji2,dokter.nm_dokter,"+
+                    "reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.agama,pasien.pekerjaan,pasien.pnd,penjab.png_jawab,bahasa_pasien.nama_bahasa "+
                     "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join penilaian_awal_keperawatan_ranap on reg_periksa.no_rawat=penilaian_awal_keperawatan_ranap.no_rawat "+
                     "inner join petugas as pengkaji1 on penilaian_awal_keperawatan_ranap.nip1=pengkaji1.nip "+
@@ -5368,8 +5387,10 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                     "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien "+
                     "inner join penjab on penjab.kd_pj=reg_periksa.kd_pj where "+
                     "penilaian_awal_keperawatan_ranap.tanggal between ? and ? "+
-                     (TCari.getText().trim().equals("")?"":"and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_awal_keperawatan_ranap.nip1 like ? or pengkaji1.nama like ? or penilaian_awal_keperawatan_ranap.kd_dokter like ? or dokter.nm_dokter like ?)")+
-                     " order by penilaian_awal_keperawatan_ranap.tanggal");
+                    (TCari.getText().trim().equals("")?"":"and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_awal_keperawatan_ranap.nip1 like ? or "+
+                    "pengkaji1.nama like ? or penilaian_awal_keperawatan_ranap.kd_dokter like ? or dokter.nm_dokter like ?)")+
+                    " order by penilaian_awal_keperawatan_ranap.tanggal");
+
                 try {
                     ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00");
                     ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59");
@@ -5381,7 +5402,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                         ps.setString(7,"%"+TCari.getText()+"%");
                         ps.setString(8,"%"+TCari.getText()+"%");
                         ps.setString(9,"%"+TCari.getText()+"%");
-                    }    
+                    }   
                     rs=ps.executeQuery();
                     pilihan = (String)JOptionPane.showInputDialog(null,"Silahkan pilih laporan..!","Pilihan Cetak",JOptionPane.QUESTION_MESSAGE,null,new Object[]{"Laporan 1 (HTML)","Laporan 2 (WPS)","Laporan 3 (CSV)"},"Laporan 1 (HTML)");
                     switch (pilihan) {
@@ -5390,180 +5411,180 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                                 htmlContent.append(                             
                                     "<tr class='isi'>"+
                                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='105px'>No.Rawat</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>No.RM</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'>Nama Pasien</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Tgl.Lahir</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>No.RM</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Pasien</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Tgl.Lahir</td>"+
                                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25px'>J.K.</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>NIP Pengkaji 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Nama Pengkaji 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>NIP Pengkaji 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Nama Pengkaji 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>Kode DPJP</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Nama DPJP</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>NIP Pengkaji 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Pengkaji 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>NIP Pengkaji 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Pengkaji 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kode DPJP</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama DPJP</td>"+
                                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='117px'>Tgl.Asuhan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>Anamnesis</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Tiba di Ruang Rawat</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Cara Masuk</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='250px'>Keluhan Utama</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Penyakit Selama Kehamilan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Riwayat Penyakit Keluarga</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Riwayat Pembedahan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Riwayat Alergi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='175px'>Komplikasi Kehamilan Sebelumnya</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='180px'>Keterangan Komplikasi Sebelumnya</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='84px'>Umur Menarche</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='78px'>Lamanya Mens</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='108px'>Banyaknya Pembalut</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Siklus Haid</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='80px'>Ket.Siklus Haid</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='136px'>Dirasakan Saat Menstruasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='81px'>Status Menikah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='54px'>Jml.Nikah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='96px'>Usia Perkawinan 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Status Perkawinan 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='96px'>Usia Perkawinan 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Status Perkawinan 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='96px'>Usia Perkawinan 3</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Status Perkawinan 3</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='22px'>G</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='22px'>P</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='22px'>A</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='37px'>Hidup</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>HPHT</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='59px'>Usia Hamil</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Tg.Perkiraan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='97px'>Riwayat Imunisasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>ANC</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='45px'>ANC Ke</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Ket. ANC</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='105px'>Keluhan Hamil Muda</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='98px'>Keluhan Hamil Tua</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Riwayat Keluarga Berencana</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Lamanya KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>Komplikasi KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='120px'>Ket Komplikasi KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>Berhenti KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='120px'>Alasan Berhenti KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='104px'>Riwayat Genekologi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Obat/Vitamin</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Keterangan Obat/Vitamin</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Merokok</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Rokok/Hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='45px'>Alkohol</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='68px'>Alkohol/Hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='103px'>Obat Tidur/Narkoba</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='105px'>Kesadaran Mental</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='84px'>Keadaan Umum</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='63px'>GCS(E,V,M)</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>TD</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>Nadi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>RR</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>Suhu</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>SpO2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>BB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>TB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>LILA</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>TFU</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>TBJ</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='27px'>GD</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>Letak</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Presentasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Penurunan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='75px'>Kontraksi/HIS</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Kekuatan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Lamanya</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>DJJ</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>Keterangan DJJ</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Portio</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='45px'>Serviks</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='53px'>Ketuban</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='53px'>Hodge</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='145px'>Panggul</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Inspekulo</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan Inspekulo</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Lakmus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan Lakmus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>CTG</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan CTG</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='80px'>Kepala</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Muka</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='128px'>Mata</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Hidung</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Telinga</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Mulut</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='140px'>Leher</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='87px'>Dada</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Perut</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Genitalia</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Ekstremitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='120px'>a. Aktivitas Sehari-hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='140px'>b. Berjalan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='140px'>Ket. Berjalan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='68px'>c. Aktifitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='101px'>d. Alat Ambulasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>e. Ekstrimitas Atas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Ket. Ekstrimitas Atas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>f. Ekstrimitas Bawah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='118px'>Ket. Ekstrimitas Bawah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='154px'>g. Kemampuan Menggenggam</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='164px'>Ket. Kemampuan Menggenggam</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='133px'>h. Kemampuan Koordinasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='143px'>Ket. Kemampuan Koordinasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'>i. Kesimpulan Gangguan Fungsi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>a. Kondisi Psikologis</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='98px'>b. Adakah Perilaku</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>Keterangan Perilaku</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='156px'>c. Gangguan Jiwa di Masa Lalu</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='198px'>d. Hubungan dengan Anggota Keluarga</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>e. Agama</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='95px'>f. Tinggal Dengan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='103px'>Keterangan Tinggal</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>g. Pekerjaan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='130px'>h. Pembayaran</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='130px'>i. Nilai-nilai Kepercayaan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='142px'>Ket. Nilai-nilai Kepercayaan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>j. Bahasa Sehari-hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='108px'>k. Pendidikan Pasien</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>l. Pendidikan P.J.</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='148px'>m. Edukasi Diberikan Kepada</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='148px'>Keterangan Edukasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='83px'>Penilaian Nyeri</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='83px'>Penyebab</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan Penyebab</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='87px'>Kualitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>Keterangan Kualitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Lokasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>Menyebar</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='63px'>Skala Nyeri</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Durasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='87px'>Nyeri hilang bila</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='126px'>Keterangan Nyeri Hilang</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Diberitahukan Dokter</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Pada Jam</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>1. Riwayat Jatuh</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='225px'>2. Diagnosis Sekunder (&GreaterEqual; 2 Diagnosis Medis)</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='218px'>3. Alat Bantu</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 3</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'>4. Terpasang Infuse</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 4</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='225px'>5. Gaya Berjalan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 5</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='215px'>6. Status Mental</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 6</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='58px'>Total Nilai</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='380px'>1. Apakah ada penurunan BB yang tidak diinginkan selama 6 bulan terakhir ?</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Skor 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='317px'>2. Apakah asupan makan berkurang karena tidak nafsu makan ?</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Skor 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='58px'>Total Skor</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='165px'>Pasien dengan diagnosis khusus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='149px'>Keterangan Diagnosa Khusus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='209px'>Sudah dibaca dan diketahui oleh Dietisen</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>Jam Dibaca Dietisen</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='200px'>Asesmen/Penilaian Kebidanan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='200px'>Rencana Kebidanan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='78px'>Macam Kasus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Anamnesis</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Tiba Di Ruang Rawat</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Cara Masuk</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='220px'>Riwayat Penyakit Saat Ini</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Dahulu</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Keluarga</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Penggunaan Obat</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Pembedahan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Dirawat Di RS</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Alat Bantu Yang Dipakai</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='210px'>Dalam Keadaan Hamil/Sedang Menyusui</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Transfusi Darah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Alergi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='48px'>Merokok</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Batang/Hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='44px'>Alkohol</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='59px'>Gelas/Hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='61px'>Obat Tidur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='59px'>Olah Raga</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kesadaran Mental</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Keadaan Umum</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='64px'>GCS(E,V,M)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>TD(mmHg)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='74px'>Nadi(x/menit)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='67px'>RR(x/menit)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='52px'>Suhu(°C)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='52px'>SpO2(%)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='44px'>BB(Kg)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='44px'>TB(cm)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kepala</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Wajah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Leher</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kejang</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sensorik</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Pulsasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sirkulasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='72px'>Denyut Nadi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='54px'>Retraksi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='63px'>Pola Nafas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='69px'>Suara Nafas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='97px'>Batuk & Sekresi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='75px'>Volume</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Jenis Pernafasaan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Irama</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mulut</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lidah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Gigi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Tenggorokan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Abdomen</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Peistatik Usus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Anus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sensorik</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penglihatan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Alat Bantu Penglihatan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Motorik</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pendengaran</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Bicara</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Otot</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kulit</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Warna Kulit</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Turgor</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Resiko Decubitas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Oedema</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pergerakan Sendi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kekuatan Otot</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Fraktur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri Sendi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Frekuensi BAB</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>x/</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Konsistensi BAB</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Warna BAB</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Frekuensi BAK</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>x/</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Warna BAK</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lain-lain BAK</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mandi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Makan/Minum</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Berpakaian</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Eliminasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Berpindah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Porsi Makan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Frekuensi Makan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Jenis Makanan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lama Tidur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Gangguan Tidur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>a. Aktifitas Sehari-hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>b. Berjalan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>c. Aktifitas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>d. Alat Ambulasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>e. Ekstremitas Atas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>f. Ekstremitas Bawah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>g. Kemampuan Menggenggam</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>h. Kemampuan Koordinasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>i. Kesimpulan Gangguan Fungsi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>a. Kondisi Psikologis</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>b. Adakah Perilaku</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>c. Gangguan Jiwa di Masa Lalu</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>d. Hubungan Pasien</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>e. Agama</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>f. Tinggal Dengan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>g. Pekerjaan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>h. Pembayaran</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>i. Nilai-nilai Kepercayaan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>j. Bahasa Sehari-hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>k. Pendidikan Pasien</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>l. Pendidikan P.J.</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>m. Edukasi Diberikan Kepada</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penyebab Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kualitas Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lokasi Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri Menyebar</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Waktu / Durasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri Hilang Bila</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Diberitahukan Pada Dokter</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>T.M.</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 7</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 7</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 8</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 8</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 9</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 9</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 10</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 10</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 11</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 11</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>T.S.</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>1. Apakah ada penurunan BB yang tidak diinginkan selama 6 bulan terakhir ?</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skor 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>2. Apakah asupan makan berkurang karena tidak nafsu makan ?</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skor 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Total Skor</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pasien dengan diagnosis khusus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Keterangan Diagnosa Khusus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sudah dibaca dan diketahui oleh Dietisen</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Jam Dibaca Dietisen</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Rencana Keperawatan Lainnya</td>"+
                                     "</tr>"
                                 );
                                 while(rs.next()){
@@ -5581,158 +5602,159 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                                             "<td valign='top'>"+rs.getString("kd_dokter")+"</td>"+
                                             "<td valign='top'>"+rs.getString("nm_dokter")+"</td>"+
                                             "<td valign='top'>"+rs.getString("tanggal")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("informasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("kasus_trauma")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("informasi")+", "+rs.getString("ket_informasi")+"</td>"+
                                             "<td valign='top'>"+rs.getString("tiba_diruang_rawat")+"</td>"+
                                             "<td valign='top'>"+rs.getString("cara_masuk")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("keluhan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("psk")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("rps")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("rpd")+"</td>"+
                                             "<td valign='top'>"+rs.getString("rpk")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("rp")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("alergi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("komplikasi_sebelumnya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("keterangan_komplikasi_sebelumnya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_umur")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_lamanya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_banyaknya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_siklus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_ket_siklus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_dirasakan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_status")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_status")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_usia1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_usia1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_usia2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_usia2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_usia3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_usia3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_g")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_p")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_a")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_hidup")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_hpht")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_usiahamil")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_tp")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_imunisasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_anc")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_ancke")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_ket_ancke")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_keluhan_hamil_muda")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_keluhan_hamil_tua")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_lamanya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_komplikasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_ket_komplikasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_kapaberhenti")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_alasanberhenti")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_genekologi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_obat")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_ket_obat")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_merokok")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_ket_merokok")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_alkohol")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_ket_alkohol")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_narkoba")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_mental")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_keadaan_umum")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_gcs")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_td")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_nadi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_rr")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_suhu")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_spo2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_bb")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_tb")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_lila")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_tfu")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_tbj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_letak")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_presentasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_penurunan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_penurunan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_his")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_kekuatan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_lamanya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_djj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_djj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_portio")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_pembukaan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ketuban")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_hodge")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_panggul")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_inspekulo")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_inspekulo")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_lakmus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_lakmus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ctg")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_ctg")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_kepala")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_muka")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_mata")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_hidung")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_telinga")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_mulut")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_leher")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_dada")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_perut")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_genitalia")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_ekstrimitas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kemampuan_aktifitas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_berjalan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_berjalan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_aktivitas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("rpo")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_pembedahan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_dirawat_dirs")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("alat_bantu_dipakai")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_kehamilan")+", "+rs.getString("riwayat_kehamilan_perkiraan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_tranfusi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_alergi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_merokok")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_merokok_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_alkohol")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_alkohol_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_narkoba")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_olahraga")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_mental")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_keadaan_umum")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gcs")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_td")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_nadi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_rr")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_suhu")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_spo2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_bb")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_tb")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_kepala")+", "+rs.getString("pemeriksaan_susunan_kepala_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_wajah")+", "+rs.getString("pemeriksaan_susunan_wajah_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_leher")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_kejang")+", "+rs.getString("pemeriksaan_susunan_kejang_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_sensorik")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_kardiovaskuler_pulsasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_kardiovaskuler_sirkulasi")+", "+rs.getString("pemeriksaan_kardiovaskuler_sirkulasi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_kardiovaskuler_denyut_nadi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_retraksi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_pola_nafas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_suara_nafas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_batuk")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_volume_pernafasan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_jenis_pernafasan")+", "+rs.getString("pemeriksaan_respirasi_jenis_pernafasan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_irama_nafas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_mulut")+", "+rs.getString("pemeriksaan_gastrointestinal_mulut_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_lidah")+", "+rs.getString("pemeriksaan_gastrointestinal_lidah_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_gigi")+", "+rs.getString("pemeriksaan_gastrointestinal_gigi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_tenggorokan")+", "+rs.getString("pemeriksaan_gastrointestinal_tenggorokan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_abdomen")+", "+rs.getString("pemeriksaan_gastrointestinal_abdomen_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_peistatik_usus")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_anus")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_sensorik")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_pengelihatan")+", "+rs.getString("pemeriksaan_neurologi_pengelihatan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_alat_bantu_penglihatan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_motorik")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_pendengaran")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_bicara")+", "+rs.getString("pemeriksaan_neurologi_bicara_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_kekuatan_otot")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_kulit")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_warnakulit")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_turgor")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_dekubitas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_oedema")+", "+rs.getString("pemeriksaan_muskuloskletal_oedema_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_pergerakan_sendi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_kekauatan_otot")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_fraktur")+", "+rs.getString("pemeriksaan_muskuloskletal_fraktur_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi")+", "+rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_frekuensi_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_frekuensi_durasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_konsistensi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_warna")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_frekuensi_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_frekuensi_durasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_warna")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_lainlain")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_mandi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_makanminum")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_berpakaian")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_eliminasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_berpindah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_nutrisi_porsi_makan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_nutrisi_frekuesi_makan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_nutrisi_jenis_makanan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_tidur_lama_tidur")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_tidur_gangguan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kemampuan_sehari")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_berjalan")+", "+rs.getString("pengkajian_fungsi_berjalan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_aktifitas")+"</td>"+
                                             "<td valign='top'>"+rs.getString("pengkajian_fungsi_ambulasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_atas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_ekstrimitas_atas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_bawah")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_ekstrimitas_bawah")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kemampuan_menggenggam")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_kemampuan_menggenggam")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_koordinasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_koordinasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_gangguan_fungsi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_kondisipsiko")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_adakah_prilaku")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_adakah_prilaku")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_atas")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_atas_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_bawah")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_bawah_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_menggenggam")+", "+rs.getString("pengkajian_fungsi_menggenggam_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_koordinasi")+", "+rs.getString("pengkajian_fungsi_koordinasi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kesimpulan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_kondisi_psiko")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_perilaku")+", "+rs.getString("riwayat_psiko_perilaku_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("riwayat_psiko_gangguan_jiwa")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_hubungan_pasien")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_hubungan_keluarga")+"</td>"+
                                             "<td valign='top'>"+rs.getString("agama")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_tinggal_dengan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_tinggal_dengan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_tinggal")+", "+rs.getString("riwayat_psiko_tinggal_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("pekerjaan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("png_jawab")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_budaya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_budaya")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_nilai_kepercayaan")+", "+rs.getString("riwayat_psiko_nilai_kepercayaan_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("nama_bahasa")+"</td>"+
                                             "<td valign='top'>"+rs.getString("pnd")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_pend_pj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_edukasi_pada")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_edukasi_pada")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_pendidikan_pj")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_edukasi_diberikan")+", "+rs.getString("riwayat_psiko_edukasi_diberikan_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_penyebab")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_ket_penyebab")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_kualitas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_ket_kualitas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_penyebab")+", "+rs.getString("penilaian_nyeri_ket_penyebab")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_kualitas")+", "+rs.getString("penilaian_nyeri_ket_kualitas")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_lokasi")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_menyebar")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_skala")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_waktu")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_hilang")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_ket_hilang")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_diberitahukan_dokter")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_jam_diberitahukan_dokter")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala4")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai4")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala5")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai5")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala6")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai6")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_totalnilai")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_hilang")+", "+rs.getString("penilaian_nyeri_ket_hilang")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_diberitahukan_dokter")+", "+rs.getString("penilaian_nyeri_jam_diberitahukan_dokter")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_totalnilai")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala7")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai7")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala8")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai8")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala9")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai9")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala10")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai10")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala11")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai11")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_totalnilai")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi1")+"</td>"+
                                             "<td valign='top'>"+rs.getString("nilai_gizi1")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi2")+"</td>"+
@@ -5742,12 +5764,11 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                                             "<td valign='top'>"+rs.getString("skrining_gizi_ket_diagnosa_khusus")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi_diketahui_dietisen")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi_jam_diketahui_dietisen")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("masalah")+"</td>"+
                                             "<td valign='top'>"+rs.getString("rencana")+"</td>"+
                                         "</tr>"
                                     );
                                 }
-                                f = new File("RMPenilaianAwalKeperawatanKebidananRanap.html");            
+                                f = new File("RMPenilaianAwalKeperawatanRanap.html");            
                                 bw = new BufferedWriter(new FileWriter(f));            
                                 bw.write("<html>"+
                                             "<head><link href=\"file2.css\" rel=\"stylesheet\" type=\"text/css\" /></head>"+
@@ -5767,180 +5788,180 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                                 htmlContent.append(                             
                                     "<tr class='isi'>"+
                                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='105px'>No.Rawat</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>No.RM</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'>Nama Pasien</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Tgl.Lahir</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>No.RM</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Pasien</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Tgl.Lahir</td>"+
                                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25px'>J.K.</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>NIP Pengkaji 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Nama Pengkaji 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>NIP Pengkaji 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Nama Pengkaji 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>Kode DPJP</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Nama DPJP</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>NIP Pengkaji 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Pengkaji 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>NIP Pengkaji 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Pengkaji 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kode DPJP</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama DPJP</td>"+
                                         "<td valign='middle' bgcolor='#FFFAF8' align='center' width='117px'>Tgl.Asuhan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>Anamnesis</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Tiba di Ruang Rawat</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Cara Masuk</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='250px'>Keluhan Utama</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Penyakit Selama Kehamilan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Riwayat Penyakit Keluarga</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Riwayat Pembedahan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Riwayat Alergi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='175px'>Komplikasi Kehamilan Sebelumnya</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='180px'>Keterangan Komplikasi Sebelumnya</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='84px'>Umur Menarche</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='78px'>Lamanya Mens</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='108px'>Banyaknya Pembalut</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Siklus Haid</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='80px'>Ket.Siklus Haid</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='136px'>Dirasakan Saat Menstruasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='81px'>Status Menikah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='54px'>Jml.Nikah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='96px'>Usia Perkawinan 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Status Perkawinan 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='96px'>Usia Perkawinan 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Status Perkawinan 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='96px'>Usia Perkawinan 3</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Status Perkawinan 3</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='22px'>G</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='22px'>P</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='22px'>A</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='37px'>Hidup</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>HPHT</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='59px'>Usia Hamil</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Tg.Perkiraan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='97px'>Riwayat Imunisasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>ANC</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='45px'>ANC Ke</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Ket. ANC</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='105px'>Keluhan Hamil Muda</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='98px'>Keluhan Hamil Tua</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Riwayat Keluarga Berencana</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>Lamanya KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>Komplikasi KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='120px'>Ket Komplikasi KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>Berhenti KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='120px'>Alasan Berhenti KB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='104px'>Riwayat Genekologi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Obat/Vitamin</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'>Keterangan Obat/Vitamin</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Merokok</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Rokok/Hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='45px'>Alkohol</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='68px'>Alkohol/Hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='103px'>Obat Tidur/Narkoba</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='105px'>Kesadaran Mental</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='84px'>Keadaan Umum</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='63px'>GCS(E,V,M)</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>TD</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>Nadi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>RR</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>Suhu</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>SpO2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>BB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='35px'>TB</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>LILA</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>TFU</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>TBJ</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='27px'>GD</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>Letak</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Presentasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Penurunan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='75px'>Kontraksi/HIS</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='65px'>Kekuatan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Lamanya</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>DJJ</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85px'>Keterangan DJJ</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Portio</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='45px'>Serviks</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='53px'>Ketuban</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='53px'>Hodge</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='145px'>Panggul</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Inspekulo</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan Inspekulo</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Lakmus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan Lakmus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>CTG</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan CTG</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='80px'>Kepala</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Muka</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='128px'>Mata</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Hidung</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Telinga</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Mulut</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='140px'>Leher</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='87px'>Dada</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Perut</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Genitalia</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Ekstremitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='120px'>a. Aktivitas Sehari-hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='140px'>b. Berjalan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='140px'>Ket. Berjalan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='68px'>c. Aktifitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='101px'>d. Alat Ambulasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>e. Ekstrimitas Atas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Ket. Ekstrimitas Atas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>f. Ekstrimitas Bawah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='118px'>Ket. Ekstrimitas Bawah</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='154px'>g. Kemampuan Menggenggam</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='164px'>Ket. Kemampuan Menggenggam</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='133px'>h. Kemampuan Koordinasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='143px'>Ket. Kemampuan Koordinasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'>i. Kesimpulan Gangguan Fungsi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>a. Kondisi Psikologis</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='98px'>b. Adakah Perilaku</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>Keterangan Perilaku</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='156px'>c. Gangguan Jiwa di Masa Lalu</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='198px'>d. Hubungan dengan Anggota Keluarga</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70px'>e. Agama</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='95px'>f. Tinggal Dengan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='103px'>Keterangan Tinggal</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>g. Pekerjaan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='130px'>h. Pembayaran</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='130px'>i. Nilai-nilai Kepercayaan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='142px'>Ket. Nilai-nilai Kepercayaan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>j. Bahasa Sehari-hari</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='108px'>k. Pendidikan Pasien</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>l. Pendidikan P.J.</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='148px'>m. Edukasi Diberikan Kepada</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='148px'>Keterangan Edukasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='83px'>Penilaian Nyeri</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='83px'>Penyebab</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='115px'>Keterangan Penyebab</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='87px'>Kualitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>Keterangan Kualitas</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='100px'>Lokasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='55px'>Menyebar</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='63px'>Skala Nyeri</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Durasi</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='87px'>Nyeri hilang bila</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='126px'>Keterangan Nyeri Hilang</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Diberitahukan Dokter</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>Pada Jam</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='90px'>1. Riwayat Jatuh</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='225px'>2. Diagnosis Sekunder (&GreaterEqual; 2 Diagnosis Medis)</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='218px'>3. Alat Bantu</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 3</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'>4. Terpasang Infuse</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 4</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='225px'>5. Gaya Berjalan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 5</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='215px'>6. Status Mental</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Nilai 6</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='58px'>Total Nilai</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='380px'>1. Apakah ada penurunan BB yang tidak diinginkan selama 6 bulan terakhir ?</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Skor 1</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='317px'>2. Apakah asupan makan berkurang karena tidak nafsu makan ?</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40px'>Skor 2</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='58px'>Total Skor</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='165px'>Pasien dengan diagnosis khusus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='149px'>Keterangan Diagnosa Khusus</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='209px'>Sudah dibaca dan diketahui oleh Dietisen</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='107px'>Jam Dibaca Dietisen</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='200px'>Asesmen/Penilaian Kebidanan</td>"+
-                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='200px'>Rencana Kebidanan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='78px'>Macam Kasus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Anamnesis</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='110px'>Tiba Di Ruang Rawat</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Cara Masuk</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='220px'>Riwayat Penyakit Saat Ini</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Dahulu</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Keluarga</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Penggunaan Obat</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Pembedahan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Dirawat Di RS</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Alat Bantu Yang Dipakai</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='210px'>Dalam Keadaan Hamil/Sedang Menyusui</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Transfusi Darah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Riwayat Alergi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='48px'>Merokok</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Batang/Hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='44px'>Alkohol</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='59px'>Gelas/Hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='61px'>Obat Tidur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='59px'>Olah Raga</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kesadaran Mental</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Keadaan Umum</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='64px'>GCS(E,V,M)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='60px'>TD(mmHg)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='74px'>Nadi(x/menit)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='67px'>RR(x/menit)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='52px'>Suhu(°C)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='52px'>SpO2(%)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='44px'>BB(Kg)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='44px'>TB(cm)</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kepala</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Wajah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='106px'>Leher</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kejang</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sensorik</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50px'>Pulsasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sirkulasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='72px'>Denyut Nadi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='54px'>Retraksi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='63px'>Pola Nafas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='69px'>Suara Nafas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='97px'>Batuk & Sekresi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center' width='75px'>Volume</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Jenis Pernafasaan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Irama</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mulut</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lidah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Gigi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Tenggorokan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Abdomen</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Peistatik Usus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Anus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sensorik</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penglihatan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Alat Bantu Penglihatan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Motorik</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pendengaran</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Bicara</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Otot</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kulit</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Warna Kulit</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Turgor</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Resiko Decubitas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Oedema</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pergerakan Sendi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kekuatan Otot</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Fraktur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri Sendi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Frekuensi BAB</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>x/</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Konsistensi BAB</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Warna BAB</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Frekuensi BAK</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>x/</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Warna BAK</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lain-lain BAK</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mandi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Makan/Minum</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Berpakaian</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Eliminasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Berpindah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Porsi Makan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Frekuensi Makan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Jenis Makanan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lama Tidur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Gangguan Tidur</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>a. Aktifitas Sehari-hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>b. Berjalan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>c. Aktifitas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>d. Alat Ambulasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>e. Ekstremitas Atas</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>f. Ekstremitas Bawah</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>g. Kemampuan Menggenggam</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>h. Kemampuan Koordinasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>i. Kesimpulan Gangguan Fungsi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>a. Kondisi Psikologis</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>b. Adakah Perilaku</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>c. Gangguan Jiwa di Masa Lalu</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>d. Hubungan Pasien</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>e. Agama</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>f. Tinggal Dengan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>g. Pekerjaan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>h. Pembayaran</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>i. Nilai-nilai Kepercayaan</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>j. Bahasa Sehari-hari</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>k. Pendidikan Pasien</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>l. Pendidikan P.J.</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>m. Edukasi Diberikan Kepada</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penyebab Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kualitas Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Lokasi Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri Menyebar</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Nyeri</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Waktu / Durasi</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nyeri Hilang Bila</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Diberitahukan Pada Dokter</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Morse 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.M. 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>T.M.</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 3</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 4</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 5</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 6</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 7</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 7</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 8</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 8</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 9</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 9</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 10</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 10</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skala Sydney 11</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>N.S. 11</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>T.S.</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>1. Apakah ada penurunan BB yang tidak diinginkan selama 6 bulan terakhir ?</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skor 1</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>2. Apakah asupan makan berkurang karena tidak nafsu makan ?</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Skor 2</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Total Skor</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pasien dengan diagnosis khusus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Keterangan Diagnosa Khusus</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Sudah dibaca dan diketahui oleh Dietisen</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Jam Dibaca Dietisen</td>"+
+                                        "<td valign='middle' bgcolor='#FFFAF8' align='center'>Rencana Keperawatan Lainnya</td>"+
                                     "</tr>"
                                 );
                                 while(rs.next()){
@@ -5958,158 +5979,159 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                                             "<td valign='top'>"+rs.getString("kd_dokter")+"</td>"+
                                             "<td valign='top'>"+rs.getString("nm_dokter")+"</td>"+
                                             "<td valign='top'>"+rs.getString("tanggal")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("informasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("kasus_trauma")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("informasi")+", "+rs.getString("ket_informasi")+"</td>"+
                                             "<td valign='top'>"+rs.getString("tiba_diruang_rawat")+"</td>"+
                                             "<td valign='top'>"+rs.getString("cara_masuk")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("keluhan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("psk")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("rps")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("rpd")+"</td>"+
                                             "<td valign='top'>"+rs.getString("rpk")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("rp")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("alergi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("komplikasi_sebelumnya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("keterangan_komplikasi_sebelumnya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_umur")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_lamanya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_banyaknya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_siklus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_ket_siklus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_mens_dirasakan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_status")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_status")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_usia1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_usia1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_usia2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_usia2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_usia3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_perkawinan_ket_usia3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_g")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_p")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_a")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_persalinan_hidup")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_hpht")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_usiahamil")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_tp")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_imunisasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_anc")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_ancke")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_ket_ancke")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_keluhan_hamil_muda")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_hamil_keluhan_hamil_tua")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_lamanya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_komplikasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_ket_komplikasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_kapaberhenti")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kb_alasanberhenti")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_genekologi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_obat")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_ket_obat")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_merokok")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_ket_merokok")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_alkohol")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_ket_alkohol")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_kebiasaan_narkoba")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_mental")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_keadaan_umum")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_gcs")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_td")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_nadi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_rr")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_suhu")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_spo2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_bb")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_tb")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_lila")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_tfu")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_tbj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_letak")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_presentasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_penurunan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_penurunan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_his")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_kekuatan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_lamanya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_djj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_djj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_portio")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_pembukaan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ketuban")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_hodge")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_panggul")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_inspekulo")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_inspekulo")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_lakmus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_lakmus")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ctg")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_kebidanan_ket_ctg")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_kepala")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_muka")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_mata")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_hidung")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_telinga")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_mulut")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_leher")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_dada")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_perut")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_genitalia")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pemeriksaan_umum_ekstrimitas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kemampuan_aktifitas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_berjalan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_berjalan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_aktivitas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("rpo")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_pembedahan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_dirawat_dirs")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("alat_bantu_dipakai")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_kehamilan")+", "+rs.getString("riwayat_kehamilan_perkiraan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_tranfusi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_alergi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_merokok")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_merokok_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_alkohol")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_alkohol_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_narkoba")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_olahraga")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_mental")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_keadaan_umum")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gcs")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_td")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_nadi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_rr")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_suhu")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_spo2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_bb")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_tb")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_kepala")+", "+rs.getString("pemeriksaan_susunan_kepala_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_wajah")+", "+rs.getString("pemeriksaan_susunan_wajah_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_leher")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_kejang")+", "+rs.getString("pemeriksaan_susunan_kejang_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_susunan_sensorik")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_kardiovaskuler_pulsasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_kardiovaskuler_sirkulasi")+", "+rs.getString("pemeriksaan_kardiovaskuler_sirkulasi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_kardiovaskuler_denyut_nadi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_retraksi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_pola_nafas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_suara_nafas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_batuk")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_volume_pernafasan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_jenis_pernafasan")+", "+rs.getString("pemeriksaan_respirasi_jenis_pernafasan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_respirasi_irama_nafas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_mulut")+", "+rs.getString("pemeriksaan_gastrointestinal_mulut_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_lidah")+", "+rs.getString("pemeriksaan_gastrointestinal_lidah_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_gigi")+", "+rs.getString("pemeriksaan_gastrointestinal_gigi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_tenggorokan")+", "+rs.getString("pemeriksaan_gastrointestinal_tenggorokan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_abdomen")+", "+rs.getString("pemeriksaan_gastrointestinal_abdomen_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_peistatik_usus")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_gastrointestinal_anus")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_sensorik")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_pengelihatan")+", "+rs.getString("pemeriksaan_neurologi_pengelihatan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_alat_bantu_penglihatan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_motorik")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_pendengaran")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_bicara")+", "+rs.getString("pemeriksaan_neurologi_bicara_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_neurologi_kekuatan_otot")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_kulit")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_warnakulit")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_turgor")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_integument_dekubitas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_oedema")+", "+rs.getString("pemeriksaan_muskuloskletal_oedema_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_pergerakan_sendi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_kekauatan_otot")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_fraktur")+", "+rs.getString("pemeriksaan_muskuloskletal_fraktur_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi")+", "+rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_frekuensi_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_frekuensi_durasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_konsistensi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bab_warna")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_frekuensi_jumlah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_frekuensi_durasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_warna")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pemeriksaan_eliminasi_bak_lainlain")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_mandi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_makanminum")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_berpakaian")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_eliminasi")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_aktifitas_berpindah")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_nutrisi_porsi_makan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_nutrisi_frekuesi_makan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_nutrisi_jenis_makanan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_tidur_lama_tidur")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pola_tidur_gangguan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kemampuan_sehari")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_berjalan")+", "+rs.getString("pengkajian_fungsi_berjalan_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_aktifitas")+"</td>"+
                                             "<td valign='top'>"+rs.getString("pengkajian_fungsi_ambulasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_atas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_ekstrimitas_atas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_bawah")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_ekstrimitas_bawah")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kemampuan_menggenggam")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_kemampuan_menggenggam")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_koordinasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ket_koordinasi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_gangguan_fungsi")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_kondisipsiko")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_adakah_prilaku")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_adakah_prilaku")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_atas")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_atas_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_ekstrimitas_bawah")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_bawah_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_menggenggam")+", "+rs.getString("pengkajian_fungsi_menggenggam_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_koordinasi")+", "+rs.getString("pengkajian_fungsi_koordinasi_keterangan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("pengkajian_fungsi_kesimpulan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_kondisi_psiko")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_perilaku")+", "+rs.getString("riwayat_psiko_perilaku_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("riwayat_psiko_gangguan_jiwa")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_hubungan_pasien")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_hubungan_keluarga")+"</td>"+
                                             "<td valign='top'>"+rs.getString("agama")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_tinggal_dengan")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_tinggal_dengan")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_tinggal")+", "+rs.getString("riwayat_psiko_tinggal_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("pekerjaan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("png_jawab")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_budaya")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_budaya")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_nilai_kepercayaan")+", "+rs.getString("riwayat_psiko_nilai_kepercayaan_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("nama_bahasa")+"</td>"+
                                             "<td valign='top'>"+rs.getString("pnd")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_pend_pj")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_edukasi_pada")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("riwayat_psiko_ket_edukasi_pada")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_pendidikan_pj")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("riwayat_psiko_edukasi_diberikan")+", "+rs.getString("riwayat_psiko_edukasi_diberikan_keterangan")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_penyebab")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_ket_penyebab")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_kualitas")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_ket_kualitas")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_penyebab")+", "+rs.getString("penilaian_nyeri_ket_penyebab")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_kualitas")+", "+rs.getString("penilaian_nyeri_ket_kualitas")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_lokasi")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_menyebar")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_skala")+"</td>"+
                                             "<td valign='top'>"+rs.getString("penilaian_nyeri_waktu")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_hilang")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_ket_hilang")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_diberitahukan_dokter")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_jam_diberitahukan_dokter")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai1")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai2")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai3")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala4")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai4")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala5")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai5")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_skala6")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_nilai6")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("penilaian_jatuh_totalnilai")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_hilang")+", "+rs.getString("penilaian_nyeri_ket_hilang")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_nyeri_diberitahukan_dokter")+", "+rs.getString("penilaian_nyeri_jam_diberitahukan_dokter")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_skala6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_nilai6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhmorse_totalnilai")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai1")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai2")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai3")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai4")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai5")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai6")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala7")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai7")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala8")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai8")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala9")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai9")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala10")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai10")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_skala11")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_nilai11")+"</td>"+
+                                            "<td valign='top'>"+rs.getString("penilaian_jatuhsydney_totalnilai")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi1")+"</td>"+
                                             "<td valign='top'>"+rs.getString("nilai_gizi1")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi2")+"</td>"+
@@ -6119,12 +6141,11 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                                             "<td valign='top'>"+rs.getString("skrining_gizi_ket_diagnosa_khusus")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi_diketahui_dietisen")+"</td>"+
                                             "<td valign='top'>"+rs.getString("skrining_gizi_jam_diketahui_dietisen")+"</td>"+
-                                            "<td valign='top'>"+rs.getString("masalah")+"</td>"+
                                             "<td valign='top'>"+rs.getString("rencana")+"</td>"+
                                         "</tr>"
                                     );
                                 }
-                                f = new File("RMPenilaianAwalKeperawatanKebidananRanap.wps");            
+                                f = new File("RMPenilaianAwalKeperawatanRanap.wps");            
                                 bw = new BufferedWriter(new FileWriter(f));            
                                 bw.write("<html>"+
                                             "<head><link href=\"file2.css\" rel=\"stylesheet\" type=\"text/css\" /></head>"+
@@ -6142,14 +6163,14 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                         case "Laporan 3 (CSV)":
                                 htmlContent = new StringBuilder();
                                 htmlContent.append(                             
-                                    "\"No.Rawat\";\"No.RM\";\"Nama Pasien\";\"Tgl.Lahir\";\"J.K.\";\"NIP Pengkaji 1\";\"Nama Pengkaji 1\";\"NIP Pengkaji 2\";\"Nama Pengkaji 2\";\"Kode DPJP\";\"Nama DPJP\";\"Tgl.Asuhan\";\"Anamnesis\";\"Tiba di Ruang Rawat\";\"Cara Masuk\";\"Keluhan Utama\";\"Penyakit Selama Kehamilan\";\"Riwayat Penyakit Keluarga\";\"Riwayat Pembedahan\";\"Riwayat Alergi\";\"Komplikasi Kehamilan Sebelumnya\";\"Keterangan Komplikasi Sebelumnya\";\"Umur Menarche\";\"Lamanya Mens\";\"Banyaknya Pembalut\";\"Siklus Haid\";\"Ket.Siklus Haid\";\"Dirasakan Saat Menstruasi\";\"Status Menikah\";\"Jml.Nikah\";\"Usia Perkawinan 1\";\"Status Perkawinan 1\";\"Usia Perkawinan 2\";\"Status Perkawinan 2\";\"Usia Perkawinan 3\";\"Status Perkawinan 3\";\"G\";\"P\";\"A\";\"Hidup\";\"HPHT\";\"Usia Hamil\";\"Tg.Perkiraan\";\"Riwayat Imunisasi\";\"ANC\";\"ANC Ke\";\"Ket. ANC\";\"Keluhan Hamil Muda\";\"Keluhan Hamil Tua\";\"Riwayat Keluarga Berencana\";\"Lamanya KB\";\"Komplikasi KB\";\"Ket Komplikasi KB\";\"Berhenti KB\";\"Alasan Berhenti KB\";\"Riwayat Genekologi\";\"Obat/Vitamin\";\"Keterangan Obat/Vitamin\";\"Merokok\";\"Rokok/Hari\";\"Alkohol\";\"Alkohol/Hari\";\"Obat Tidur/Narkoba\";\"Kesadaran Mental\";\"Keadaan Umum\";\"GCS(E,V,M)\";\"TD\";\"Nadi\";\"RR\";\"Suhu\";\"SpO2\";\"BB\";\"TB\";\"LILA\";\"TFU\";\"TBJ\";\"GD\";\"Letak\";\"Presentasi\";\"Penurunan\";\"Kontraksi/HIS\";\"Kekuatan\";\"Lamanya\";\"DJJ\";\"Keterangan DJJ\";\"Portio\";\"Serviks\";\"Ketuban\";\"Hodge\";\"Panggul\";\"Inspekulo\";\"Keterangan Inspekulo\";\"Lakmus\";\"Keterangan Lakmus\";\"CTG\";\"Keterangan CTG\";\"Kepala\";\"Muka\";\"Mata\";\"Hidung\";\"Telinga\";\"Mulut\";\"Leher\";\"Dada\";\"Perut\";\"Genitalia\";\"Ekstremitas\";\"a. Aktivitas Sehari-hari\";\"b. Berjalan\";\"Ket. Berjalan\";\"c. Aktifitas\";\"d. Alat Ambulasi\";\"e. Ekstrimitas Atas\";\"Ket. Ekstrimitas Atas\";\"f. Ekstrimitas Bawah\";\"Ket. Ekstrimitas Bawah\";\"g. Kemampuan Menggenggam\";\"Ket. Kemampuan Menggenggam\";\"h. Kemampuan Koordinasi\";\"Ket. Kemampuan Koordinasi\";\"i. Kesimpulan Gangguan Fungsi\";\"a. Kondisi Psikologis\";\"b. Adakah Perilaku\";\"Keterangan Perilaku\";\"c. Gangguan Jiwa di Masa Lalu\";\"d. Hubungan dengan Anggota Keluarga\";\"e. Agama\";\"f. Tinggal Dengan\";\"Keterangan Tinggal\";\"g. Pekerjaan\";\"h. Pembayaran\";\"i. Nilai-nilai Kepercayaan\";\"Ket. Nilai-nilai Kepercayaan\";\"j. Bahasa Sehari-hari\";\"k. Pendidikan Pasien\";\"l. Pendidikan P.J.\";\"m. Edukasi Diberikan Kepada\";\"Keterangan Edukasi\";\"Penilaian Nyeri\";\"Penyebab\";\"Keterangan Penyebab\";\"Kualitas\";\"Keterangan Kualitas\";\"Lokasi\";\"Menyebar\";\"Skala Nyeri\";\"Durasi\";\"Nyeri hilang bila\";\"Keterangan Nyeri Hilang\";\"Diberitahukan Dokter\";\"Pada Jam\";\"1. Riwayat Jatuh\";\"Nilai 1\";\"2. Diagnosis Sekunder (≥ 2 Diagnosis Medis)\";\"Nilai 2\";\"3. Alat Bantu\";\"Nilai 3\";\"4. Terpasang Infuse\";\"Nilai 4\";\"5. Gaya Berjalan\";\"Nilai 5\";\"6. Status Mental\";\"Nilai 6\";\"Total Nilai\";\"1. Apakah ada penurunan BB yang tidak diinginkan selama 6 bulan terakhir ?\";\"Skor 1\";\"2. Apakah asupan makan berkurang karena tidak nafsu makan ?\";\"Skor 2\";\"Total Skor\";\"Pasien dengan diagnosis khusus\";\"Keterangan Diagnosa Khusus\";\"Sudah dibaca dan diketahui oleh Dietisen\";\"Jam Dibaca Dietisen\";\"Asesmen/Penilaian Kebidanan\";\"Rencana Kebidanan\"\n"
+                                    "\"No.Rawat\";\"No.RM\";\"Nama Pasien\";\"Tgl.Lahir\";\"J.K.\";\"NIP Pengkaji 1\";\"Nama Pengkaji 1\";\"NIP Pengkaji 2\";\"Nama Pengkaji 2\";\"Kode DPJP\";\"Nama DPJP\";\"Tgl.Asuhan\";\"Macam Kasus\";\"Anamnesis\";\"Tiba Di Ruang Rawat\";\"Cara Masuk\";\"Riwayat Penyakit Saat Ini\";\"Riwayat Penyakit Dahulu\";\"Riwayat Penyakit Keluarga\";\"Riwayat Penggunaan Obat\";\"Riwayat Pembedahan\";\"Riwayat Dirawat Di RS\";\"Alat Bantu Yang Dipakai\";\"Dalam Keadaan Hamil/Sedang Menyusui\";\"Riwayat Transfusi Darah\";\"Riwayat Alergi\";\"Merokok\";\"Batang/Hari\";\"Alkohol\";\"Gelas/Hari\";\"Obat Tidur\";\"Olah Raga\";\"Kesadaran Mental\";\"Keadaan Umum\";\"GCS(E,V,M)\";\"TD(mmHg)\";\"Nadi(x/menit)\";\"RR(x/menit)\";\"Suhu(°C)\";\"SpO2(%)\";\"BB(Kg)\";\"TB(cm)\";\"Kepala\";\"Wajah\";\"Leher\";\"Kejang\";\"Sensorik\";\"Pulsasi\";\"Sirkulasi\";\"Denyut Nadi\";\"Retraksi\";\"Pola Nafas\";\"Suara Nafas\";\"Batuk & Sekresi\";\"Volume\";\"Jenis Pernafasaan\";\"Irama\";\"Mulut\";\"Lidah\";\"Gigi\";\"Tenggorokan\";\"Abdomen\";\"Peistatik Usus\";\"Anus\";\"Sensorik\";\"Penglihatan\";\"Alat Bantu Penglihatan\";\"Motorik\";\"Pendengaran\";\"Bicara\";\"Otot\";\"Kulit\";\"Warna Kulit\";\"Turgor\";\"Resiko Decubitas\";\"Oedema\";\"Pergerakan Sendi\";\"Kekuatan Otot\";\"Fraktur\";\"Nyeri Sendi\";\"Frekuensi BAB\";\"x/\";\"Konsistensi BAB\";\"Warna BAB\";\"Frekuensi BAK\";\"x/\";\"Warna BAK\";\"Lain-lain BAK\";\"Mandi\";\"Makan/Minum\";\"Berpakaian\";\"Eliminasi\";\"Berpindah\";\"Porsi Makan\";\"Frekuensi Makan\";\"Jenis Makanan\";\"Lama Tidur\";\"Gangguan Tidur\";\"a. Aktifitas Sehari-hari\";\"b. Berjalan\";\"c. Aktifitas\";\"d. Alat Ambulasi\";\"e. Ekstremitas Atas\";\"f. Ekstremitas Bawah\";\"g. Kemampuan Menggenggam\";\"h. Kemampuan Koordinasi\";\"i. Kesimpulan Gangguan Fungsi\";\"a. Kondisi Psikologis\";\"b. Adakah Perilaku\";\"c. Gangguan Jiwa di Masa Lalu\";\"d. Hubungan Pasien\";\"e. Agama\";\"f. Tinggal Dengan\";\"g. Pekerjaan\";\"h. Pembayaran\";\"i. Nilai-nilai Kepercayaan\";\"j. Bahasa Sehari-hari\";\"k. Pendidikan Pasien\";\"l. Pendidikan P.J.\";\"m. Edukasi Diberikan Kepada\";\"Nyeri\";\"Penyebab Nyeri\";\"Kualitas Nyeri\";\"Lokasi Nyeri\";\"Nyeri Menyebar\";\"Skala Nyeri\";\"Waktu / Durasi\";\"Nyeri Hilang Bila\";\"Diberitahukan Pada Dokter\";\"Skala Morse 1\";\"N.M. 1\";\"Skala Morse 2\";\"N.M. 2\";\"Skala Morse 3\";\"N.M. 3\";\"Skala Morse 4\";\"N.M. 4\";\"Skala Morse 5\";\"N.M. 5\";\"Skala Morse 6\";\"N.M. 6\";\"T.M.\";\"Skala Sydney 1\";\"N.S. 1\";\"Skala Sydney 2\";\"N.S. 2\";\"Skala Sydney 3\";\"N.S. 3\";\"Skala Sydney 4\";\"N.S. 4\";\"Skala Sydney 5\";\"N.S. 5\";\"Skala Sydney 6\";\"N.S. 6\";\"Skala Sydney 7\";\"N.S. 7\";\"Skala Sydney 8\";\"N.S. 8\";\"Skala Sydney 9\";\"N.S. 9\";\"Skala Sydney 10\";\"N.S. 10\";\"Skala Sydney 11\";\"N.S. 11\";\"T.S.\";\"1. Apakah ada penurunan BB yang tidak diinginkan selama 6 bulan terakhir ?\";\"Skor 1\";\"2. Apakah asupan makan berkurang karena tidak nafsu makan ?\";\"Skor 2\";\"Total Skor\";\"Pasien dengan diagnosis khusus\";\"Keterangan Diagnosa Khusus\";\"Sudah dibaca dan diketahui oleh Dietisen\";\"Jam Dibaca Dietisen\";\"Rencana Keperawatan Lainnya\"\n"
                                 ); 
                                 while(rs.next()){
                                     htmlContent.append(
-                                        "\""+rs.getString("no_rawat")+"\";\""+" "+rs.getString("no_rkm_medis")+"\";\""+rs.getString("nm_pasien")+"\";\""+rs.getString("tgl_lahir")+"\";\""+rs.getString("jk")+"\";\""+rs.getString("nip1")+"\";\""+rs.getString("pengkaji1")+"\";\""+rs.getString("nip2")+"\";\""+rs.getString("pengkaji2")+"\";\""+rs.getString("kd_dokter")+"\";\""+rs.getString("nm_dokter")+"\";\""+rs.getString("tanggal")+"\";\""+rs.getString("informasi")+"\";\""+rs.getString("tiba_diruang_rawat")+"\";\""+rs.getString("cara_masuk")+"\";\""+rs.getString("keluhan")+"\";\""+rs.getString("psk")+"\";\""+rs.getString("rpk")+"\";\""+rs.getString("rp")+"\";\""+rs.getString("alergi")+"\";\""+rs.getString("komplikasi_sebelumnya")+"\";\""+rs.getString("keterangan_komplikasi_sebelumnya")+"\";\""+rs.getString("riwayat_mens_umur")+"\";\""+rs.getString("riwayat_mens_lamanya")+"\";\""+rs.getString("riwayat_mens_banyaknya")+"\";\""+rs.getString("riwayat_mens_siklus")+"\";\""+rs.getString("riwayat_mens_ket_siklus")+"\";\""+rs.getString("riwayat_mens_dirasakan")+"\";\""+rs.getString("riwayat_perkawinan_status")+"\";\""+rs.getString("riwayat_perkawinan_ket_status")+"\";\""+rs.getString("riwayat_perkawinan_usia1")+"\";\""+rs.getString("riwayat_perkawinan_ket_usia1")+"\";\""+rs.getString("riwayat_perkawinan_usia2")+"\";\""+rs.getString("riwayat_perkawinan_ket_usia2")+"\";\""+rs.getString("riwayat_perkawinan_usia3")+"\";\""+rs.getString("riwayat_perkawinan_ket_usia3")+"\";\""+rs.getString("riwayat_persalinan_g")+"\";\""+rs.getString("riwayat_persalinan_p")+"\";\""+rs.getString("riwayat_persalinan_a")+"\";\""+rs.getString("riwayat_persalinan_hidup")+"\";\""+rs.getString("riwayat_hamil_hpht")+"\";\""+rs.getString("riwayat_hamil_usiahamil")+"\";\""+rs.getString("riwayat_hamil_tp")+"\";\""+rs.getString("riwayat_hamil_imunisasi")+"\";\""+rs.getString("riwayat_hamil_anc")+"\";\""+rs.getString("riwayat_hamil_ancke")+"\";\""+rs.getString("riwayat_hamil_ket_ancke")+"\";\""+rs.getString("riwayat_hamil_keluhan_hamil_muda")+"\";\""+rs.getString("riwayat_hamil_keluhan_hamil_tua")+"\";\""+rs.getString("riwayat_kb")+"\";\""+rs.getString("riwayat_kb_lamanya")+"\";\""+rs.getString("riwayat_kb_komplikasi")+"\";\""+rs.getString("riwayat_kb_ket_komplikasi")+"\";\""+rs.getString("riwayat_kb_kapaberhenti")+"\";\""+rs.getString("riwayat_kb_alasanberhenti")+"\";\""+rs.getString("riwayat_genekologi")+"\";\""+rs.getString("riwayat_kebiasaan_obat")+"\";\""+rs.getString("riwayat_kebiasaan_ket_obat")+"\";\""+rs.getString("riwayat_kebiasaan_merokok")+"\";\""+rs.getString("riwayat_kebiasaan_ket_merokok")+"\";\""+rs.getString("riwayat_kebiasaan_alkohol")+"\";\""+rs.getString("riwayat_kebiasaan_ket_alkohol")+"\";\""+rs.getString("riwayat_kebiasaan_narkoba")+"\";\""+rs.getString("pemeriksaan_kebidanan_mental")+"\";\""+rs.getString("pemeriksaan_kebidanan_keadaan_umum")+"\";\""+rs.getString("pemeriksaan_kebidanan_gcs")+"\";\""+rs.getString("pemeriksaan_kebidanan_td")+"\";\""+rs.getString("pemeriksaan_kebidanan_nadi")+"\";\""+rs.getString("pemeriksaan_kebidanan_rr")+"\";\""+rs.getString("pemeriksaan_kebidanan_suhu")+"\";\""+rs.getString("pemeriksaan_kebidanan_spo2")+"\";\""+rs.getString("pemeriksaan_kebidanan_bb")+"\";\""+rs.getString("pemeriksaan_kebidanan_tb")+"\";\""+rs.getString("pemeriksaan_kebidanan_lila")+"\";\""+rs.getString("pemeriksaan_kebidanan_tfu")+"\";\""+rs.getString("pemeriksaan_kebidanan_tbj")+"\";\""+rs.getString("pemeriksaan_kebidanan_letak")+"\";\""+rs.getString("pemeriksaan_kebidanan_presentasi")+"\";\""+rs.getString("pemeriksaan_kebidanan_penurunan")+"\";\""+rs.getString("pemeriksaan_kebidanan_penurunan")+"\";\""+rs.getString("pemeriksaan_kebidanan_his")+"\";\""+rs.getString("pemeriksaan_kebidanan_kekuatan")+"\";\""+rs.getString("pemeriksaan_kebidanan_lamanya")+"\";\""+rs.getString("pemeriksaan_kebidanan_djj")+"\";\""+rs.getString("pemeriksaan_kebidanan_ket_djj")+"\";\""+rs.getString("pemeriksaan_kebidanan_portio")+"\";\""+rs.getString("pemeriksaan_kebidanan_pembukaan")+"\";\""+rs.getString("pemeriksaan_kebidanan_ketuban")+"\";\""+rs.getString("pemeriksaan_kebidanan_hodge")+"\";\""+rs.getString("pemeriksaan_kebidanan_panggul")+"\";\""+rs.getString("pemeriksaan_kebidanan_inspekulo")+"\";\""+rs.getString("pemeriksaan_kebidanan_ket_inspekulo")+"\";\""+rs.getString("pemeriksaan_kebidanan_lakmus")+"\";\""+rs.getString("pemeriksaan_kebidanan_ket_lakmus")+"\";\""+rs.getString("pemeriksaan_kebidanan_ctg")+"\";\""+rs.getString("pemeriksaan_kebidanan_ket_ctg")+"\";\""+rs.getString("pemeriksaan_umum_kepala")+"\";\""+rs.getString("pemeriksaan_umum_muka")+"\";\""+rs.getString("pemeriksaan_umum_mata")+"\";\""+rs.getString("pemeriksaan_umum_hidung")+"\";\""+rs.getString("pemeriksaan_umum_telinga")+"\";\""+rs.getString("pemeriksaan_umum_mulut")+"\";\""+rs.getString("pemeriksaan_umum_leher")+"\";\""+rs.getString("pemeriksaan_umum_dada")+"\";\""+rs.getString("pemeriksaan_umum_perut")+"\";\""+rs.getString("pemeriksaan_umum_genitalia")+"\";\""+rs.getString("pemeriksaan_umum_ekstrimitas")+"\";\""+rs.getString("pengkajian_fungsi_kemampuan_aktifitas")+"\";\""+rs.getString("pengkajian_fungsi_berjalan")+"\";\""+rs.getString("pengkajian_fungsi_ket_berjalan")+"\";\""+rs.getString("pengkajian_fungsi_aktivitas")+"\";\""+rs.getString("pengkajian_fungsi_ambulasi")+"\";\""+rs.getString("pengkajian_fungsi_ekstrimitas_atas")+"\";\""+rs.getString("pengkajian_fungsi_ket_ekstrimitas_atas")+"\";\""+rs.getString("pengkajian_fungsi_ekstrimitas_bawah")+"\";\""+rs.getString("pengkajian_fungsi_ket_ekstrimitas_bawah")+"\";\""+rs.getString("pengkajian_fungsi_kemampuan_menggenggam")+"\";\""+rs.getString("pengkajian_fungsi_ket_kemampuan_menggenggam")+"\";\""+rs.getString("pengkajian_fungsi_koordinasi")+"\";\""+rs.getString("pengkajian_fungsi_ket_koordinasi")+"\";\""+rs.getString("pengkajian_fungsi_gangguan_fungsi")+"\";\""+rs.getString("riwayat_psiko_kondisipsiko")+"\";\""+rs.getString("riwayat_psiko_adakah_prilaku")+"\";\""+rs.getString("riwayat_psiko_ket_adakah_prilaku")+"\";\""+rs.getString("riwayat_psiko_gangguan_jiwa")+"\";\""+rs.getString("riwayat_psiko_hubungan_pasien")+"\";\""+rs.getString("agama")+"\";\""+rs.getString("riwayat_psiko_tinggal_dengan")+"\";\""+rs.getString("riwayat_psiko_ket_tinggal_dengan")+"\";\""+rs.getString("pekerjaan")+"\";\""+rs.getString("png_jawab")+"\";\""+rs.getString("riwayat_psiko_budaya")+"\";\""+rs.getString("riwayat_psiko_ket_budaya")+"\";\""+rs.getString("nama_bahasa")+"\";\""+rs.getString("pnd")+"\";\""+rs.getString("riwayat_psiko_pend_pj")+"\";\""+rs.getString("riwayat_psiko_edukasi_pada")+"\";\""+rs.getString("riwayat_psiko_ket_edukasi_pada")+"\";\""+rs.getString("penilaian_nyeri")+"\";\""+rs.getString("penilaian_nyeri_penyebab")+"\";\""+rs.getString("penilaian_nyeri_ket_penyebab")+"\";\""+rs.getString("penilaian_nyeri_kualitas")+"\";\""+rs.getString("penilaian_nyeri_ket_kualitas")+"\";\""+rs.getString("penilaian_nyeri_lokasi")+"\";\""+rs.getString("penilaian_nyeri_menyebar")+"\";\""+rs.getString("penilaian_nyeri_skala")+"\";\""+rs.getString("penilaian_nyeri_waktu")+"\";\""+rs.getString("penilaian_nyeri_hilang")+"\";\""+rs.getString("penilaian_nyeri_ket_hilang")+"\";\""+rs.getString("penilaian_nyeri_diberitahukan_dokter")+"\";\""+rs.getString("penilaian_nyeri_jam_diberitahukan_dokter")+"\";\""+rs.getString("penilaian_jatuh_skala1")+"\";\""+rs.getString("penilaian_jatuh_nilai1")+"\";\""+rs.getString("penilaian_jatuh_skala2")+"\";\""+rs.getString("penilaian_jatuh_nilai2")+"\";\""+rs.getString("penilaian_jatuh_skala3")+"\";\""+rs.getString("penilaian_jatuh_nilai3")+"\";\""+rs.getString("penilaian_jatuh_skala4")+"\";\""+rs.getString("penilaian_jatuh_nilai4")+"\";\""+rs.getString("penilaian_jatuh_skala5")+"\";\""+rs.getString("penilaian_jatuh_nilai5")+"\";\""+rs.getString("penilaian_jatuh_skala6")+"\";\""+rs.getString("penilaian_jatuh_nilai6")+"\";\""+rs.getString("penilaian_jatuh_totalnilai")+"\";\""+rs.getString("skrining_gizi1")+"\";\""+rs.getString("nilai_gizi1")+"\";\""+rs.getString("skrining_gizi2")+"\";\""+rs.getString("nilai_gizi2")+"\";\""+rs.getString("nilai_total_gizi")+"\";\""+rs.getString("skrining_gizi_diagnosa_khusus")+"\";\""+rs.getString("skrining_gizi_ket_diagnosa_khusus")+"\";\""+rs.getString("skrining_gizi_diketahui_dietisen")+"\";\""+rs.getString("skrining_gizi_jam_diketahui_dietisen")+"\";\""+rs.getString("masalah")+"\";\""+rs.getString("rencana")+"\"\n"
+                                        "\""+rs.getString("no_rawat")+"\";\""+rs.getString("no_rkm_medis")+"\";\""+rs.getString("nm_pasien")+"\";\""+rs.getString("tgl_lahir")+"\";\""+rs.getString("jk")+"\";\""+rs.getString("nip1")+"\";\""+rs.getString("pengkaji1")+"\";\""+rs.getString("nip2")+"\";\""+rs.getString("pengkaji2")+"\";\""+rs.getString("kd_dokter")+"\";\""+rs.getString("nm_dokter")+"\";\""+rs.getString("tanggal")+"\";\""+rs.getString("kasus_trauma")+"\";\""+rs.getString("informasi")+", "+rs.getString("ket_informasi")+"\";\""+rs.getString("tiba_diruang_rawat")+"\";\""+rs.getString("cara_masuk")+"\";\""+rs.getString("rps")+"\";\""+rs.getString("rpd")+"\";\""+rs.getString("rpk")+"\";\""+rs.getString("rpo")+"\";\""+rs.getString("riwayat_pembedahan")+"\";\""+rs.getString("riwayat_dirawat_dirs")+"\";\""+rs.getString("alat_bantu_dipakai")+"\";\""+rs.getString("riwayat_kehamilan")+", "+rs.getString("riwayat_kehamilan_perkiraan")+"\";\""+rs.getString("riwayat_tranfusi")+"\";\""+rs.getString("riwayat_alergi")+"\";\""+rs.getString("riwayat_merokok")+"\";\""+rs.getString("riwayat_merokok_jumlah")+"\";\""+rs.getString("riwayat_alkohol")+"\";\""+rs.getString("riwayat_alkohol_jumlah")+"\";\""+rs.getString("riwayat_narkoba")+"\";\""+rs.getString("riwayat_olahraga")+"\";\""+rs.getString("pemeriksaan_mental")+"\";\""+rs.getString("pemeriksaan_keadaan_umum")+"\";\""+rs.getString("pemeriksaan_gcs")+"\";\""+rs.getString("pemeriksaan_td")+"\";\""+rs.getString("pemeriksaan_nadi")+"\";\""+rs.getString("pemeriksaan_rr")+"\";\""+rs.getString("pemeriksaan_suhu")+"\";\""+rs.getString("pemeriksaan_spo2")+"\";\""+rs.getString("pemeriksaan_bb")+"\";\""+rs.getString("pemeriksaan_tb")+"\";\""+rs.getString("pemeriksaan_susunan_kepala")+", "+rs.getString("pemeriksaan_susunan_kepala_keterangan")+"\";\""+rs.getString("pemeriksaan_susunan_wajah")+", "+rs.getString("pemeriksaan_susunan_wajah_keterangan")+"\";\""+rs.getString("pemeriksaan_susunan_leher")+"\";\""+rs.getString("pemeriksaan_susunan_kejang")+", "+rs.getString("pemeriksaan_susunan_kejang_keterangan")+"\";\""+rs.getString("pemeriksaan_susunan_sensorik")+"\";\""+rs.getString("pemeriksaan_kardiovaskuler_pulsasi")+"\";\""+rs.getString("pemeriksaan_kardiovaskuler_sirkulasi")+", "+rs.getString("pemeriksaan_kardiovaskuler_sirkulasi_keterangan")+"\";\""+rs.getString("pemeriksaan_kardiovaskuler_denyut_nadi")+"\";\""+rs.getString("pemeriksaan_respirasi_retraksi")+"\";\""+rs.getString("pemeriksaan_respirasi_pola_nafas")+"\";\""+rs.getString("pemeriksaan_respirasi_suara_nafas")+"\";\""+rs.getString("pemeriksaan_respirasi_batuk")+"\";\""+rs.getString("pemeriksaan_respirasi_volume_pernafasan")+"\";\""+rs.getString("pemeriksaan_respirasi_jenis_pernafasan")+", "+rs.getString("pemeriksaan_respirasi_jenis_pernafasan_keterangan")+"\";\""+rs.getString("pemeriksaan_respirasi_irama_nafas")+"\";\""+rs.getString("pemeriksaan_gastrointestinal_mulut")+", "+rs.getString("pemeriksaan_gastrointestinal_mulut_keterangan")+"\";\""+rs.getString("pemeriksaan_gastrointestinal_lidah")+", "+rs.getString("pemeriksaan_gastrointestinal_lidah_keterangan")+"\";\""+rs.getString("pemeriksaan_gastrointestinal_gigi")+", "+rs.getString("pemeriksaan_gastrointestinal_gigi_keterangan")+"\";\""+rs.getString("pemeriksaan_gastrointestinal_tenggorokan")+", "+rs.getString("pemeriksaan_gastrointestinal_tenggorokan_keterangan")+"\";\""+rs.getString("pemeriksaan_gastrointestinal_abdomen")+", "+rs.getString("pemeriksaan_gastrointestinal_abdomen_keterangan")+"\";\""+rs.getString("pemeriksaan_gastrointestinal_peistatik_usus")+"\";\""+rs.getString("pemeriksaan_gastrointestinal_anus")+"\";\""+rs.getString("pemeriksaan_neurologi_sensorik")+"\";\""+rs.getString("pemeriksaan_neurologi_pengelihatan")+", "+rs.getString("pemeriksaan_neurologi_pengelihatan_keterangan")+"\";\""+rs.getString("pemeriksaan_neurologi_alat_bantu_penglihatan")+"\";\""+rs.getString("pemeriksaan_neurologi_motorik")+"\";\""+rs.getString("pemeriksaan_neurologi_pendengaran")+"\";\""+rs.getString("pemeriksaan_neurologi_bicara")+", "+rs.getString("pemeriksaan_neurologi_bicara_keterangan")+"\";\""+rs.getString("pemeriksaan_neurologi_kekuatan_otot")+"\";\""+rs.getString("pemeriksaan_integument_kulit")+"\";\""+rs.getString("pemeriksaan_integument_warnakulit")+"\";\""+rs.getString("pemeriksaan_integument_turgor")+"\";\""+rs.getString("pemeriksaan_integument_dekubitas")+"\";\""+rs.getString("pemeriksaan_muskuloskletal_oedema")+", "+rs.getString("pemeriksaan_muskuloskletal_oedema_keterangan")+"\";\""+rs.getString("pemeriksaan_muskuloskletal_pergerakan_sendi")+"\";\""+rs.getString("pemeriksaan_muskuloskletal_kekauatan_otot")+"\";\""+rs.getString("pemeriksaan_muskuloskletal_fraktur")+", "+rs.getString("pemeriksaan_muskuloskletal_fraktur_keterangan")+"\";\""+rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi")+", "+rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi_keterangan")+"\";\""+rs.getString("pemeriksaan_eliminasi_bab_frekuensi_jumlah")+"\";\""+rs.getString("pemeriksaan_eliminasi_bab_frekuensi_durasi")+"\";\""+rs.getString("pemeriksaan_eliminasi_bab_konsistensi")+"\";\""+rs.getString("pemeriksaan_eliminasi_bab_warna")+"\";\""+rs.getString("pemeriksaan_eliminasi_bak_frekuensi_jumlah")+"\";\""+rs.getString("pemeriksaan_eliminasi_bak_frekuensi_durasi")+"\";\""+rs.getString("pemeriksaan_eliminasi_bak_warna")+"\";\""+rs.getString("pemeriksaan_eliminasi_bak_lainlain")+"\";\""+rs.getString("pola_aktifitas_mandi")+"\";\""+rs.getString("pola_aktifitas_makanminum")+"\";\""+rs.getString("pola_aktifitas_berpakaian")+"\";\""+rs.getString("pola_aktifitas_eliminasi")+"\";\""+rs.getString("pola_aktifitas_berpindah")+"\";\""+rs.getString("pola_nutrisi_porsi_makan")+"\";\""+rs.getString("pola_nutrisi_frekuesi_makan")+"\";\""+rs.getString("pola_nutrisi_jenis_makanan")+"\";\""+rs.getString("pola_tidur_lama_tidur")+"\";\""+rs.getString("pola_tidur_gangguan")+"\";\""+rs.getString("pengkajian_fungsi_kemampuan_sehari")+"\";\""+rs.getString("pengkajian_fungsi_berjalan")+", "+rs.getString("pengkajian_fungsi_berjalan_keterangan")+"\";\""+rs.getString("pengkajian_fungsi_aktifitas")+"\";\""+rs.getString("pengkajian_fungsi_ambulasi")+"\";\""+rs.getString("pengkajian_fungsi_ekstrimitas_atas")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_atas_keterangan")+"\";\""+rs.getString("pengkajian_fungsi_ekstrimitas_bawah")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_bawah_keterangan")+"\";\""+rs.getString("pengkajian_fungsi_menggenggam")+", "+rs.getString("pengkajian_fungsi_menggenggam_keterangan")+"\";\""+rs.getString("pengkajian_fungsi_koordinasi")+", "+rs.getString("pengkajian_fungsi_koordinasi_keterangan")+"\";\""+rs.getString("pengkajian_fungsi_kesimpulan")+"\";\""+rs.getString("riwayat_psiko_kondisi_psiko")+"\";\""+rs.getString("riwayat_psiko_perilaku")+", "+rs.getString("riwayat_psiko_perilaku_keterangan")+"\";\""+rs.getString("riwayat_psiko_gangguan_jiwa")+"\";\""+rs.getString("riwayat_psiko_hubungan_keluarga")+"\";\""+rs.getString("agama")+"\";\""+rs.getString("riwayat_psiko_tinggal")+", "+rs.getString("riwayat_psiko_tinggal_keterangan")+"\";\""+rs.getString("pekerjaan")+"\";\""+rs.getString("png_jawab")+"\";\""+rs.getString("riwayat_psiko_nilai_kepercayaan")+", "+rs.getString("riwayat_psiko_nilai_kepercayaan_keterangan")+"\";\""+rs.getString("nama_bahasa")+"\";\""+rs.getString("pnd")+"\";\""+rs.getString("riwayat_psiko_pendidikan_pj")+"\";\""+rs.getString("riwayat_psiko_edukasi_diberikan")+", "+rs.getString("riwayat_psiko_edukasi_diberikan_keterangan")+"\";\""+rs.getString("penilaian_nyeri")+"\";\""+rs.getString("penilaian_nyeri_penyebab")+", "+rs.getString("penilaian_nyeri_ket_penyebab")+"\";\""+rs.getString("penilaian_nyeri_kualitas")+", "+rs.getString("penilaian_nyeri_ket_kualitas")+"\";\""+rs.getString("penilaian_nyeri_lokasi")+"\";\""+rs.getString("penilaian_nyeri_menyebar")+"\";\""+rs.getString("penilaian_nyeri_skala")+"\";\""+rs.getString("penilaian_nyeri_waktu")+"\";\""+rs.getString("penilaian_nyeri_hilang")+", "+rs.getString("penilaian_nyeri_ket_hilang")+"\";\""+rs.getString("penilaian_nyeri_diberitahukan_dokter")+", "+rs.getString("penilaian_nyeri_jam_diberitahukan_dokter")+"\";\""+rs.getString("penilaian_jatuhmorse_skala1")+"\";\""+rs.getString("penilaian_jatuhmorse_nilai1")+"\";\""+rs.getString("penilaian_jatuhmorse_skala2")+"\";\""+rs.getString("penilaian_jatuhmorse_nilai2")+"\";\""+rs.getString("penilaian_jatuhmorse_skala3")+"\";\""+rs.getString("penilaian_jatuhmorse_nilai3")+"\";\""+rs.getString("penilaian_jatuhmorse_skala4")+"\";\""+rs.getString("penilaian_jatuhmorse_nilai4")+"\";\""+rs.getString("penilaian_jatuhmorse_skala5")+"\";\""+rs.getString("penilaian_jatuhmorse_nilai5")+"\";\""+rs.getString("penilaian_jatuhmorse_skala6")+"\";\""+rs.getString("penilaian_jatuhmorse_nilai6")+"\";\""+rs.getString("penilaian_jatuhmorse_totalnilai")+"\";\""+rs.getString("penilaian_jatuhsydney_skala1")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai1")+"\";\""+rs.getString("penilaian_jatuhsydney_skala2")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai2")+"\";\""+rs.getString("penilaian_jatuhsydney_skala3")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai3")+"\";\""+rs.getString("penilaian_jatuhsydney_skala4")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai4")+"\";\""+rs.getString("penilaian_jatuhsydney_skala5")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai5")+"\";\""+rs.getString("penilaian_jatuhsydney_skala6")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai6")+"\";\""+rs.getString("penilaian_jatuhsydney_skala7")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai7")+"\";\""+rs.getString("penilaian_jatuhsydney_skala8")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai8")+"\";\""+rs.getString("penilaian_jatuhsydney_skala9")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai9")+"\";\""+rs.getString("penilaian_jatuhsydney_skala10")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai10")+"\";\""+rs.getString("penilaian_jatuhsydney_skala11")+"\";\""+rs.getString("penilaian_jatuhsydney_nilai11")+"\";\""+rs.getString("penilaian_jatuhsydney_totalnilai")+"\";\""+rs.getString("skrining_gizi1")+"\";\""+rs.getString("nilai_gizi1")+"\";\""+rs.getString("skrining_gizi2")+"\";\""+rs.getString("nilai_gizi2")+"\";\""+rs.getString("nilai_total_gizi")+"\";\""+rs.getString("skrining_gizi_diagnosa_khusus")+"\";\""+rs.getString("skrining_gizi_ket_diagnosa_khusus")+"\";\""+rs.getString("skrining_gizi_diketahui_dietisen")+"\";\""+rs.getString("skrining_gizi_jam_diketahui_dietisen")+"\";\""+rs.getString("rencana")+"\"\n"
                                     );
                                 }
-                                f = new File("RMPenilaianAwalKeperawatanKebidananRanap.csv");            
+                                f = new File("RMPenilaianAwalKeperawatanRanap.csv");            
                                 bw = new BufferedWriter(new FileWriter(f));            
                                 bw.write(htmlContent.toString());
 
@@ -6423,65 +6444,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             Valid.pindah(evt,TCari,BtnPetugas);
         }
     }//GEN-LAST:event_TNoRwKeyPressed
-
-    private void BtnKeluarKehamilanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKeluarKehamilanActionPerformed
-        DlgRiwayatPersalinan.dispose();
-    }//GEN-LAST:event_BtnKeluarKehamilanActionPerformed
-
-    private void BtnSimpanRiwayatKehamilanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanRiwayatKehamilanActionPerformed
-        if(TempatPersalinan.getText().trim().equals("")){
-            Valid.textKosong(TempatPersalinan,"Tempat Persalinan");
-        }else if(JenisPersalinan.getText().trim().equals("")){
-            Valid.textKosong(JenisPersalinan,"Jenis Persalinan");
-        }else if(Penolong.getText().trim().equals("")){
-            Valid.textKosong(Penolong,"Penolong Persalinan");
-        }else if(Penyulit.getText().trim().equals("")){
-            Valid.textKosong(Penyulit,"Penyulit Persalinan");
-        }else if(Keadaan.getText().trim().equals("")){
-            Valid.textKosong(Keadaan,"Keadaan Persalinan");
-        }else if(UsiaHamil.getText().trim().equals("")){
-            Valid.textKosong(UsiaHamil,"Usia Hamil");
-        }else if(BBPB.getText().trim().equals("")){
-            Valid.textKosong(BBPB,"BB/PB");
-        }else{
-            if(Sequel.menyimpantf("riwayat_persalinan_pasien","?,?,?,?,?,?,?,?,?,?","Riwayat Persalinan",10,new String[]{
-                    TNoRM.getText(),Valid.SetTgl(TanggalPersalinan.getSelectedItem()+""),TempatPersalinan.getText(),UsiaHamil.getText(),JenisPersalinan.getText(),Penolong.getText(),Penyulit.getText(),JK.getSelectedItem().toString().substring(0,1),BBPB.getText(),Keadaan.getText()
-                })==true){
-            }
-        }
-    }//GEN-LAST:event_BtnSimpanRiwayatKehamilanActionPerformed
-
-    private void JKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JKKeyPressed
-        Valid.pindah(evt,UsiaHamil,BBPB);
-    }//GEN-LAST:event_JKKeyPressed
-
-    private void TempatPersalinanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TempatPersalinanKeyPressed
-        Valid.pindah(evt,BtnKeluarKehamilan,JenisPersalinan);
-    }//GEN-LAST:event_TempatPersalinanKeyPressed
-
-    private void JenisPersalinanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JenisPersalinanKeyPressed
-        Valid.pindah(evt,TempatPersalinan,Penolong);
-    }//GEN-LAST:event_JenisPersalinanKeyPressed
-
-    private void PenolongKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PenolongKeyPressed
-        Valid.pindah(evt,JenisPersalinan,Penyulit);
-    }//GEN-LAST:event_PenolongKeyPressed
-
-    private void PenyulitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PenyulitKeyPressed
-        Valid.pindah(evt,Penolong,Keadaan);
-    }//GEN-LAST:event_PenyulitKeyPressed
-
-    private void KeadaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanKeyPressed
-        Valid.pindah(evt,Penyulit,UsiaHamil);
-    }//GEN-LAST:event_KeadaanKeyPressed
-
-    private void UsiaHamilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsiaHamilKeyPressed
-        Valid.pindah(evt,Keadaan,JK);
-    }//GEN-LAST:event_UsiaHamilKeyPressed
-
-    private void BBPBKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BBPBKeyPressed
-        Valid.pindah(evt,JK,BtnSimpanRiwayatKehamilan);
-    }//GEN-LAST:event_BBPBKeyPressed
 
     private void BtnPetugas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPetugas2ActionPerformed
         i=2;
@@ -7515,7 +7477,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.TextBox BAB;
     private widget.TextBox BAK;
     private widget.TextBox BB;
-    private widget.TextBox BBPB;
     private widget.TextBox Bahasa;
     private widget.ComboBox Berjalan;
     private widget.Button BtnAll;
@@ -7529,13 +7490,11 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnKeluar;
-    private widget.Button BtnKeluarKehamilan;
     private widget.Button BtnPetugas;
     private widget.Button BtnPetugas2;
     private widget.Button BtnPrint;
     private widget.Button BtnPrint1;
     private widget.Button BtnSimpan;
-    private widget.Button BtnSimpanRiwayatKehamilan;
     private widget.Button BtnTambahMasalah;
     private widget.Button BtnTambahRencana;
     private widget.TextBox CaraBayar;
@@ -7546,7 +7505,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.TextArea DetailRencana;
     private widget.ComboBox DiagnosaKhususGizi;
     private widget.ComboBox DiketahuiDietisen;
-    private javax.swing.JDialog DlgRiwayatPersalinan;
     private widget.TextBox Durasi;
     private widget.ComboBox EdukasiPsikolgis;
     private widget.ComboBox EkstrimitasAtas;
@@ -7568,8 +7526,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.ComboBox IntegumentKulit;
     private widget.ComboBox IntegumentTurgor;
     private widget.ComboBox IntegumentWarnaKulit;
-    private widget.ComboBox JK;
-    private widget.TextBox JenisPersalinan;
     private widget.TextBox Jk;
     private widget.TextBox KBAB;
     private widget.ComboBox KardiovaskularDenyutNadi;
@@ -7578,7 +7534,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.TextBox KdDPJP;
     private widget.TextBox KdPetugas;
     private widget.TextBox KdPetugas2;
-    private widget.TextBox Keadaan;
     private widget.ComboBox KeadaanMentalUmum;
     private widget.ComboBox KebiasaanAlkohol;
     private widget.TextBox KebiasaanJumlahAlkohol;
@@ -7675,8 +7630,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.TextBox PekerjaanPasien;
     private widget.ComboBox PendidikanPJ;
     private widget.TextBox PendidikanPasien;
-    private widget.TextBox Penolong;
-    private widget.TextBox Penyulit;
     private widget.ComboBox PolaAktifitasBerpakaian;
     private widget.ComboBox PolaAktifitasBerpindah;
     private widget.ComboBox PolaAktifitasEliminasi;
@@ -7750,15 +7703,12 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.TextBox TPasien1;
     private javax.swing.JTabbedPane TabRawat;
     private javax.swing.JTabbedPane TabRencanaKeperawatan;
-    private widget.Tanggal TanggalPersalinan;
-    private widget.TextBox TempatPersalinan;
     private widget.Tanggal TglAsuhan;
     private widget.TextBox TglLahir;
     private widget.ComboBox TibadiRuang;
     private widget.ComboBox TinggalDengan;
     private widget.Label TingkatResiko;
     private widget.Label TingkatSydney;
-    private widget.TextBox UsiaHamil;
     private widget.TextBox WBAB;
     private widget.TextBox WBAK;
     private widget.TextBox XBAB;
@@ -7766,17 +7716,8 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame3;
-    private widget.InternalFrame internalFrame4;
     private widget.Label jLabel10;
-    private widget.Label jLabel105;
-    private widget.Label jLabel106;
-    private widget.Label jLabel107;
-    private widget.Label jLabel108;
-    private widget.Label jLabel109;
     private widget.Label jLabel11;
-    private widget.Label jLabel110;
-    private widget.Label jLabel111;
-    private widget.Label jLabel112;
     private widget.Label jLabel113;
     private widget.Label jLabel114;
     private widget.Label jLabel115;
@@ -7996,7 +7937,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.Label jLabel9;
     private widget.Label jLabel94;
     private widget.Label jLabel95;
-    private widget.Label jLabel99;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -8014,7 +7954,6 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     private widget.Label label15;
     private widget.Label label16;
     private widget.PanelBiasa panelBiasa1;
-    private widget.PanelBiasa panelBiasa2;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.ScrollPane scrollInput;
@@ -8056,7 +7995,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_gastrointestinal_anus,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_pengelihatan,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_pengelihatan_keterangan,"+
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_alat_bantu_penglihatan,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_pendengaran,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_bicara,"+
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_bicara_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_sensorik,penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_motorik,"+
-                "penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_kekuatan_otot,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_warankulit,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_turgor,"+
+                "penilaian_awal_keperawatan_ranap.pemeriksaan_neurologi_kekuatan_otot,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_warnakulit,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_turgor,"+
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_integument_kulit,penilaian_awal_keperawatan_ranap.pemeriksaan_integument_dekubitas,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_pergerakan_sendi,"+
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_kekauatan_otot,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_nyeri_sendi,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_nyeri_sendi_keterangan,"+
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_oedema,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_oedema_keterangan,penilaian_awal_keperawatan_ranap.pemeriksaan_muskuloskletal_fraktur,"+
@@ -8064,7 +8003,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bab_konsistensi,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bab_warna,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_frekuensi_jumlah,"+
                 "penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_frekuensi_durasi,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_warna,penilaian_awal_keperawatan_ranap.pemeriksaan_eliminasi_bak_lainlain,"+
                 "penilaian_awal_keperawatan_ranap.pola_aktifitas_makanminum,penilaian_awal_keperawatan_ranap.pola_aktifitas_mandi,penilaian_awal_keperawatan_ranap.pola_aktifitas_eliminasi,penilaian_awal_keperawatan_ranap.pola_aktifitas_berpakaian,"+
-                "penilaian_awal_keperawatan_ranap.pola_aktifitas_berpindah,penilaian_awal_keperawatan_ranap.pola_nutrisi_frekuesi_makan,penilaian_awal_keperawatan_ranap.pula_nutrisi_jenis_makanan,penilaian_awal_keperawatan_ranap.pola_nutrisi_porsi_makan,"+
+                "penilaian_awal_keperawatan_ranap.pola_aktifitas_berpindah,penilaian_awal_keperawatan_ranap.pola_nutrisi_frekuesi_makan,penilaian_awal_keperawatan_ranap.pola_nutrisi_jenis_makanan,penilaian_awal_keperawatan_ranap.pola_nutrisi_porsi_makan,"+
                 "penilaian_awal_keperawatan_ranap.pola_tidur_lama_tidur,penilaian_awal_keperawatan_ranap.pola_tidur_gangguan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_kemampuan_sehari,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_aktifitas,"+
                 "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_berjalan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_berjalan_keterangan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ambulasi,"+
                 "penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_atas,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_atas_keterangan,penilaian_awal_keperawatan_ranap.pengkajian_fungsi_ekstrimitas_bawah,"+
@@ -8093,7 +8032,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                 "penilaian_awal_keperawatan_ranap.nilai_gizi2,penilaian_awal_keperawatan_ranap.nilai_total_gizi,penilaian_awal_keperawatan_ranap.skrining_gizi_diagnosa_khusus,penilaian_awal_keperawatan_ranap.skrining_gizi_ket_diagnosa_khusus,"+
                 "penilaian_awal_keperawatan_ranap.skrining_gizi_diketahui_dietisen,penilaian_awal_keperawatan_ranap.skrining_gizi_jam_diketahui_dietisen,penilaian_awal_keperawatan_ranap.rencana,penilaian_awal_keperawatan_ranap.nip1,"+
                 "penilaian_awal_keperawatan_ranap.nip2,penilaian_awal_keperawatan_ranap.kd_dokter,pasien.tgl_lahir,pasien.jk,pengkaji1.nama as pengkaji1,pengkaji2.nama as pengkaji2,dokter.nm_dokter,"+
-                "reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.agama,pasien.pekerjaan,pasien.pnd,penjab.png_jawab "+
+                "reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.agama,pasien.pekerjaan,pasien.pnd,penjab.png_jawab,bahasa_pasien.nama_bahasa "+
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                 "inner join penilaian_awal_keperawatan_ranap on reg_periksa.no_rawat=penilaian_awal_keperawatan_ranap.no_rawat "+
                 "inner join petugas as pengkaji1 on penilaian_awal_keperawatan_ranap.nip1=pengkaji1.nip "+
@@ -8135,7 +8074,36 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
                         rs.getString("pemeriksaan_gastrointestinal_mulut")+", "+rs.getString("pemeriksaan_gastrointestinal_mulut_keterangan"),rs.getString("pemeriksaan_gastrointestinal_lidah")+", "+rs.getString("pemeriksaan_gastrointestinal_lidah_keterangan"),
                         rs.getString("pemeriksaan_gastrointestinal_gigi")+", "+rs.getString("pemeriksaan_gastrointestinal_gigi_keterangan"),rs.getString("pemeriksaan_gastrointestinal_tenggorokan")+", "+rs.getString("pemeriksaan_gastrointestinal_tenggorokan_keterangan"),
                         rs.getString("pemeriksaan_gastrointestinal_abdomen")+", "+rs.getString("pemeriksaan_gastrointestinal_abdomen_keterangan"),rs.getString("pemeriksaan_gastrointestinal_peistatik_usus"),rs.getString("pemeriksaan_gastrointestinal_anus"),
-                        rs.getString("pemeriksaan_neurologi_sensorik"),rs.getString("pemeriksaan_neurologi_pengelihatan")+", "+rs.getString("pemeriksaan_neurologi_pengelihatan_keterangan"),rs.getString("pemeriksaan_neurologi_alat_bantu_penglihatan")
+                        rs.getString("pemeriksaan_neurologi_sensorik"),rs.getString("pemeriksaan_neurologi_pengelihatan")+", "+rs.getString("pemeriksaan_neurologi_pengelihatan_keterangan"),rs.getString("pemeriksaan_neurologi_alat_bantu_penglihatan"),
+                        rs.getString("pemeriksaan_neurologi_motorik"),rs.getString("pemeriksaan_neurologi_pendengaran"),rs.getString("pemeriksaan_neurologi_bicara")+", "+rs.getString("pemeriksaan_neurologi_bicara_keterangan"),
+                        rs.getString("pemeriksaan_neurologi_kekuatan_otot"),rs.getString("pemeriksaan_integument_kulit"),rs.getString("pemeriksaan_integument_warnakulit"),rs.getString("pemeriksaan_integument_turgor"),
+                        rs.getString("pemeriksaan_integument_dekubitas"),rs.getString("pemeriksaan_muskuloskletal_oedema")+", "+rs.getString("pemeriksaan_muskuloskletal_oedema_keterangan"),rs.getString("pemeriksaan_muskuloskletal_pergerakan_sendi"),
+                        rs.getString("pemeriksaan_muskuloskletal_kekauatan_otot"),rs.getString("pemeriksaan_muskuloskletal_fraktur")+", "+rs.getString("pemeriksaan_muskuloskletal_fraktur_keterangan"),
+                        rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi")+", "+rs.getString("pemeriksaan_muskuloskletal_nyeri_sendi_keterangan"),rs.getString("pemeriksaan_eliminasi_bab_frekuensi_jumlah"),
+                        rs.getString("pemeriksaan_eliminasi_bab_frekuensi_durasi"),rs.getString("pemeriksaan_eliminasi_bab_konsistensi"),rs.getString("pemeriksaan_eliminasi_bab_warna"),rs.getString("pemeriksaan_eliminasi_bak_frekuensi_jumlah"),
+                        rs.getString("pemeriksaan_eliminasi_bak_frekuensi_durasi"),rs.getString("pemeriksaan_eliminasi_bak_warna"),rs.getString("pemeriksaan_eliminasi_bak_lainlain"),rs.getString("pola_aktifitas_mandi"),
+                        rs.getString("pola_aktifitas_makanminum"),rs.getString("pola_aktifitas_berpakaian"),rs.getString("pola_aktifitas_eliminasi"),rs.getString("pola_aktifitas_berpindah"),rs.getString("pola_nutrisi_porsi_makan"),
+                        rs.getString("pola_nutrisi_frekuesi_makan"),rs.getString("pola_nutrisi_jenis_makanan"),rs.getString("pola_tidur_lama_tidur"),rs.getString("pola_tidur_gangguan"),rs.getString("pengkajian_fungsi_kemampuan_sehari"),
+                        rs.getString("pengkajian_fungsi_berjalan")+", "+rs.getString("pengkajian_fungsi_berjalan_keterangan"),rs.getString("pengkajian_fungsi_aktifitas"),rs.getString("pengkajian_fungsi_ambulasi"),
+                        rs.getString("pengkajian_fungsi_ekstrimitas_atas")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_atas_keterangan"),rs.getString("pengkajian_fungsi_ekstrimitas_bawah")+", "+rs.getString("pengkajian_fungsi_ekstrimitas_bawah_keterangan"),
+                        rs.getString("pengkajian_fungsi_menggenggam")+", "+rs.getString("pengkajian_fungsi_menggenggam_keterangan"),rs.getString("pengkajian_fungsi_koordinasi")+", "+rs.getString("pengkajian_fungsi_koordinasi_keterangan"),
+                        rs.getString("pengkajian_fungsi_kesimpulan"),rs.getString("riwayat_psiko_kondisi_psiko"),rs.getString("riwayat_psiko_perilaku")+", "+rs.getString("riwayat_psiko_perilaku_keterangan"),rs.getString("riwayat_psiko_gangguan_jiwa"),
+                        rs.getString("riwayat_psiko_hubungan_keluarga"),rs.getString("agama"),rs.getString("riwayat_psiko_tinggal")+", "+rs.getString("riwayat_psiko_tinggal_keterangan"),rs.getString("pekerjaan"),rs.getString("png_jawab"),
+                        rs.getString("riwayat_psiko_nilai_kepercayaan")+", "+rs.getString("riwayat_psiko_nilai_kepercayaan_keterangan"),rs.getString("nama_bahasa"),rs.getString("pnd"),rs.getString("riwayat_psiko_pendidikan_pj"),
+                        rs.getString("riwayat_psiko_edukasi_diberikan")+", "+rs.getString("riwayat_psiko_edukasi_diberikan_keterangan"),rs.getString("penilaian_nyeri"),rs.getString("penilaian_nyeri_penyebab")+", "+rs.getString("penilaian_nyeri_ket_penyebab"),
+                        rs.getString("penilaian_nyeri_kualitas")+", "+rs.getString("penilaian_nyeri_ket_kualitas"),rs.getString("penilaian_nyeri_lokasi"),rs.getString("penilaian_nyeri_menyebar"),rs.getString("penilaian_nyeri_skala"),
+                        rs.getString("penilaian_nyeri_waktu"),rs.getString("penilaian_nyeri_hilang")+", "+rs.getString("penilaian_nyeri_ket_hilang"),rs.getString("penilaian_nyeri_diberitahukan_dokter")+", "+rs.getString("penilaian_nyeri_jam_diberitahukan_dokter"),
+                        rs.getString("penilaian_jatuhmorse_skala1"),rs.getString("penilaian_jatuhmorse_nilai1"),rs.getString("penilaian_jatuhmorse_skala2"),rs.getString("penilaian_jatuhmorse_nilai2"),
+                        rs.getString("penilaian_jatuhmorse_skala3"),rs.getString("penilaian_jatuhmorse_nilai3"),rs.getString("penilaian_jatuhmorse_skala4"),rs.getString("penilaian_jatuhmorse_nilai4"),
+                        rs.getString("penilaian_jatuhmorse_skala5"),rs.getString("penilaian_jatuhmorse_nilai5"),rs.getString("penilaian_jatuhmorse_skala6"),rs.getString("penilaian_jatuhmorse_nilai6"),
+                        rs.getString("penilaian_jatuhmorse_totalnilai"),rs.getString("penilaian_jatuhsydney_skala1"),rs.getString("penilaian_jatuhsydney_nilai1"),rs.getString("penilaian_jatuhsydney_skala2"),
+                        rs.getString("penilaian_jatuhsydney_nilai2"),rs.getString("penilaian_jatuhsydney_skala3"),rs.getString("penilaian_jatuhsydney_nilai3"),rs.getString("penilaian_jatuhsydney_skala4"),rs.getString("penilaian_jatuhsydney_nilai4"),
+                        rs.getString("penilaian_jatuhsydney_skala5"),rs.getString("penilaian_jatuhsydney_nilai5"),rs.getString("penilaian_jatuhsydney_skala6"),rs.getString("penilaian_jatuhsydney_nilai6"),rs.getString("penilaian_jatuhsydney_skala7"),
+                        rs.getString("penilaian_jatuhsydney_nilai7"),rs.getString("penilaian_jatuhsydney_skala8"),rs.getString("penilaian_jatuhsydney_nilai8"),rs.getString("penilaian_jatuhsydney_skala9"),rs.getString("penilaian_jatuhsydney_nilai9"),
+                        rs.getString("penilaian_jatuhsydney_skala10"),rs.getString("penilaian_jatuhsydney_nilai10"),rs.getString("penilaian_jatuhsydney_skala11"),rs.getString("penilaian_jatuhsydney_nilai11"),
+                        rs.getString("penilaian_jatuhsydney_totalnilai"),rs.getString("skrining_gizi1"),rs.getString("nilai_gizi1"),rs.getString("skrining_gizi2"),rs.getString("nilai_gizi2"),rs.getString("nilai_total_gizi"),
+                        rs.getString("skrining_gizi_diagnosa_khusus"),rs.getString("skrining_gizi_ket_diagnosa_khusus"),rs.getString("skrining_gizi_diketahui_dietisen"),rs.getString("skrining_gizi_jam_diketahui_dietisen"),
+                        rs.getString("rencana")
                     });
                 }
             } catch (Exception e) {
@@ -8366,14 +8334,465 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
             NmPetugas2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString()); 
             KdDPJP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString()); 
             NmDPJP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString()); 
-            Anamnesis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString()); 
-            TibadiRuang.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString()); 
-            CaraMasuk.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString()); 
-            RPS.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString()); 
-            RPK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString()); 
+            MacamKasus.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString()); 
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString().contains("Autoanamnesis")){
+                Anamnesis.setSelectedItem("Autoanamnesis");
+            }else{
+                Anamnesis.setSelectedItem("Alloanamnesis");
+            }
+            KetAnamnesis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString().replaceAll(Anamnesis.getSelectedItem().toString()+", ",""));
+            TibadiRuang.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString()); 
+            CaraMasuk.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString()); 
+            RPS.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString()); 
             RPD.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString()); 
-            RPO.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString()); 
-            Alergi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()); 
+            RPK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString()); 
+            RPO.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()); 
+            RPembedahan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString()); 
+            RDirawatRS.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString()); 
+            AlatBantuDipakai.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString()); 
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString().contains("Ya")){
+                SedangMenyusui.setSelectedItem("Ya");
+            }else{
+                SedangMenyusui.setSelectedItem("Tidak");
+            }
+            KetSedangMenyusui.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString().replaceAll(SedangMenyusui.getSelectedItem().toString()+", ",""));
+            RTranfusi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString()); 
+            Alergi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString()); 
+            KebiasaanMerokok.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());  
+            KebiasaanJumlahRokok.setText(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString()); 
+            KebiasaanAlkohol.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());  
+            KebiasaanJumlahAlkohol.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString()); 
+            KebiasaanNarkoba.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());  
+            OlahRaga.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());  
+            KesadaranMental.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());  
+            KeadaanMentalUmum.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());   
+            GCS.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());  
+            TD.setText(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());  
+            Nadi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());  
+            RR.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());  
+            Suhu.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());  
+            SpO2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());  
+            BB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());  
+            TB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString());  
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString().contains("TAK")){
+                SistemSarafKepala.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString().contains("Hydrocephalus")){
+                SistemSarafKepala.setSelectedItem("Hydrocephalus");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString().contains("Hematoma")){
+                SistemSarafKepala.setSelectedItem("Hematoma");
+            }else{
+                SistemSarafKepala.setSelectedItem("Lain-lain");
+            }
+            KetSistemSarafKepala.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString().replaceAll(SistemSarafKepala.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString().contains("TAK")){
+                SistemSarafWajah.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString().contains("Asimetris")){
+                SistemSarafWajah.setSelectedItem("Asimetris");
+            }else{
+                SistemSarafWajah.setSelectedItem("Kelainan Kongenital");
+            }
+            KetSistemSarafWajah.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString().replaceAll(SistemSarafWajah.getSelectedItem().toString()+", ",""));
+            SistemSarafLeher.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());  
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString().contains("TAK")){
+                SistemSarafKejang.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString().contains("Kuat")){
+                SistemSarafKejang.setSelectedItem("Kuat");
+            }else{
+                SistemSarafKejang.setSelectedItem("Ada");
+            }
+            KetSistemSarafKejang.setText(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString().replaceAll(SistemSarafKejang.getSelectedItem().toString()+", ",""));
+            SistemSarafSensorik.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
+            KardiovaskularPulsasi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString().contains("Akral Hangat")){
+                KardiovaskularSirkulasi.setSelectedItem("Akral Hangat");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString().contains("Akral Dingin")){
+                KardiovaskularSirkulasi.setSelectedItem("Akral Dingin");
+            }else{
+                KardiovaskularSirkulasi.setSelectedItem("Edema");
+            }
+            KetKardiovaskularSirkulasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString().replaceAll(KardiovaskularSirkulasi.getSelectedItem().toString()+", ",""));
+            KardiovaskularDenyutNadi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),49).toString());
+            RespirasiRetraksi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
+            RespirasiPolaNafas.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
+            RespirasiSuaraNafas.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
+            RespirasiBatuk.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),53).toString());
+            RespirasiVolume.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),54).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString().contains("Pernafasan Dada")){
+                RespirasiJenisPernafasan.setSelectedItem("Pernafasan Dada");
+            }else{
+                RespirasiJenisPernafasan.setSelectedItem("Alat Bantu Pernafasaan");
+            }
+            KetRespirasiJenisPernafasan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString().replaceAll(RespirasiJenisPernafasan.getSelectedItem().toString()+", ",""));
+            RespirasiIrama.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),56).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString().contains("TAK")){
+                GastrointestinalMulut.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString().contains("Stomatitis")){
+                GastrointestinalMulut.setSelectedItem("Stomatitis");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString().contains("Mukosa Kering")){
+                GastrointestinalMulut.setSelectedItem("Mukosa Kering");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString().contains("Bibir Pucat")){
+                GastrointestinalMulut.setSelectedItem("Bibir Pucat");
+            }else{
+                GastrointestinalMulut.setSelectedItem("Lain-lain");
+            }
+            KetGastrointestinalMulut.setText(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString().replaceAll(GastrointestinalMulut.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString().contains("TAK")){
+                GastrointestinalLidah.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString().contains("Kotor")){
+                GastrointestinalLidah.setSelectedItem("Kotor");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString().contains("Gerak Asimetris")){
+                GastrointestinalLidah.setSelectedItem("Gerak Asimetris");
+            }else{
+                GastrointestinalLidah.setSelectedItem("Lain-lain");
+            }
+            KetGastrointestinalLidah.setText(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString().replaceAll(GastrointestinalLidah.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString().contains("TAK")){
+                GastrointestinalGigi.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString().contains("Karies")){
+                GastrointestinalGigi.setSelectedItem("Karies");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString().contains("Goyang")){
+                GastrointestinalGigi.setSelectedItem("Goyang");
+            }else{
+                GastrointestinalGigi.setSelectedItem("Lain-lain");
+            }
+            KetGastrointestinalGigi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString().replaceAll(GastrointestinalGigi.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString().contains("TAK")){
+                GastrointestinalTenggorakan.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString().contains("Gangguan Menelan")){
+                GastrointestinalTenggorakan.setSelectedItem("Gangguan Menelan");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString().contains("Sakit Menelan")){
+                GastrointestinalTenggorakan.setSelectedItem("Sakit Menelan");
+            }else{
+                GastrointestinalTenggorakan.setSelectedItem("Lain-lain");
+            }
+            KetGastrointestinalTenggorakan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString().replaceAll(GastrointestinalTenggorakan.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString().contains("Supel")){
+                GastrointestinalAbdomen.setSelectedItem("Supel");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString().contains("Asictes")){
+                GastrointestinalAbdomen.setSelectedItem("Asictes");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString().contains("Tegang")){
+                GastrointestinalAbdomen.setSelectedItem("Tegang");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString().contains("Nyeri Tekan/Lepas")){
+                GastrointestinalAbdomen.setSelectedItem("Nyeri Tekan/Lepas");
+            }else{
+                GastrointestinalAbdomen.setSelectedItem("Lain-lain");
+            }
+            KetGastrointestinalAbdomen.setText(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString().replaceAll(GastrointestinalAbdomen.getSelectedItem().toString()+", ",""));
+            GastrointestinalUsus.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
+            GastrointestinalAnus.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString());
+            NeurologiSensorik.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),64).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString().contains("TAK")){
+                NeurologiPenglihatan.setSelectedItem("TAK");
+            }else{
+                NeurologiPenglihatan.setSelectedItem("Ada Kelainan");
+            }
+            KetNeurologiPenglihatan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString().replaceAll(NeurologiPenglihatan.getSelectedItem().toString()+", ",""));
+            NeurologiAlatBantuPenglihatan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString());
+            NeurologiMotorik.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());
+            NeurologiPendengaran.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString().contains("Jelas")){
+                NeurologiBicara.setSelectedItem("Jelas");
+            }else{
+                NeurologiBicara.setSelectedItem("Tidak Jelas");
+            }
+            KetNeurologiBicara.setText(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString().replaceAll(NeurologiBicara.getSelectedItem().toString()+", ",""));
+            NeurologiOtot.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString());
+            IntegumentKulit.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
+            IntegumentWarnaKulit.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString());
+            IntegumentTurgor.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),73).toString());
+            IntegumentDecubitus.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),74).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),75).toString().contains("Tidak Ada")){
+                MuskuloskletalOedema.setSelectedItem("Tidak Ada");
+            }else{
+                MuskuloskletalOedema.setSelectedItem("Ada");
+            }
+            KetMuskuloskletalOedema.setText(tbObat.getValueAt(tbObat.getSelectedRow(),75).toString().replaceAll(MuskuloskletalOedema.getSelectedItem().toString()+", ",""));
+            MuskuloskletalPegerakanSendi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),76).toString());
+            MuskuloskletalKekuatanOtot.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),77).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),78).toString().contains("Tidak Ada")){
+                MuskuloskletalFraktur.setSelectedItem("Tidak Ada");
+            }else{
+                MuskuloskletalFraktur.setSelectedItem("Ada");
+            }
+            KetMuskuloskletalFraktur.setText(tbObat.getValueAt(tbObat.getSelectedRow(),78).toString().replaceAll(MuskuloskletalFraktur.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),79).toString().contains("Tidak Ada")){
+                MuskuloskletalNyeriSendi.setSelectedItem("Tidak Ada");
+            }else{
+                MuskuloskletalNyeriSendi.setSelectedItem("Ada");
+            }
+            KetMuskuloskletalNyeriSendi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),79).toString().replaceAll(MuskuloskletalNyeriSendi.getSelectedItem().toString()+", ",""));
+            BAB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),80).toString());
+            XBAB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),81).toString());
+            KBAB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),82).toString());
+            WBAB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),83).toString());
+            BAK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),84).toString());
+            XBAK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),85).toString());
+            WBAK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),86).toString());
+            LBAK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),87).toString());
+            PolaAktifitasMandi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),88).toString());
+            PolaAktifitasMakan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),89).toString());
+            PolaAktifitasBerpakaian.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),90).toString());
+            PolaAktifitasEliminasi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),91).toString());
+            PolaAktifitasBerpindah.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),92).toString());
+            PolaNutrisiPorsi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),93).toString());
+            PolaNutrisiFrekuensi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),94).toString());
+            PolaNutrisiJenis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),95).toString());
+            PolaTidurLama.setText(tbObat.getValueAt(tbObat.getSelectedRow(),96).toString());
+            PolaTidurGangguan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),97).toString());
+            AktifitasSehari2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),98).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().contains("TAK")){
+                Berjalan.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().contains("Penurunan Kekuatan/ROM")){
+                Berjalan.setSelectedItem("Penurunan Kekuatan/ROM");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().contains("Paralisis")){
+                Berjalan.setSelectedItem("Paralisis");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().contains("Sering Jatuh")){
+                Berjalan.setSelectedItem("Sering Jatuh");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().contains("Deformitas")){
+                Berjalan.setSelectedItem("Deformitas");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().contains("Hilang keseimbangan")){
+                Berjalan.setSelectedItem("Hilang keseimbangan");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().contains("Riwayat Patah Tulang")){
+                Berjalan.setSelectedItem("Riwayat Patah Tulang");
+            }else{
+                Berjalan.setSelectedItem("Lain-lain");
+            }
+            KeteranganBerjalan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),99).toString().replaceAll(Berjalan.getSelectedItem().toString()+", ",""));
+            Aktifitas.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),100).toString());
+            AlatAmbulasi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),101).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),102).toString().contains("TAK")){
+                EkstrimitasAtas.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),102).toString().contains("Lemah")){
+                EkstrimitasAtas.setSelectedItem("Lemah");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),102).toString().contains("Oedema")){
+                EkstrimitasAtas.setSelectedItem("Oedema");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),102).toString().contains("Tidak Simetris")){
+                EkstrimitasAtas.setSelectedItem("Tidak Simetris");
+            }else{
+                EkstrimitasAtas.setSelectedItem("Lain-lain");
+            }
+            KeteranganEkstrimitasAtas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),102).toString().replaceAll(EkstrimitasAtas.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),103).toString().contains("TAK")){
+                EkstrimitasBawah.setSelectedItem("TAK");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),103).toString().contains("Varises")){
+                EkstrimitasBawah.setSelectedItem("Varises");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),103).toString().contains("Oedema")){
+                EkstrimitasBawah.setSelectedItem("Oedema");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),103).toString().contains("Tidak Simetris")){
+                EkstrimitasBawah.setSelectedItem("Tidak Simetris");
+            }else{
+                EkstrimitasBawah.setSelectedItem("Lain-lain");
+            }
+            KeteranganEkstrimitasBawah.setText(tbObat.getValueAt(tbObat.getSelectedRow(),103).toString().replaceAll(EkstrimitasBawah.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),104).toString().contains("Tidak Ada Kesulitan")){
+                KemampuanMenggenggam.setSelectedItem("Tidak Ada Kesulitan");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),104).toString().contains("Terakhir")){
+                KemampuanMenggenggam.setSelectedItem("Terakhir");
+            }else{
+                KemampuanMenggenggam.setSelectedItem("Lain-lain");
+            }
+            KeteranganKemampuanMenggenggam.setText(tbObat.getValueAt(tbObat.getSelectedRow(),104).toString().replaceAll(KemampuanMenggenggam.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),105).toString().contains("Tidak Ada Kesulitan")){
+                KemampuanKoordinasi.setSelectedItem("Tidak Ada Kesulitan");
+            }else{
+                KemampuanKoordinasi.setSelectedItem("Ada Masalah");
+            }
+            KeteranganKemampuanKoordinasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),105).toString().replaceAll(KemampuanKoordinasi.getSelectedItem().toString()+", ",""));
+            KesimpulanGangguanFungsi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),106).toString());
+            KondisiPsikologis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),107).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),108).toString().contains("Tidak Ada Masalah")){
+                AdakahPerilaku.setSelectedItem("Tidak Ada Masalah");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),108).toString().contains("Perilaku Kekerasan")){
+                AdakahPerilaku.setSelectedItem("Perilaku Kekerasan");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),108).toString().contains("Gangguan Efek")){
+                AdakahPerilaku.setSelectedItem("Gangguan Efek");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),108).toString().contains("Gangguan Memori")){
+                AdakahPerilaku.setSelectedItem("Gangguan Memori");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),108).toString().contains("Halusinasi")){
+                AdakahPerilaku.setSelectedItem("Halusinasi");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),108).toString().contains("Kecenderungan Percobaan Bunuh Diri")){
+                AdakahPerilaku.setSelectedItem("Kecenderungan Percobaan Bunuh Diri");
+            }else{
+                AdakahPerilaku.setSelectedItem("Lain-lain");
+            }
+            KeteranganAdakahPerilaku.setText(tbObat.getValueAt(tbObat.getSelectedRow(),108).toString().replaceAll(AdakahPerilaku.getSelectedItem().toString()+", ",""));
+            GangguanJiwa.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),109).toString());
+            HubunganAnggotaKeluarga.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),110).toString());
+            Agama.setText(tbObat.getValueAt(tbObat.getSelectedRow(),111).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),112).toString().contains("Sendiri")){
+                TinggalDengan.setSelectedItem("Sendiri");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),112).toString().contains("Orang Tua")){
+                TinggalDengan.setSelectedItem("Orang Tua");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),112).toString().contains("Suami/Istri")){
+                TinggalDengan.setSelectedItem("Suami/Istri");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),112).toString().contains("Keluarga")){
+                TinggalDengan.setSelectedItem("Keluarga");
+            }else{
+                TinggalDengan.setSelectedItem("Lain-lain");
+            }
+            KeteranganTinggalDengan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),112).toString().replaceAll(TinggalDengan.getSelectedItem().toString()+", ",""));
+            PekerjaanPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),113).toString());
+            CaraBayar.setText(tbObat.getValueAt(tbObat.getSelectedRow(),114).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),115).toString().contains("Tidak Ada")){
+                NilaiKepercayaan.setSelectedItem("Tidak Ada");
+            }else{
+                NilaiKepercayaan.setSelectedItem("Ada");
+            }
+            KeteranganNilaiKepercayaan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),115).toString().replaceAll(NilaiKepercayaan.getSelectedItem().toString()+", ",""));
+            Bahasa.setText(tbObat.getValueAt(tbObat.getSelectedRow(),116).toString());
+            PendidikanPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),117).toString());
+            PendidikanPJ.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),118).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),119).toString().contains("Pasien")){
+                EdukasiPsikolgis.setSelectedItem("Pasien");
+            }else{
+                EdukasiPsikolgis.setSelectedItem("Keluarga");
+            }
+            KeteranganEdukasiPsikologis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),119).toString().replaceAll(EdukasiPsikolgis.getSelectedItem().toString()+", ",""));
+            Nyeri.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),120).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),121).toString().contains("Proses Penyakit")){
+                Provokes.setSelectedItem("Proses Penyakit");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),121).toString().contains("Benturan")){
+                Provokes.setSelectedItem("Benturan");
+            }else{
+                Provokes.setSelectedItem("Lain-lain");
+            }
+            KetProvokes.setText(tbObat.getValueAt(tbObat.getSelectedRow(),121).toString().replaceAll(Provokes.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),122).toString().contains("Seperti Tertusuk")){
+                Quality.setSelectedItem("Seperti Tertusuk");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),122).toString().contains("Berdenyut")){
+                Quality.setSelectedItem("Berdenyut");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),122).toString().contains("Teriris")){
+                Quality.setSelectedItem("Teriris");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),122).toString().contains("Tertindih")){
+                Quality.setSelectedItem("Tertindih");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),122).toString().contains("Tertiban")){
+                Quality.setSelectedItem("Tertiban");
+            }else{
+                Quality.setSelectedItem("Lain-lain");
+            }
+            KetQuality.setText(tbObat.getValueAt(tbObat.getSelectedRow(),122).toString().replaceAll(Quality.getSelectedItem().toString()+", ",""));
+            Lokasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),123).toString());
+            Menyebar.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),124).toString());
+            SkalaNyeri.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),125).toString());
+            Durasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),126).toString());
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),127).toString().contains("Istirahat")){
+                NyeriHilang.setSelectedItem("Istirahat");
+            }else if(tbObat.getValueAt(tbObat.getSelectedRow(),127).toString().contains("Medengar Musik")){
+                NyeriHilang.setSelectedItem("Medengar Musik");
+            }else{
+                NyeriHilang.setSelectedItem("Minum Obat");
+            }
+            KetNyeri.setText(tbObat.getValueAt(tbObat.getSelectedRow(),127).toString().replaceAll(NyeriHilang.getSelectedItem().toString()+", ",""));
+            if(tbObat.getValueAt(tbObat.getSelectedRow(),128).toString().contains("Ya")){
+                PadaDokter.setSelectedItem("Ya");
+            }else{
+                PadaDokter.setSelectedItem("Tidak");
+            }
+            KetPadaDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),128).toString().replaceAll(PadaDokter.getSelectedItem().toString()+", ",""));
+            SkalaResiko1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),129).toString());
+            NilaiResiko1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),130).toString());
+            SkalaResiko2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),131).toString());
+            NilaiResiko2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),132).toString());
+            SkalaResiko3.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),133).toString());
+            NilaiResiko3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),134).toString());
+            SkalaResiko4.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),135).toString());
+            NilaiResiko4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),136).toString());
+            SkalaResiko5.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),137).toString());
+            NilaiResiko5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),138).toString());
+            SkalaResiko6.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),139).toString());
+            NilaiResiko6.setText(tbObat.getValueAt(tbObat.getSelectedRow(),140).toString());
+            NilaiResikoTotal.setText(tbObat.getValueAt(tbObat.getSelectedRow(),141).toString());
+            isTotalResikoJatuh();
+            SkalaSydney1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),142).toString());
+            NilaiSydney1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),143).toString());
+            SkalaSydney2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),144).toString());
+            NilaiSydney2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),145).toString());
+            SkalaSydney3.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),146).toString());
+            NilaiSydney3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),147).toString());
+            SkalaSydney4.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),148).toString());
+            NilaiSydney4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),149).toString());
+            SkalaSydney5.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),150).toString());
+            NilaiSydney5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),151).toString());
+            SkalaSydney6.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),152).toString());
+            NilaiSydney6.setText(tbObat.getValueAt(tbObat.getSelectedRow(),153).toString());
+            SkalaSydney7.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),154).toString());
+            NilaiSydney7.setText(tbObat.getValueAt(tbObat.getSelectedRow(),155).toString());
+            SkalaSydney8.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),156).toString());
+            NilaiSydney8.setText(tbObat.getValueAt(tbObat.getSelectedRow(),157).toString());
+            SkalaSydney9.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),158).toString());
+            NilaiSydney9.setText(tbObat.getValueAt(tbObat.getSelectedRow(),159).toString());
+            SkalaSydney10.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),160).toString());
+            NilaiSydney10.setText(tbObat.getValueAt(tbObat.getSelectedRow(),161).toString());
+            SkalaSydney11.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),162).toString());
+            NilaiSydney11.setText(tbObat.getValueAt(tbObat.getSelectedRow(),163).toString());
+            NilaiSydneyTotal.setText(tbObat.getValueAt(tbObat.getSelectedRow(),164).toString());
+            isTotalResikoSydney();
+            SkalaGizi1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),165).toString());
+            NilaiGizi1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),166).toString());
+            SkalaGizi2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),167).toString());
+            NilaiGizi2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),168).toString());
+            NilaiGiziTotal.setText(tbObat.getValueAt(tbObat.getSelectedRow(),169).toString());
+            DiagnosaKhususGizi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),170).toString());
+            KeteranganDiagnosaKhususGizi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),171).toString());
+            DiketahuiDietisen.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),172).toString());
+            KeteranganDiketahuiDietisen.setText(tbObat.getValueAt(tbObat.getSelectedRow(),173).toString());
+            Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),174).toString());
+            
+            try {
+                Valid.tabelKosong(tabModeMasalah);
+                
+                ps=koneksi.prepareStatement(
+                        "select master_masalah_keperawatan.kode_masalah,master_masalah_keperawatan.nama_masalah from master_masalah_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan.kode_masalah "+
+                        "where penilaian_awal_keperawatan_ranap_masalah.no_rawat=? order by penilaian_awal_keperawatan_ranap_masalah.kode_masalah");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeMasalah.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            try {
+                Valid.tabelKosong(tabModeRencana);
+                
+                ps=koneksi.prepareStatement(
+                        "select master_rencana_keperawatan.kode_rencana,master_rencana_keperawatan.rencana_keperawatan from master_rencana_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan.kode_rencana "+
+                        "where penilaian_awal_keperawatan_ranap_rencana.no_rawat=? order by penilaian_awal_keperawatan_ranap_rencana.kode_rencana");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeRencana.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
         }
     }
 
@@ -8464,7 +8883,59 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         if(tbObat.getSelectedRow()!= -1){
             TNoRM1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());
             TPasien1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());
+            DetailRencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),174).toString());
             
+            try {
+                Valid.tabelKosong(tabModeDetailMasalah);
+                ps=koneksi.prepareStatement(
+                        "select master_masalah_keperawatan.kode_masalah,master_masalah_keperawatan.nama_masalah from master_masalah_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan.kode_masalah "+
+                        "where penilaian_awal_keperawatan_ranap_masalah.no_rawat=? order by penilaian_awal_keperawatan_ranap_masalah.kode_masalah");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeDetailMasalah.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            try {
+                Valid.tabelKosong(tabModeDetailRencana);
+                ps=koneksi.prepareStatement(
+                        "select master_rencana_keperawatan.kode_rencana,master_rencana_keperawatan.rencana_keperawatan from master_rencana_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan.kode_rencana "+
+                        "where penilaian_awal_keperawatan_ranap_rencana.no_rawat=? order by penilaian_awal_keperawatan_ranap_rencana.kode_rencana");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeDetailRencana.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
         }
     }
    
@@ -8485,7 +8956,51 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        
+        if(Sequel.mengedittf("penilaian_awal_keperawatan_ranap","no_rawat=?","no_rawat=?,tanggal=?,informasi=?,ket_informasi=?,tiba_diruang_rawat=?,kasus_trauma=?,cara_masuk=?,rps=?,rpd=?,rpk=?,rpo=?,riwayat_pembedahan=?,riwayat_dirawat_dirs=?,alat_bantu_dipakai=?,riwayat_kehamilan=?,riwayat_kehamilan_perkiraan=?,riwayat_tranfusi=?,riwayat_alergi=?,riwayat_merokok=?,riwayat_merokok_jumlah=?,riwayat_alkohol=?,riwayat_alkohol_jumlah=?,riwayat_narkoba=?,riwayat_olahraga=?,pemeriksaan_mental=?,pemeriksaan_keadaan_umum=?,pemeriksaan_gcs=?,pemeriksaan_td=?,pemeriksaan_nadi=?,pemeriksaan_rr=?,pemeriksaan_suhu=?,pemeriksaan_spo2=?,pemeriksaan_bb=?,pemeriksaan_tb=?,pemeriksaan_susunan_kepala=?,pemeriksaan_susunan_kepala_keterangan=?,pemeriksaan_susunan_wajah=?,pemeriksaan_susunan_wajah_keterangan=?,pemeriksaan_susunan_leher=?,pemeriksaan_susunan_kejang=?,pemeriksaan_susunan_kejang_keterangan=?,pemeriksaan_susunan_sensorik=?,pemeriksaan_kardiovaskuler_denyut_nadi=?,pemeriksaan_kardiovaskuler_sirkulasi=?,pemeriksaan_kardiovaskuler_sirkulasi_keterangan=?,pemeriksaan_kardiovaskuler_pulsasi=?,pemeriksaan_respirasi_pola_nafas=?,pemeriksaan_respirasi_retraksi=?,pemeriksaan_respirasi_suara_nafas=?,pemeriksaan_respirasi_volume_pernafasan=?,pemeriksaan_respirasi_jenis_pernafasan=?,pemeriksaan_respirasi_jenis_pernafasan_keterangan=?,pemeriksaan_respirasi_irama_nafas=?,pemeriksaan_respirasi_batuk=?,pemeriksaan_gastrointestinal_mulut=?,pemeriksaan_gastrointestinal_mulut_keterangan=?,pemeriksaan_gastrointestinal_gigi=?,pemeriksaan_gastrointestinal_gigi_keterangan=?,pemeriksaan_gastrointestinal_lidah=?,pemeriksaan_gastrointestinal_lidah_keterangan=?,pemeriksaan_gastrointestinal_tenggorokan=?,pemeriksaan_gastrointestinal_tenggorokan_keterangan=?,pemeriksaan_gastrointestinal_abdomen=?,pemeriksaan_gastrointestinal_abdomen_keterangan=?,pemeriksaan_gastrointestinal_peistatik_usus=?,pemeriksaan_gastrointestinal_anus=?,pemeriksaan_neurologi_pengelihatan=?,pemeriksaan_neurologi_pengelihatan_keterangan=?,pemeriksaan_neurologi_alat_bantu_penglihatan=?,pemeriksaan_neurologi_pendengaran=?,pemeriksaan_neurologi_bicara=?,pemeriksaan_neurologi_bicara_keterangan=?,pemeriksaan_neurologi_sensorik=?,pemeriksaan_neurologi_motorik=?,pemeriksaan_neurologi_kekuatan_otot=?,pemeriksaan_integument_warnakulit=?,pemeriksaan_integument_turgor=?,pemeriksaan_integument_kulit=?,pemeriksaan_integument_dekubitas=?,pemeriksaan_muskuloskletal_pergerakan_sendi=?,pemeriksaan_muskuloskletal_kekauatan_otot=?,pemeriksaan_muskuloskletal_nyeri_sendi=?,pemeriksaan_muskuloskletal_nyeri_sendi_keterangan=?,pemeriksaan_muskuloskletal_oedema=?,pemeriksaan_muskuloskletal_oedema_keterangan=?,pemeriksaan_muskuloskletal_fraktur=?,pemeriksaan_muskuloskletal_fraktur_keterangan=?,pemeriksaan_eliminasi_bab_frekuensi_jumlah=?,pemeriksaan_eliminasi_bab_frekuensi_durasi=?,pemeriksaan_eliminasi_bab_konsistensi=?,pemeriksaan_eliminasi_bab_warna=?,pemeriksaan_eliminasi_bak_frekuensi_jumlah=?,pemeriksaan_eliminasi_bak_frekuensi_durasi=?,pemeriksaan_eliminasi_bak_warna=?,pemeriksaan_eliminasi_bak_lainlain=?,pola_aktifitas_makanminum=?,pola_aktifitas_mandi=?,pola_aktifitas_eliminasi=?,pola_aktifitas_berpakaian=?,pola_aktifitas_berpindah=?,pola_nutrisi_frekuesi_makan=?,pola_nutrisi_jenis_makanan=?,pola_nutrisi_porsi_makan=?,pola_tidur_lama_tidur=?,pola_tidur_gangguan=?,pengkajian_fungsi_kemampuan_sehari=?,pengkajian_fungsi_aktifitas=?,pengkajian_fungsi_berjalan=?,pengkajian_fungsi_berjalan_keterangan=?,pengkajian_fungsi_ambulasi=?,pengkajian_fungsi_ekstrimitas_atas=?,pengkajian_fungsi_ekstrimitas_atas_keterangan=?,pengkajian_fungsi_ekstrimitas_bawah=?,pengkajian_fungsi_ekstrimitas_bawah_keterangan=?,pengkajian_fungsi_menggenggam=?,pengkajian_fungsi_menggenggam_keterangan=?,pengkajian_fungsi_koordinasi=?,pengkajian_fungsi_koordinasi_keterangan=?,pengkajian_fungsi_kesimpulan=?,riwayat_psiko_kondisi_psiko=?,riwayat_psiko_gangguan_jiwa=?,riwayat_psiko_perilaku=?,riwayat_psiko_perilaku_keterangan=?,riwayat_psiko_hubungan_keluarga=?,riwayat_psiko_tinggal=?,riwayat_psiko_tinggal_keterangan=?,riwayat_psiko_nilai_kepercayaan=?,riwayat_psiko_nilai_kepercayaan_keterangan=?,riwayat_psiko_pendidikan_pj=?,riwayat_psiko_edukasi_diberikan=?,riwayat_psiko_edukasi_diberikan_keterangan=?,penilaian_nyeri=?,penilaian_nyeri_penyebab=?,penilaian_nyeri_ket_penyebab=?,penilaian_nyeri_kualitas=?,penilaian_nyeri_ket_kualitas=?,penilaian_nyeri_lokasi=?,penilaian_nyeri_menyebar=?,penilaian_nyeri_skala=?,penilaian_nyeri_waktu=?,penilaian_nyeri_hilang=?,penilaian_nyeri_ket_hilang=?,penilaian_nyeri_diberitahukan_dokter=?,penilaian_nyeri_jam_diberitahukan_dokter=?,penilaian_jatuhmorse_skala1=?,penilaian_jatuhmorse_nilai1=?,penilaian_jatuhmorse_skala2=?,penilaian_jatuhmorse_nilai2=?,penilaian_jatuhmorse_skala3=?,penilaian_jatuhmorse_nilai3=?,penilaian_jatuhmorse_skala4=?,penilaian_jatuhmorse_nilai4=?,penilaian_jatuhmorse_skala5=?,penilaian_jatuhmorse_nilai5=?,penilaian_jatuhmorse_skala6=?,penilaian_jatuhmorse_nilai6=?,penilaian_jatuhmorse_totalnilai=?,penilaian_jatuhsydney_skala1=?,penilaian_jatuhsydney_nilai1=?,penilaian_jatuhsydney_skala2=?,penilaian_jatuhsydney_nilai2=?,penilaian_jatuhsydney_skala3=?,penilaian_jatuhsydney_nilai3=?,penilaian_jatuhsydney_skala4=?,penilaian_jatuhsydney_nilai4=?,penilaian_jatuhsydney_skala5=?,penilaian_jatuhsydney_nilai5=?,penilaian_jatuhsydney_skala6=?,penilaian_jatuhsydney_nilai6=?,penilaian_jatuhsydney_skala7=?,penilaian_jatuhsydney_nilai7=?,penilaian_jatuhsydney_skala8=?,penilaian_jatuhsydney_nilai8=?,penilaian_jatuhsydney_skala9=?,penilaian_jatuhsydney_nilai9=?,penilaian_jatuhsydney_skala10=?,penilaian_jatuhsydney_nilai10=?,penilaian_jatuhsydney_skala11=?,penilaian_jatuhsydney_nilai11=?,penilaian_jatuhsydney_totalnilai=?,skrining_gizi1=?,nilai_gizi1=?,skrining_gizi2=?,nilai_gizi2=?,nilai_total_gizi=?,skrining_gizi_diagnosa_khusus=?,skrining_gizi_ket_diagnosa_khusus=?,skrining_gizi_diketahui_dietisen=?,skrining_gizi_jam_diketahui_dietisen=?,rencana=?,nip1=?,nip2=?,kd_dokter=?",194,new String[]{
+                TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Anamnesis.getSelectedItem().toString(),KetAnamnesis.getText(),TibadiRuang.getSelectedItem().toString(),MacamKasus.getSelectedItem().toString(), 
+                    CaraMasuk.getSelectedItem().toString(),RPS.getText(),RPD.getText(),RPK.getText(),RPO.getText(),RPembedahan.getText(),RDirawatRS.getText(),AlatBantuDipakai.getSelectedItem().toString(),SedangMenyusui.getSelectedItem().toString(),KetSedangMenyusui.getText(),RTranfusi.getText(), 
+                    Alergi.getText(),KebiasaanMerokok.getSelectedItem().toString(),KebiasaanJumlahRokok.getText(),KebiasaanAlkohol.getSelectedItem().toString(),KebiasaanJumlahAlkohol.getText(),KebiasaanNarkoba.getSelectedItem().toString(),OlahRaga.getSelectedItem().toString(),KesadaranMental.getText(), 
+                    KeadaanMentalUmum.getSelectedItem().toString(),GCS.getText(),TD.getText(),Nadi.getText(),RR.getText(),Suhu.getText(),SpO2.getText(),BB.getText(),TB.getText(),SistemSarafKepala.getSelectedItem().toString(),KetSistemSarafKepala.getText(),SistemSarafWajah.getSelectedItem().toString(), 
+                    KetSistemSarafWajah.getText(),SistemSarafLeher.getSelectedItem().toString(),SistemSarafKejang.getSelectedItem().toString(),KetSistemSarafKejang.getText(),SistemSarafSensorik.getSelectedItem().toString(),KardiovaskularDenyutNadi.getSelectedItem().toString(),KardiovaskularSirkulasi.getSelectedItem().toString(), 
+                    KetKardiovaskularSirkulasi.getText(),KardiovaskularPulsasi.getSelectedItem().toString(),RespirasiPolaNafas.getSelectedItem().toString(),RespirasiRetraksi.getSelectedItem().toString(),RespirasiSuaraNafas.getSelectedItem().toString(),RespirasiVolume.getSelectedItem().toString(),
+                    RespirasiJenisPernafasan.getSelectedItem().toString(),KetRespirasiJenisPernafasan.getText(),RespirasiIrama.getSelectedItem().toString(),RespirasiBatuk.getSelectedItem().toString(),GastrointestinalMulut.getSelectedItem().toString(),KetGastrointestinalMulut.getText(),
+                    GastrointestinalGigi.getSelectedItem().toString(),KetGastrointestinalGigi.getText(),GastrointestinalLidah.getSelectedItem().toString(),KetGastrointestinalLidah.getText(),GastrointestinalTenggorakan.getSelectedItem().toString(),KetGastrointestinalTenggorakan.getText(), 
+                    GastrointestinalAbdomen.getSelectedItem().toString(),KetGastrointestinalAbdomen.getText(),GastrointestinalUsus.getSelectedItem().toString(),GastrointestinalAnus.getSelectedItem().toString(),NeurologiPenglihatan.getSelectedItem().toString(),KetNeurologiPenglihatan.getText(), 
+                    NeurologiAlatBantuPenglihatan.getSelectedItem().toString(),NeurologiPendengaran.getSelectedItem().toString(),NeurologiBicara.getSelectedItem().toString(),KetNeurologiBicara.getText(),NeurologiSensorik.getSelectedItem().toString(),NeurologiMotorik.getSelectedItem().toString(), 
+                    NeurologiOtot.getSelectedItem().toString(),IntegumentWarnaKulit.getSelectedItem().toString(),IntegumentTurgor.getSelectedItem().toString(),IntegumentKulit.getSelectedItem().toString(),IntegumentDecubitus.getSelectedItem().toString(),MuskuloskletalPegerakanSendi.getSelectedItem().toString(), 
+                    MuskuloskletalKekuatanOtot.getSelectedItem().toString(),MuskuloskletalNyeriSendi.getSelectedItem().toString(),KetMuskuloskletalNyeriSendi.getText(),MuskuloskletalOedema.getSelectedItem().toString(),KetMuskuloskletalOedema.getText(),MuskuloskletalFraktur.getSelectedItem().toString(), 
+                    KetMuskuloskletalFraktur.getText(),BAB.getText(),XBAB.getText(),KBAB.getText(),WBAB.getText(),BAK.getText(),XBAK.getText(),WBAK.getText(),LBAK.getText(),PolaAktifitasMakan.getSelectedItem().toString(),PolaAktifitasMandi.getSelectedItem().toString(),PolaAktifitasEliminasi.getSelectedItem().toString(), 
+                    PolaAktifitasBerpakaian.getSelectedItem().toString(),PolaAktifitasBerpindah.getSelectedItem().toString(),PolaNutrisiFrekuensi.getText(),PolaNutrisiJenis.getText(),PolaNutrisiPorsi.getText(),PolaTidurLama.getText(),PolaTidurGangguan.getSelectedItem().toString(),AktifitasSehari2.getSelectedItem().toString(), 
+                    Aktifitas.getSelectedItem().toString(),Berjalan.getSelectedItem().toString(),KeteranganBerjalan.getText(),AlatAmbulasi.getSelectedItem().toString(),EkstrimitasAtas.getSelectedItem().toString(),KeteranganEkstrimitasAtas.getText(),EkstrimitasBawah.getSelectedItem().toString(),
+                    KeteranganEkstrimitasBawah.getText(),KemampuanMenggenggam.getSelectedItem().toString(),KeteranganKemampuanMenggenggam.getText(),KemampuanKoordinasi.getSelectedItem().toString(),KeteranganKemampuanKoordinasi.getText(),KesimpulanGangguanFungsi.getSelectedItem().toString(),
+                    KondisiPsikologis.getSelectedItem().toString(),GangguanJiwa.getSelectedItem().toString(),AdakahPerilaku.getSelectedItem().toString(),KeteranganAdakahPerilaku.getText(),HubunganAnggotaKeluarga.getSelectedItem().toString(),TinggalDengan.getSelectedItem().toString(),KeteranganTinggalDengan.getText(),
+                    NilaiKepercayaan.getSelectedItem().toString(),KeteranganNilaiKepercayaan.getText(),PendidikanPJ.getSelectedItem().toString(),EdukasiPsikolgis.getSelectedItem().toString(),KeteranganEdukasiPsikologis.getText(),Nyeri.getSelectedItem().toString(),Provokes.getSelectedItem().toString(),KetProvokes.getText(), 
+                    Quality.getSelectedItem().toString(),KetQuality.getText(),Lokasi.getText(),Menyebar.getSelectedItem().toString(),SkalaNyeri.getSelectedItem().toString(),Durasi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(), 
+                    KetPadaDokter.getText(),SkalaResiko1.getSelectedItem().toString(),NilaiResiko1.getText(),SkalaResiko2.getSelectedItem().toString(),NilaiResiko2.getText(),SkalaResiko3.getSelectedItem().toString(),NilaiResiko3.getText(),SkalaResiko4.getSelectedItem().toString(),NilaiResiko4.getText(), 
+                    SkalaResiko5.getSelectedItem().toString(),NilaiResiko5.getText(),SkalaResiko6.getSelectedItem().toString(),NilaiResiko6.getText(),NilaiResikoTotal.getText(),SkalaSydney1.getSelectedItem().toString(),NilaiSydney1.getText(),SkalaSydney2.getSelectedItem().toString(),NilaiSydney2.getText(),
+                    SkalaSydney3.getSelectedItem().toString(),NilaiSydney3.getText(),SkalaSydney4.getSelectedItem().toString(),NilaiSydney4.getText(),SkalaSydney5.getSelectedItem().toString(),NilaiSydney5.getText(),SkalaSydney6.getSelectedItem().toString(),NilaiSydney6.getText(), 
+                    SkalaSydney7.getSelectedItem().toString(),NilaiSydney7.getText(),SkalaSydney8.getSelectedItem().toString(),NilaiSydney8.getText(),SkalaSydney9.getSelectedItem().toString(),NilaiSydney9.getText(),SkalaSydney10.getSelectedItem().toString(),NilaiSydney10.getText(), 
+                    SkalaSydney11.getSelectedItem().toString(),NilaiSydney11.getText(),NilaiSydneyTotal.getText(),SkalaGizi1.getSelectedItem().toString(),NilaiGizi1.getText(),SkalaGizi2.getSelectedItem().toString(),NilaiGizi2.getText(),NilaiGiziTotal.getText(),DiagnosaKhususGizi.getSelectedItem().toString(),
+                    KeteranganDiagnosaKhususGizi.getText(),DiketahuiDietisen.getSelectedItem().toString(),KeteranganDiketahuiDietisen.getText(),Rencana.getText(),KdPetugas.getText(),KdPetugas2.getText(),KdDPJP.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+             })==true){
+                Sequel.meghapus("penilaian_awal_keperawatan_ranap_masalah","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                for (i = 0; i < tbMasalahKeperawatan.getRowCount(); i++) {
+                    if(tbMasalahKeperawatan.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_masalah","?,?",2,new String[]{TNoRw.getText(),tbMasalahKeperawatan.getValueAt(i,1).toString()});
+                    }
+                }
+                Sequel.meghapus("penilaian_awal_keperawatan_ranap_rencana","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                for (i = 0; i < tbRencanaKeperawatan.getRowCount(); i++) {
+                    if(tbRencanaKeperawatan.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_rencana","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()});
+                    }
+                }
+                getMasalah();
+                tampil();
+                DetailRencana.setText(Rencana.getText());
+                emptTeks();
+                TabRawat.setSelectedIndex(1);
+        }
     }
     
     private void isTotalResikoJatuh(){

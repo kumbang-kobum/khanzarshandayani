@@ -658,7 +658,7 @@ public final class SuratTidakHamil extends javax.swing.JDialog {
                 param.put("propinsirs",akses.getpropinsirs());
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());   
-                param.put("logo",Sequel.cariGambar("select logo from setting")); 
+                param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             tgl=" surat_hamil.tanggalperiksa between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
             if(TCari.getText().trim().equals("")){
                 Valid.MyReportqry("rptDataSuratHamil.jasper","report","::[ Data Surat Keterangan Hamil/Tidak Hamil ]::",
@@ -770,7 +770,7 @@ public final class SuratTidakHamil extends javax.swing.JDialog {
                 param.put("emailrs",akses.getemailrs());    
                 finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
                 param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),6).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString()));  
-                param.put("logo",Sequel.cariGambar("select logo from setting")); 
+                param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
                 Valid.MyReportqry("rptSuratTidakHamil.jasper","report","::[ Surat Keterangan Hamil/ Tidak Hamil ]::",
                               "select surat_hamil.no_surat,surat_hamil.hasilperiksa,DATE_FORMAT(surat_hamil.tanggalperiksa,'%d-%m-%Y')as tanggalperiksa,perusahaan_pasien.nama_perusahaan,dokter.nm_dokter,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y')as tgl_lahir," +
                               " pasien.nm_pasien,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.pekerjaan,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat" +
@@ -899,7 +899,7 @@ public final class SuratTidakHamil extends javax.swing.JDialog {
         TPasien.setText("");
         NoSurat.setText("");
         TanggalPeriksa.setDate(new Date());
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(no_surat,3),signed)),0) from surat_hamil where tanggalperiksa='"+Valid.SetTgl(TanggalPeriksa.getSelectedItem()+"")+"' ",
+        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_hamil.no_surat,3),signed)),0) from surat_hamil where surat_hamil.tanggalperiksa='"+Valid.SetTgl(TanggalPeriksa.getSelectedItem()+"")+"' ",
                 "SKH"+TanggalPeriksa.getSelectedItem().toString().substring(6,10)+TanggalPeriksa.getSelectedItem().toString().substring(3,5)+TanggalPeriksa.getSelectedItem().toString().substring(0,2),3,NoSurat); 
         NoSurat.requestFocus();
     }
@@ -917,11 +917,11 @@ public final class SuratTidakHamil extends javax.swing.JDialog {
     }
 
     private void isRawat() {
-         Sequel.cariIsi("select no_rkm_medis from reg_periksa where no_rawat='"+TNoRw.getText()+"' ",TNoRM);
+         Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat='"+TNoRw.getText()+"' ",TNoRM);
     }
 
     private void isPsien() {
-        Sequel.cariIsi("select nm_pasien from pasien where no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
+        Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",TPasien);
     }
     
     public void setNoRm(String norwt,String norm,String pasien, Date tgl1, Date tgl2) {

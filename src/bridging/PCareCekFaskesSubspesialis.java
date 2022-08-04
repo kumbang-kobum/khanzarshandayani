@@ -29,6 +29,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.FileInputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -452,9 +453,6 @@ public final class PCareCekFaskesSubspesialis extends javax.swing.JDialog {
         if(KdSpesialis.getText().trim().equals("")||NmSpesialis.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Silahkan pilih subspesialis dulu..!!");
             BtnPropinsi.requestFocus();
-        }else if(KdSarana.getText().trim().equals("")||NmSarana.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Silahkan pilih sarana dulu..!!");
-            BtnPropinsi.requestFocus();
         }else{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             tampil(KdSpesialis.getText(),KdSarana.getText(),Tanggal.getSelectedItem().toString());
@@ -571,14 +569,35 @@ public final class PCareCekFaskesSubspesialis extends javax.swing.JDialog {
         }
     } 
     
-    public void setCari(String kodespesialis,String namaspesialis,String kodesarana, String namasarana){
+    public void setCari(String kodespesialis,String namaspesialis,String kodesarana, String namasarana,Date tanggal){
         KdSpesialis.setText(kodespesialis);
         NmSpesialis.setText(namaspesialis);
         KdSarana.setText(kodesarana);
         NmSarana.setText(namasarana);
+        Tanggal.setDate(tanggal);
     }
 
     public JTable getTable(){
         return tbKamar;
-    }    
+    }   
+    
+    public String KodeSpesialis(){
+        return KdSpesialis.getText();
+    }
+    
+    public String NamaSpesialis(){
+        return NmSpesialis.getText();
+    }
+    
+    public String KodeSarana(){
+        return KdSarana.getText();
+    }
+    
+    public String NamaSarana(){
+        return NmSarana.getText();
+    }
+    
+    public Date TanggalRujuk(){
+        return Tanggal.getDate();
+    }
 }

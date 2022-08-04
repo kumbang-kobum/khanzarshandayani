@@ -20,7 +20,7 @@
 pemeriksaan_ralan.tgl_perawatan,pemeriksaan_ralan.jam_rawat,pemeriksaan_ralan.suhu_tubuh,pemeriksaan_ralan.tensi,
 pemeriksaan_ralan.nadi,pemeriksaan_ralan.respirasi,pemeriksaan_ralan.spo2,pemeriksaan_ralan.tinggi, 
 pemeriksaan_ralan.berat,pemeriksaan_ralan.gcs,pemeriksaan_ralan.kesadaran,pemeriksaan_ralan.keluhan, 
-pemeriksaan_ralan.pemeriksaan,pemeriksaan_ralan.alergi,pemeriksaan_ralan.imun_ke,
+pemeriksaan_ralan.pemeriksaan,pemeriksaan_ralan.alergi,pemeriksaan_ralan.lingkar_perut,
 pemeriksaan_ralan.rtl,pemeriksaan_ralan.penilaian,pemeriksaan_ralan.instruksi,pemeriksaan_ralan.evaluasi,pemeriksaan_ralan.nip,pegawai.nama 
 from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis 
 inner join pemeriksaan_ralan on pemeriksaan_ralan.no_rawat=reg_periksa.no_rawat
@@ -127,9 +127,9 @@ inner join pegawai on pemeriksaan_ralan.nip=pegawai.nik]]>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pemeriksaan_ralan"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="imun_ke" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="imun_ke"/>
-		<property name="com.jaspersoft.studio.field.label" value="imun_ke"/>
+	<field name="lingkar_perut" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="lingkar_perut"/>
+		<property name="com.jaspersoft.studio.field.label" value="lingkar_perut"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pemeriksaan_ralan"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -797,7 +797,7 @@ inner join pegawai on pemeriksaan_ralan.nip=pegawai.nik]]>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{imun_ke}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{lingkar_perut}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="450" y="42" width="33" height="10" uuid="d6cceb9f-76eb-4f4b-a721-90f1414df870">
@@ -806,7 +806,7 @@ inner join pegawai on pemeriksaan_ralan.nip=pegawai.nik]]>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
-				<text><![CDATA[Imun_ke]]></text>
+				<text><![CDATA[LP]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="484" y="42" width="10" height="10" uuid="c28fb91b-826d-45b7-bc68-ca66cd75c6ce"/>

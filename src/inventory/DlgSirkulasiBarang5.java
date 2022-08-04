@@ -44,7 +44,7 @@ public class DlgSirkulasiBarang5 extends javax.swing.JDialog {
                    totalretpiut=0,totalpasin=0,totalrespulang=0,totalhibah=0,totalstok=0,totalstokawal=0,totalstokakhir=0,
                    ttltotaljual=0,ttltotalbeli=0,ttltotalpesan=0,ttltotalpiutang=0,ttltotalutd=0,ttltotalkeluar=0,ttltotalmutasikeluar=0,
                    ttltotalmutasimasuk=0,ttltotalretbeli=0,ttltotalretjual=0,ttltotalretpiut=0,ttltotalpasin=0,ttltotalrespulang=0,
-                   ttltotalhibah=0,ttltotalstok=0,ttltotalstokawal=0,ttltotalstokakhir=0;
+                   ttltotalhibah=0,ttltotalstok=0,ttltotalstokawal=0,ttltotalstokakhir=0,rowstokawal=0,harga=0;
     private DlgCariJenis jenis = new DlgCariJenis(null, false);
     private DlgCariKategori kategori = new DlgCariKategori(null, false);
     private DlgCariGolongan golongan = new DlgCariGolongan(null, false);
@@ -1060,23 +1060,23 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 rs=ps.executeQuery();   
                 
                 if(aktifkanbatch.equals("yes")){
-                    qrystok="select sum(stok),(sum(stok)*"+hppfarmasi+") as aset "+
+                    qrystok="select sum(gudangbarang.stok),(sum(gudangbarang.stok)*gudangbarang."+hppfarmasi+") as aset,gudangbarang."+hppfarmasi+" as harga "+
                             "from gudangbarang inner join databarang on gudangbarang.kode_brng=databarang.kode_brng "+
                             "where gudangbarang.kode_brng=? and gudangbarang.no_batch<>'' and gudangbarang.no_faktur<>''";
                 }else{
-                    qrystok="select sum(stok),(sum(stok)*"+hppfarmasi+") as aset "+
+                    qrystok="select sum(gudangbarang.stok),(sum(gudangbarang.stok)*gudangbarang."+hppfarmasi+") as aset,gudangbarang."+hppfarmasi+" as harga "+
                             "from gudangbarang inner join databarang on gudangbarang.kode_brng=databarang.kode_brng "+
                             "where gudangbarang.kode_brng=? and gudangbarang.no_batch='' and gudangbarang.no_faktur=''";
                 }
                 
                 while(rs.next()){
-                    jumlahjual=0;jumlahbeli=0;jumlahpiutang=0;jumlahpesan=0;jumlahretbeli=0;jumlahretjual=0;
+                    jumlahjual=0;jumlahbeli=0;jumlahpiutang=0;jumlahpesan=0;jumlahretbeli=0;jumlahretjual=0;rowstokawal=0;
                     jumlahretpiut=0;jumlahpasin=0;stok=0;stokawal=0;jumlahutd=0;jumlahkeluar=0;jumlahrespulang=0;
                     jumlahmutasikeluar=0;jumlahmutasimasuk=0;jumlahhibah=0;stokakhir=0;tglopname="0000-00-00";
                     totaljual=0;totalbeli=0;totalpesan=0;totalpiutang=0;totalutd=0;totalkeluar=0;totalmutasikeluar=0;
                     totalmutasimasuk=0;totalretbeli=0;totalretjual=0;totalretpiut=0;totalpasin=0;totalrespulang=0;
-                    totalhibah=0;totalstok=0;totalstokawal=0;totalstokakhir=0;
-                    tglopname=Sequel.cariIsi("select tanggal from opname where kode_brng='"+rs.getString(1)+"' and tanggal between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' order by tanggal asc limit 1");
+                    totalhibah=0;totalstok=0;totalstokawal=0;totalstokakhir=0;harga=0;
+                    tglopname=Sequel.cariIsi("select opname.tanggal from opname where opname.kode_brng='"+rs.getString(1)+"' and opname.tanggal between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' order by opname.tanggal asc limit 1");
 
                     if(tglopname.equals("")){
                         tglopname=Valid.SetTgl(Tgl1.getSelectedItem()+"");
@@ -1089,6 +1089,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         if(rs2.next()){
                             stok=rs2.getDouble(1);
                             totalstok=rs2.getDouble(2);
+                            harga=rs2.getDouble(3);
                         } 
                     } catch (Exception e) {
                         System.out.println("Note : "+e);
@@ -1405,7 +1406,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         }
                     }
 
-                    ps2=koneksi.prepareStatement("select sum(opname.real),(opname.real*opname.h_beli) from opname where kode_brng=? and tanggal=?");
+                    ps2=koneksi.prepareStatement("select sum(opname.real),(opname.real*opname.h_beli) from opname where opname.kode_brng=? and opname.tanggal=?");
                     try {
                         ps2.setString(1,rs.getString(1));
                         ps2.setString(2,tglopname);
@@ -1423,11 +1424,29 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         if(ps2!=null){
                             ps2.close();
                         }
-                    }     
+                    } 
                     
-                    ps2=koneksi.prepareStatement("select sum(jml), sum(jml*harga) "+
-                        " from mutasibarang where kode_brng=? and "+
-                        " tanggal between ? and ?");
+                    ps2=koneksi.prepareStatement("select count(opname.real) from opname where opname.kode_brng=? and opname.tanggal=?");
+                    try {
+                        ps2.setString(1,rs.getString(1));
+                        ps2.setString(2,tglopname);
+                        rs2=ps2.executeQuery();
+                        if(rs2.next()){
+                            rowstokawal=rs2.getDouble(1);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Note : "+e);
+                    } finally{
+                        if(rs2!=null){
+                            rs2.close();
+                        }
+                        if(ps2!=null){
+                            ps2.close();
+                        }
+                    }
+                    
+                    ps2=koneksi.prepareStatement("select sum(mutasibarang.jml), sum(mutasibarang.jml*mutasibarang.harga) "+
+                        " from mutasibarang where mutasibarang.kode_brng=? and mutasibarang.tanggal between ? and ?");
                     try {
                         ps2.setString(1,rs.getString(1));
                         ps2.setString(2,tglopname+" 00:00:00");
@@ -1447,9 +1466,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         }
                     }
                     
-                    ps2=koneksi.prepareStatement("select sum(jml), sum(jml*harga) "+
-                        " from mutasibarang where kode_brng=? and "+
-                        " tanggal between ? and ?");
+                    ps2=koneksi.prepareStatement("select sum(mutasibarang.jml), sum(mutasibarang.jml*mutasibarang.harga) "+
+                        " from mutasibarang where mutasibarang.kode_brng=? and mutasibarang.tanggal between ? and ?");
                     try {
                         ps2.setString(1,rs.getString(1));
                         ps2.setString(2,tglopname+" 00:00:00");
@@ -1471,14 +1489,14 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
                     if((jumlahbeli>0)||(jumlahpesan>0)||(jumlahjual>0)||(jumlahpasin>0)||(jumlahpiutang>0)||(jumlahhibah>0)||
                             (jumlahutd>0)||(jumlahkeluar>0)||(jumlahretbeli>0)||(jumlahretjual>0)||(jumlahretpiut>0)||(stok>0)||(jumlahrespulang>0)){
-                        if(stokawal<=0){
+                        if(rowstokawal<=0){
                             stokawal=stok-jumlahbeli-jumlahpesan-jumlahmutasimasuk+jumlahmutasikeluar+jumlahjual+jumlahpasin+jumlahpiutang-jumlahhibah+jumlahretbeli-jumlahretjual-jumlahretpiut+jumlahutd+jumlahkeluar+jumlahrespulang;
                             stokakhir=stok;
                             totalstokawal=totalstok-totalbeli-totalpesan-totalmutasimasuk+totalmutasikeluar+totaljual+totalpasin+totalpiutang-totalhibah+totalretbeli-totalretjual-totalretpiut+totalutd+totalkeluar+totalrespulang;
                             totalstokakhir=totalstok;
                         }else{
                             stokakhir=stokawal+jumlahbeli+jumlahpesan+jumlahmutasimasuk-jumlahmutasikeluar-jumlahjual-jumlahpasin-jumlahpiutang+jumlahhibah-jumlahretbeli+jumlahretjual+jumlahretpiut-jumlahutd-jumlahkeluar-jumlahrespulang;
-                            totalstokakhir=totalstokawal+totalbeli+totalpesan+totalmutasimasuk-totalmutasikeluar-totaljual-totalpasin-totalpiutang+totalhibah-totalretbeli+totalretjual+totalretpiut-totalutd-totalkeluar-totalrespulang;
+                            totalstokakhir=stokakhir*harga;
                         }
                         tabMode.addRow(new Object[]{
                             rs.getString(1),rs.getString(2),rs.getString(3),tglopname,Valid.SetAngka(stokawal),Valid.SetAngka(totalstokawal),
@@ -1556,24 +1574,24 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 rs=ps.executeQuery(); 
                 
                 if(aktifkanbatch.equals("yes")){
-                    qrystok="select sum(stok),(sum(stok)*"+hppfarmasi+") as aset "+
+                    qrystok="select sum(gudangbarang.stok),(sum(gudangbarang.stok)*gudangbarang."+hppfarmasi+") as aset,gudangbarang."+hppfarmasi+" as harga "+
                             "from gudangbarang inner join databarang on gudangbarang.kode_brng=databarang.kode_brng "+
                             "where gudangbarang.kode_brng=? and gudangbarang.kd_bangsal=? and gudangbarang.no_batch<>'' and gudangbarang.no_faktur<>''";
                 }else{
-                    qrystok="select sum(stok),(sum(stok)*"+hppfarmasi+") as aset "+
+                    qrystok="select sum(gudangbarang.stok),(sum(gudangbarang.stok)*gudangbarang."+hppfarmasi+") as aset,gudangbarang."+hppfarmasi+" as harga "+
                             "from gudangbarang inner join databarang on gudangbarang.kode_brng=databarang.kode_brng "+
                             "where gudangbarang.kode_brng=? and gudangbarang.kd_bangsal=? and gudangbarang.no_batch='' and gudangbarang.no_faktur=''";
                 }
                 
                 while(rs.next()){
-                    jumlahjual=0;jumlahbeli=0;jumlahpiutang=0;jumlahpesan=0;jumlahretbeli=0;
+                    jumlahjual=0;jumlahbeli=0;jumlahpiutang=0;jumlahpesan=0;jumlahretbeli=0;rowstokawal=0;
                     jumlahretjual=0;jumlahretpiut=0;jumlahpasin=0;stok=0;stokawal=0;jumlahutd=0;
                     jumlahkeluar=0;jumlahrespulang=0;jumlahmutasimasuk=0;jumlahmutasikeluar=0;
                     jumlahhibah=0;tglopname="0000-00-00";totaljual=0;totalbeli=0;totalpesan=0;
                     totalpiutang=0;totalutd=0;totalkeluar=0;totalmutasikeluar=0;
                     totalmutasimasuk=0;totalretbeli=0;totalretjual=0;totalretpiut=0;totalpasin=0;totalrespulang=0;
-                    totalhibah=0;totalstok=0;totalstokawal=0;totalstokakhir=0;
-                    tglopname=Sequel.cariIsi("select tanggal from opname where tanggal between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' and kode_brng='"+rs.getString(1)+"' and kd_bangsal='"+lokasi+"'  order by tanggal asc limit 1");
+                    totalhibah=0;totalstok=0;totalstokawal=0;totalstokakhir=0;harga=0;
+                    tglopname=Sequel.cariIsi("select opname.tanggal from opname where opname.tanggal between '"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"' and opname.kode_brng='"+rs.getString(1)+"' and opname.kd_bangsal='"+lokasi+"'  order by opname.tanggal asc limit 1");
 
                     if(tglopname.equals("")){
                         tglopname=Valid.SetTgl(Tgl1.getSelectedItem()+"");
@@ -1587,6 +1605,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         if(rs2.next()){
                             stok=rs2.getDouble(1);
                             totalstok=rs2.getDouble(2);
+                            harga=rs2.getDouble(3);
                         } 
                     } catch (Exception e) {
                         System.out.println("Note : "+e);
@@ -1888,9 +1907,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         }
                     }
                     
-                    ps2=koneksi.prepareStatement("select sum(jml), sum(jml*harga) "+
-                        " from mutasibarang where kode_brng=? and "+
-                        " tanggal between ? and ? and kd_bangsalke=?");
+                    ps2=koneksi.prepareStatement("select sum(mutasibarang.jml), sum(mutasibarang.jml*mutasibarang.harga) "+
+                        " from mutasibarang where mutasibarang.kode_brng=? and mutasibarang.tanggal between ? and ? and mutasibarang.kd_bangsalke=?");
                     try {
                         ps2.setString(1,rs.getString(1));
                         ps2.setString(2,tglopname+" 00:00:00");
@@ -1912,9 +1930,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         }
                     }
                     
-                    ps2=koneksi.prepareStatement("select sum(jml), sum(jml*harga) "+
-                        " from mutasibarang where kode_brng=? and "+
-                        " tanggal between ? and ? and kd_bangsaldari=?");
+                    ps2=koneksi.prepareStatement("select sum(mutasibarang.jml), sum(mutasibarang.jml*mutasibarang.harga) "+
+                        " from mutasibarang where mutasibarang.kode_brng=? and mutasibarang.tanggal between ? and ? and mutasibarang.kd_bangsaldari=?");
                     try {
                         ps2.setString(1,rs.getString(1));
                         ps2.setString(2,tglopname+" 00:00:00");
@@ -1963,7 +1980,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         }
                     }
                     
-                    ps2=koneksi.prepareStatement("select sum(opname.real),(opname.real*opname.h_beli) from opname where kode_brng=? and tanggal=? and kd_bangsal=?");
+                    ps2=koneksi.prepareStatement("select sum(opname.real),(opname.real*opname.h_beli) from opname where opname.kode_brng=? and opname.tanggal=? and opname.kd_bangsal=?");
                     try {
                         ps2.setString(1,rs.getString(1));
                         ps2.setString(2,tglopname);
@@ -1982,18 +1999,38 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         if(ps2!=null){
                             ps2.close();
                         }
-                    }                        
+                    } 
+                    
+                    ps2=koneksi.prepareStatement("select count(opname.real) from opname where opname.kode_brng=? and opname.tanggal=? and opname.kd_bangsal=?");
+                    try {
+                        ps2.setString(1,rs.getString(1));
+                        ps2.setString(2,tglopname);
+                        ps2.setString(3,lokasi);
+                        rs2=ps2.executeQuery();
+                        if(rs2.next()){
+                            rowstokawal=rs2.getDouble(1);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Note : "+e);
+                    } finally{
+                        if(rs2!=null){
+                            rs2.close();
+                        }
+                        if(ps2!=null){
+                            ps2.close();
+                        }
+                    } 
 
                     if((jumlahbeli>0)||(jumlahpesan>0)||(jumlahjual>0)||(jumlahpasin>0)||(jumlahpiutang>0)||(jumlahhibah>0)||(jumlahmutasimasuk>0)||(jumlahmutasikeluar>0)||
                             (jumlahutd>0)||(jumlahkeluar>0)||(jumlahretbeli>0)||(jumlahretjual>0)||(jumlahretpiut>0)||(stok>0)||(jumlahrespulang>0)){
-                        if(stokawal<=0){
+                        if(rowstokawal<=0){
                             stokawal=stok-jumlahbeli-jumlahpesan-jumlahmutasimasuk+jumlahmutasikeluar+jumlahjual+jumlahpasin+jumlahpiutang-jumlahhibah+jumlahretbeli-jumlahretjual-jumlahretpiut+jumlahutd+jumlahkeluar+jumlahrespulang;
                             stokakhir=stok;
                             totalstokawal=totalstok-totalbeli-totalpesan-totalmutasimasuk+totalmutasikeluar+totaljual+totalpasin+totalpiutang-totalhibah+totalretbeli-totalretjual-totalretpiut+totalutd+totalkeluar+totalrespulang;
                             totalstokakhir=totalstok;
                         }else{
                             stokakhir=stokawal+jumlahbeli+jumlahpesan+jumlahmutasimasuk-jumlahmutasikeluar-jumlahjual-jumlahpasin-jumlahpiutang+jumlahhibah-jumlahretbeli+jumlahretjual+jumlahretpiut-jumlahutd-jumlahkeluar-jumlahrespulang;
-                            totalstokakhir=totalstokawal+totalbeli+totalpesan+totalmutasimasuk-totalmutasikeluar-totaljual-totalpasin-totalpiutang+totalhibah-totalretbeli+totalretjual+totalretpiut-totalutd-totalkeluar-totalrespulang;
+                            totalstokakhir=stokakhir*harga;
                         }
                         tabMode.addRow(new Object[]{
                             rs.getString(1),rs.getString(2),rs.getString(3),tglopname,Valid.SetAngka(stokawal),Valid.SetAngka(totalstokawal),
@@ -2048,7 +2085,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }
     
     public void isCek(){
-         BtnPrint.setEnabled(akses.getsirkulasi_obat2());
+         BtnPrint.setEnabled(akses.getsirkulasi_obat5());
     }
     
 }
