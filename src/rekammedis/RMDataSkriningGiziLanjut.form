@@ -324,7 +324,7 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="08-06-2022"/>
+                        <StringItem index="0" value="05-08-2022"/>
                       </StringArray>
                     </Property>
                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -352,7 +352,7 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="08-06-2022"/>
+                        <StringItem index="0" value="05-08-2022"/>
                       </StringArray>
                     </Property>
                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -511,7 +511,7 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="08-06-2022"/>
+                        <StringItem index="0" value="05-08-2022"/>
                       </StringArray>
                     </Property>
                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -969,8 +969,8 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
-                        <StringItem index="0" value="IMT &gt; 20/z score &gt; 2"/>
-                        <StringItem index="1" value="IMT 18,5-20/-2 =&lt; z score =&lt; 2"/>
+                        <StringItem index="0" value="IMT &gt; 25/z score &gt; 2"/>
+                        <StringItem index="1" value="IMT 18,5-25/-2 =&lt; z score =&lt; 2"/>
                         <StringItem index="2" value="IMT &lt; 18,5/z score &lt; -2"/>
                       </StringArray>
                     </Property>
