@@ -1922,10 +1922,6 @@ and suku_bangsa.id=pasien.suku_bangsa]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{kiriman}]]></textFieldExpression>
 			</textField>
-			<image scaleImage="FillFrame" onErrorType="Blank">
-				<reportElement x="494" y="18" width="51" height="51" uuid="61610e52-fec2-4a1c-9960-6c9a94d0437f"/>
-				<imageExpression><![CDATA["/home/naira/JaspersoftWorkspace/MyReports/naira/kars4bintang.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 </jasperReport>

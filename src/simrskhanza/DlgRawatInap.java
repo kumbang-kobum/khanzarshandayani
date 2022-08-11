@@ -6057,7 +6057,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             RMPenilaianAwalKeperawatanKebidananRanap form=new RMPenilaianAwalKeperawatanKebidananRanap(null,false);
             form.isCek();
             form.emptTeks();
-            form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),jenisbayar,TNoRM.getText());
+            form.setNoRm(TNoRw.getText(),DTPCari1.getDate(),jenisbayar,TNoRM.getText());
             form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             form.setLocationRelativeTo(internalFrame1);
             form.setVisible(true);
@@ -6231,7 +6231,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             RMPenilaianAwalKeperawatanRanap form=new RMPenilaianAwalKeperawatanRanap(null,false);
             form.isCek();
             form.emptTeks();
-            form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),jenisbayar,TNoRM.getText());
+            form.setNoRm(TNoRw.getText(),DTPCari1.getDate(),jenisbayar,TNoRM.getText());
             form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             form.setLocationRelativeTo(internalFrame1);
             form.setVisible(true);

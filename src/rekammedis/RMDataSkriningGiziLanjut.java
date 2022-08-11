@@ -768,7 +768,7 @@ public final class RMDataSkriningGiziLanjut extends javax.swing.JDialog {
         FormInput.add(jLabel14);
         jLabel14.setBounds(79, 100, 335, 23);
 
-        cmbSkor1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IMT > 25/z score > 2", "IMT 18,5-25/-2 =< z score =< 2", "IMT < 18,5/z score < -2" }));
+        cmbSkor1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IMT > 20/z score > 2", "IMT 18,5-20/-2 =< z score =< 2", "IMT < 18,5/z score < -2" }));
         cmbSkor1.setName("cmbSkor1"); // NOI18N
         cmbSkor1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1458,7 +1458,7 @@ public final class RMDataSkriningGiziLanjut extends javax.swing.JDialog {
     }
     
     private void isCombo1(){
-        if(cmbSkor1.getSelectedItem().equals("IMT 18,5-25/-2 =< z score =< 2")){
+        if(cmbSkor1.getSelectedItem().equals("IMT 18,5-20/-2 =< z score =< 2")){
             Skor1.setText("1");
         }else if(cmbSkor1.getSelectedItem().equals("IMT < 18,5/z score < -2")){
             Skor1.setText("2");

@@ -764,6 +764,9 @@ import rekammedis.RMPenilaianAwalMedisIGD;
 import rekammedis.RMPenilaianAwalMedisRalanAnak;
 import rekammedis.RMPenilaianAwalMedisRalanDewasa;
 import rekammedis.RMPenilaianAwalMedisRalanKandungan;
+import rekammedis.RMPenilaianAwalMedisRalanMata;
+import rekammedis.RMPenilaianAwalMedisRalanNeurologi;
+import rekammedis.RMPenilaianAwalMedisRalanOrthopedi;
 import rekammedis.RMPenilaianAwalMedisRalanPenyakitDalam;
 import rekammedis.RMPenilaianAwalMedisRalanPsikiatrik;
 import rekammedis.RMPenilaianAwalMedisRalanTHT;
@@ -1768,7 +1771,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29/07/2022" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09/08/2022" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -6838,8 +6841,8 @@ public class frmUtama extends javax.swing.JFrame {
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setPreferredSize(new java.awt.Dimension(40, 42));
         internalFrame1.setVerifyInputWhenFocusTarget(false);
-        internalFrame1.setWarnaAtas(new java.awt.Color(255, 254, 254));
-        internalFrame1.setWarnaBawah(new java.awt.Color(255, 200, 200));
+        internalFrame1.setWarnaAtas(new java.awt.Color(251, 250, 250));
+        internalFrame1.setWarnaBawah(new java.awt.Color(245, 200, 200));
         internalFrame1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 2));
 
         BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/menu.png"))); // NOI18N
@@ -7059,8 +7062,8 @@ public class frmUtama extends javax.swing.JFrame {
         internalFrame4.setBorder(null);
         internalFrame4.setName("internalFrame4"); // NOI18N
         internalFrame4.setPreferredSize(new java.awt.Dimension(330, 25));
-        internalFrame4.setWarnaAtas(new java.awt.Color(255, 210, 210));
-        internalFrame4.setWarnaBawah(new java.awt.Color(255, 254, 254));
+        internalFrame4.setWarnaAtas(new java.awt.Color(245, 210, 210));
+        internalFrame4.setWarnaBawah(new java.awt.Color(251, 250, 250));
         internalFrame4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 4, 1));
 
         lblStts.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -9350,9 +9353,9 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgPenggajian penggajian=new DlgPenggajian(this,false);
         try {
             if(akses.getpegawai_admin()==true){
-                penggajian.loadURL("http://" +koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"");
+                penggajian.loadURL("http://" +koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&level=admin");
             }else if(akses.getpegawai_user()==true){
-                penggajian.loadURL("http://" +koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere=paijo&passwordte=mumet");
+                penggajian.loadURL("http://" +koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB()+"&level=user");
             }            
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex);
@@ -18807,6 +18810,48 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnPenilaianAwalMedisRalanMataActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianAwalMedisRalanMata aplikasi=new RMPenilaianAwalMedisRalanMata(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setTampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnPenilaianAwalMedisRalanNeurologiActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianAwalMedisRalanNeurologi aplikasi=new RMPenilaianAwalMedisRalanNeurologi(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setTampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnPenilaianAwalMedisRalanOrthopediActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianAwalMedisRalanOrthopedi aplikasi=new RMPenilaianAwalMedisRalanOrthopedi(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setTampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -19455,7 +19500,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnAuditPembuanganBendaTajam,btnAuditPenangananDarah,btnAuditPengelolaanLinenKotor,btnAuditPenempatanPasien,btnAuditKamarJenazah,
             btnAuditBundleIADP,btnAuditBundleIDO,btnAuditFasilitasKebersihanTangan,btnAuditFasilitasAPD,btnAuditPembuanganLimbahCairInfeksius,
             btnAuditSterilisasiAlat,btnPersetujuanPenolakanTindakan,btnPenilaianAwalMedisRalanPsikiatri,btnAuditBundleISK,btnAuditBundlePLABSI,
-            btnAuditBundleVAP,btnAkunRekeningHtHBankPapua,btnPembayaranBankPapua,btnPenilaianAwalMedisRalanPenyakitDalam;
+            btnAuditBundleVAP,btnAkunRekeningHtHBankPapua,btnPembayaranBankPapua,btnPenilaianAwalMedisRalanPenyakitDalam,btnPenilaianAwalMedisRalanMata,
+            btnPenilaianAwalMedisRalanNeurologi,btnPenilaianAwalMedisRalanOrthopedi;
     
     public void isWall(){
         try{            
@@ -22581,6 +22627,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpenilaian_awal_medis_ralan_penyakit_dalam()==true){
                 Panelmenu.add(btnPenilaianAwalMedisRalanPenyakitDalam);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenilaian_awal_medis_ralan_mata()==true){
+                Panelmenu.add(btnPenilaianAwalMedisRalanMata);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenilaian_awal_medis_ralan_neurologi()==true){
+                Panelmenu.add(btnPenilaianAwalMedisRalanNeurologi);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenilaian_awal_medis_ralan_orthopedi()==true){
+                Panelmenu.add(btnPenilaianAwalMedisRalanOrthopedi);
                 jmlmenu++;
             }
             
@@ -26802,6 +26863,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpenilaian_awal_medis_ralan_penyakit_dalam()==true){
             Panelmenu.add(btnPenilaianAwalMedisRalanPenyakitDalam);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenilaian_awal_medis_ralan_mata()==true){
+            Panelmenu.add(btnPenilaianAwalMedisRalanMata);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenilaian_awal_medis_ralan_neurologi()==true){
+            Panelmenu.add(btnPenilaianAwalMedisRalanNeurologi);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenilaian_awal_medis_ralan_orthopedi()==true){
+            Panelmenu.add(btnPenilaianAwalMedisRalanOrthopedi);
             jmlmenu++;
         }
         
@@ -32218,6 +32294,27 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getpenilaian_awal_medis_ralan_mata()==true){
+            if(btnPenilaianAwalMedisRalanMata.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianAwalMedisRalanMata);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpenilaian_awal_medis_ralan_neurologi()==true){
+            if(btnPenilaianAwalMedisRalanNeurologi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianAwalMedisRalanNeurologi);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpenilaian_awal_medis_ralan_orthopedi()==true){
+            if(btnPenilaianAwalMedisRalanOrthopedi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianAwalMedisRalanOrthopedi);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getcatatan_observasi_igd()==true){
             if(btnCatatanObservasiIGD.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnCatatanObservasiIGD);
@@ -36989,6 +37086,30 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnPenilaianAwalMedisRalanPenyakitDalam.setName("btnPenilaianAwalMedisRalanPenyakitDalam"); 
         btnPenilaianAwalMedisRalanPenyakitDalam.setPreferredSize(new java.awt.Dimension(200, 90));
         btnPenilaianAwalMedisRalanPenyakitDalam.addActionListener(this::btnPenilaianAwalMedisRalanPenyakitDalamActionPerformed);
+        
+        btnPenilaianAwalMedisRalanMata = new widget.ButtonBig();
+        btnPenilaianAwalMedisRalanMata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1459441_eye_holidays_anatomy_halloween_icon.png"))); 
+        btnPenilaianAwalMedisRalanMata.setText("Awal Medis Ralan Mata");
+        btnPenilaianAwalMedisRalanMata.setIconTextGap(0);
+        btnPenilaianAwalMedisRalanMata.setName("btnPenilaianAwalMedisRalanMata"); 
+        btnPenilaianAwalMedisRalanMata.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianAwalMedisRalanMata.addActionListener(this::btnPenilaianAwalMedisRalanMataActionPerformed);
+        
+        btnPenilaianAwalMedisRalanNeurologi = new widget.ButtonBig();
+        btnPenilaianAwalMedisRalanNeurologi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/2730389_brain_divide_inkcontober_sains_icon.png"))); 
+        btnPenilaianAwalMedisRalanNeurologi.setText("Awal Medis Ralan Neurologi");
+        btnPenilaianAwalMedisRalanNeurologi.setIconTextGap(0);
+        btnPenilaianAwalMedisRalanNeurologi.setName("btnPenilaianAwalMedisRalanNeurologi"); 
+        btnPenilaianAwalMedisRalanNeurologi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianAwalMedisRalanNeurologi.addActionListener(this::btnPenilaianAwalMedisRalanNeurologiActionPerformed);
+        
+        btnPenilaianAwalMedisRalanOrthopedi = new widget.ButtonBig();
+        btnPenilaianAwalMedisRalanOrthopedi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/5859952_accident_injury_knee_leg_medical_icon.png"))); 
+        btnPenilaianAwalMedisRalanOrthopedi.setText("Awal Medis Ralan Orthopedi");
+        btnPenilaianAwalMedisRalanOrthopedi.setIconTextGap(0);
+        btnPenilaianAwalMedisRalanOrthopedi.setName("btnPenilaianAwalMedisRalanOrthopedi"); 
+        btnPenilaianAwalMedisRalanOrthopedi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianAwalMedisRalanOrthopedi.addActionListener(this::btnPenilaianAwalMedisRalanOrthopediActionPerformed);
     }
     
 }

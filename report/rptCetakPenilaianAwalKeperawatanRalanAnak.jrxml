@@ -817,10 +817,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA["TB : "+$F{tb}+" cm"]]></textFieldExpression>
 			</textField>
-			<image scaleImage="FillFrame" isUsingCache="true" onErrorType="Blank">
-				<reportElement x="509" y="9" width="45" height="45" uuid="a758b418-6c23-43f4-a03d-e57874c5d71b"/>
-				<imageExpression><![CDATA["/home/naira/JaspersoftWorkspace/MyReports/naira/kars4bintang.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 </jasperReport>
