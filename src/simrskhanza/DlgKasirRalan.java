@@ -19,7 +19,7 @@ import inventory.DlgPemberianObat;
 import laporan.DlgDiagnosaPenyakit;
 import keuangan.DlgBilingRalan;
 import fungsi.WarnaTable;
-import fungsi.WarnaTableKasirRalan;
+import fungsi.WarnaTableRajal;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
@@ -218,7 +218,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                 column.setPreferredWidth(95);
             }
         }
-        tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan());
+        tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableRajal());
         
         tabModekasir2=new DefaultTableModel(null,new String[]{
             "Kd.Dokter","Dokter Rujukan","Nomer RM","Pasien",
@@ -269,7 +269,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                 column.setPreferredWidth(110);
             }
         }
-        tbKasirRalan2.setDefaultRenderer(Object.class, new WarnaTable());
+        tbKasirRalan2.setDefaultRenderer(Object.class, new WarnaTableRajal());
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         CrPoli.setDocument(new batasInput((byte)100).getKata(CrPoli));

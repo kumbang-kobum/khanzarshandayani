@@ -31,6 +31,9 @@ public class WarnaTableRajal extends DefaultTableCellRenderer {
         if (table.getValueAt(row, statrawat).toString().equals("Batal")){
             component.setBackground(new Color(211,84,0));
         }
+        if (table.getValueAt(row, statrawat).toString().equals("Dirawat")){
+            component.setBackground(new Color(0,127,211));
+        }
         return component;
     }
 
