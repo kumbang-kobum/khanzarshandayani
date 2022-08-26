@@ -1033,6 +1033,11 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
 
         Biokimia.setFocusTraversalPolicyProvider(true);
         Biokimia.setName("Biokimia"); // NOI18N
+        Biokimia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BiokimiaActionPerformed(evt);
+            }
+        });
         Biokimia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 BiokimiaKeyPressed(evt);
@@ -1283,6 +1288,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
 
         BtnDokter3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         BtnDokter3.setMnemonic('2');
+        BtnDokter3.setText("Ambil Lab");
         BtnDokter3.setToolTipText("Alt+2");
         BtnDokter3.setName("BtnDokter3"); // NOI18N
         BtnDokter3.setPreferredSize(new java.awt.Dimension(28, 23));
@@ -1292,7 +1298,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
             }
         });
         FormInput.add(BtnDokter3);
-        BtnDokter3.setBounds(790, 180, 28, 23);
+        BtnDokter3.setBounds(790, 180, 110, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -1776,6 +1782,10 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
             carilaborat.setVisible(true);
         }
     }//GEN-LAST:event_BtnDokter3ActionPerformed
+
+    private void BiokimiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiokimiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BiokimiaActionPerformed
 
     /**
     * @param args the command line arguments

@@ -8,6 +8,7 @@ import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.akses;
 import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -21,6 +22,7 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
+import javax.swing.event.HyperlinkEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.text.Document;
@@ -317,6 +319,17 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
         );
         Document doc = kit.createDefaultDocument();
         LoadHTML.setDocument(doc);
+        LoadHTML.setEditable(false);
+        LoadHTML.addHyperlinkListener(e -> {
+            if (HyperlinkEvent.EventType.ACTIVATED.equals(e.getEventType())) {
+              Desktop desktop = Desktop.getDesktop();
+              try {
+                desktop.browse(e.getURL().toURI());
+              } catch (Exception ex) {
+                ex.printStackTrace();
+              }
+            }
+        });
      
         ChkAccor.setSelected(false);
         isPhoto();
@@ -388,8 +401,7 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
         BtnKeluar = new widget.Button();
         PanelAccor = new widget.PanelBiasa();
         ChkAccor = new widget.CekBox();
-        ScrollMenu = new widget.ScrollPane();
-        FormPhotoPass = new widget.PanelBiasa();
+        TabData = new javax.swing.JTabbedPane();
         FormPhoto = new widget.PanelBiasa();
         FormPass2 = new widget.PanelBiasa();
         btnAmbilPhoto = new widget.Button();
@@ -918,21 +930,15 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
         });
         PanelAccor.add(ChkAccor, java.awt.BorderLayout.WEST);
 
-        ScrollMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        ScrollMenu.setName("ScrollMenu"); // NOI18N
-        ScrollMenu.setOpaque(true);
-        ScrollMenu.setPreferredSize(new java.awt.Dimension(407, 1075));
-
-        FormPhotoPass.setBackground(new java.awt.Color(255, 255, 255));
-        FormPhotoPass.setBorder(null);
-        FormPhotoPass.setName("FormPhotoPass"); // NOI18N
-        FormPhotoPass.setPreferredSize(new java.awt.Dimension(405, 750));
-        FormPhotoPass.setLayout(new java.awt.BorderLayout());
+        TabData.setBackground(new java.awt.Color(254, 255, 254));
+        TabData.setForeground(new java.awt.Color(50, 50, 50));
+        TabData.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        TabData.setName("TabData"); // NOI18N
 
         FormPhoto.setBackground(new java.awt.Color(255, 255, 255));
-        FormPhoto.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), " Photo Radiologi : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        FormPhoto.setBorder(null);
         FormPhoto.setName("FormPhoto"); // NOI18N
-        FormPhoto.setPreferredSize(new java.awt.Dimension(400, 400));
+        FormPhoto.setPreferredSize(new java.awt.Dimension(400, 700));
         FormPhoto.setLayout(new java.awt.BorderLayout());
 
         FormPass2.setBackground(new java.awt.Color(255, 255, 255));
@@ -979,10 +985,10 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
 
         FormPhoto.add(Scroll4, java.awt.BorderLayout.CENTER);
 
-        FormPhotoPass.add(FormPhoto, java.awt.BorderLayout.PAGE_START);
+        TabData.addTab("Photo Radiologi", FormPhoto);
 
         FormPass.setBackground(new java.awt.Color(255, 255, 255));
-        FormPass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), " Hasil Bacaan : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        FormPass.setBorder(null);
         FormPass.setName("FormPass"); // NOI18N
         FormPass.setPreferredSize(new java.awt.Dimension(115, 73));
         FormPass.setLayout(new java.awt.BorderLayout(1, 1));
@@ -993,7 +999,7 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
 
         HasilPeriksa.setBorder(null);
         HasilPeriksa.setColumns(25);
-        HasilPeriksa.setRows(20);
+        HasilPeriksa.setRows(40);
         HasilPeriksa.setName("HasilPeriksa"); // NOI18N
         Scroll3.setViewportView(HasilPeriksa);
 
@@ -1001,8 +1007,7 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
 
         panelGlass6.setBorder(null);
         panelGlass6.setName("panelGlass6"); // NOI18N
-        panelGlass6.setPreferredSize(new java.awt.Dimension(55, 55));
-        panelGlass6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 9));
+        panelGlass6.setPreferredSize(new java.awt.Dimension(115, 40));
 
         BtnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
         BtnSimpan.setMnemonic('U');
@@ -1042,11 +1047,9 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
 
         FormPass.add(panelGlass6, java.awt.BorderLayout.PAGE_END);
 
-        FormPhotoPass.add(FormPass, java.awt.BorderLayout.CENTER);
+        TabData.addTab("Hasil Bacaan Radiologi", FormPass);
 
-        ScrollMenu.setViewportView(FormPhotoPass);
-
-        PanelAccor.add(ScrollMenu, java.awt.BorderLayout.CENTER);
+        PanelAccor.add(TabData, java.awt.BorderLayout.CENTER);
 
         internalFrame1.add(PanelAccor, java.awt.BorderLayout.EAST);
 
@@ -1826,7 +1829,6 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.PanelBiasa FormPass;
     private widget.PanelBiasa FormPass2;
     private widget.PanelBiasa FormPhoto;
-    private widget.PanelBiasa FormPhotoPass;
     private widget.TextArea HasilPeriksa;
     private widget.TextBox Jk;
     private widget.TextBox Kd2;
@@ -1846,8 +1848,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.TextBox Petugas;
     private widget.ScrollPane Scroll3;
     private widget.ScrollPane Scroll4;
-    private widget.ScrollPane ScrollMenu;
     private widget.TextBox TCari;
+    private javax.swing.JTabbedPane TabData;
     private widget.Tanggal Tgl1;
     private widget.Tanggal Tgl2;
     private widget.TextBox Umur;
@@ -2097,19 +2099,19 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private void isPhoto(){
         if(ChkAccor.isSelected()==true){
             ChkAccor.setVisible(false);
-            PanelAccor.setPreferredSize(new Dimension(445,HEIGHT));
-            ScrollMenu.setVisible(true);  
+            PanelAccor.setPreferredSize(new Dimension(internalFrame1.getWidth()-300,HEIGHT));
+            TabData.setVisible(true);  
             ChkAccor.setVisible(true);
         }else if(ChkAccor.isSelected()==false){    
             ChkAccor.setVisible(false);
             PanelAccor.setPreferredSize(new Dimension(15,HEIGHT));
-            ScrollMenu.setVisible(false);
+            TabData.setVisible(false);
             ChkAccor.setVisible(true);
         }
     }
     
     private void panggilPhoto() {
-        if(ScrollMenu.isVisible()==true){
+        if(TabData.isVisible()==true){
             if(tbDokter.getSelectedRow()!= -1){
                 if((!Kd2.getText().equals(""))&&(!Petugas.getText().equals(""))){
                      try {
@@ -2121,7 +2123,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             rs=ps.executeQuery();
                             htmlContent = new StringBuilder();
                             while(rs.next()){
-                                htmlContent.append("<tr><td border='1'><img src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/radiologi/"+rs.getString("lokasi_gambar")+"' alt='photo' width='375' height='335'/></td></tr>");
+                                htmlContent.append("<tr><td border='0' align='center'><a href='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/radiologi/"+rs.getString("lokasi_gambar")+"'><img src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/radiologi/"+rs.getString("lokasi_gambar")+"' alt='photo' width='"+(internalFrame1.getWidth()-370)+"' height='"+(internalFrame1.getWidth()-370)+"'/></a></td></tr>");
                             }
                             LoadHTML.setText(
                                 "<html>"+
