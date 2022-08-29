@@ -50,6 +50,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
     private int i=0,umur=0;    
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private RMCariHasilLaborat carilaborat=new RMCariHasilLaborat(null,false);
+    private RMCariHasilRadiologi cariradiologi=new RMCariHasilRadiologi(null,false);
     private String alergi_telur, alergi_susu_sapi, alergi_kacang, alergi_gluten, alergi_udang, alergi_ikan, alergi_hazelnut,sttsumur="";
     
     /** Creates new form DlgRujuk
@@ -380,6 +381,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
         jLabel50 = new widget.Label();
         RiwayatPersonal = new widget.TextBox();
         BtnDokter3 = new widget.Button();
+        BtnDokter4 = new widget.Button();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -568,7 +570,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-06-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-08-2022" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -582,7 +584,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-06-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-08-2022" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1288,7 +1290,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
 
         BtnDokter3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         BtnDokter3.setMnemonic('2');
-        BtnDokter3.setText("Ambil Lab");
+        BtnDokter3.setText("Ambil lab");
         BtnDokter3.setToolTipText("Alt+2");
         BtnDokter3.setName("BtnDokter3"); // NOI18N
         BtnDokter3.setPreferredSize(new java.awt.Dimension(28, 23));
@@ -1298,7 +1300,21 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
             }
         });
         FormInput.add(BtnDokter3);
-        BtnDokter3.setBounds(790, 180, 110, 23);
+        BtnDokter3.setBounds(790, 220, 110, 23);
+
+        BtnDokter4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        BtnDokter4.setMnemonic('2');
+        BtnDokter4.setText("Ambil Rad");
+        BtnDokter4.setToolTipText("Alt+2");
+        BtnDokter4.setName("BtnDokter4"); // NOI18N
+        BtnDokter4.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnDokter4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDokter4ActionPerformed(evt);
+            }
+        });
+        FormInput.add(BtnDokter4);
+        BtnDokter4.setBounds(790, 180, 110, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -1787,6 +1803,18 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_BiokimiaActionPerformed
 
+    private void BtnDokter4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDokter4ActionPerformed
+        if(TNoRw.getText().equals("")&&TNoRM.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Pasien masih kosong...!!!");
+        }else{
+            cariradiologi.setNoRawat(TNoRw.getText());
+            cariradiologi.tampil();
+            cariradiologi.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            cariradiologi.setLocationRelativeTo(internalFrame1);
+            cariradiologi.setVisible(true);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnDokter4ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1814,6 +1842,7 @@ public final class RMDataAsuhanGizi extends javax.swing.JDialog {
     private widget.Button BtnCari;
     private widget.Button BtnDokter;
     private widget.Button BtnDokter3;
+    private widget.Button BtnDokter4;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnKeluar;
