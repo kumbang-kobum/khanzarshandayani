@@ -64,6 +64,7 @@ import rekammedis.RMPenilaianAwalMedisRanapKandungan;
 import rekammedis.RMPenilaianFisioterapi;
 import rekammedis.RMPenilaianPsikologi;
 import rekammedis.RMPenilaianAwalKeperawatanBayiAnak;
+import rekammedis.RMPenilaianFisioterapi;
 import rekammedis.RMPenilaianAwalMedisRalanAnak;
 import rekammedis.RMPenilaianAwalMedisRalanTHT;
 import rekammedis.RMPenilaianAwalMedisRalanPsikiatrik;
@@ -74,7 +75,6 @@ import rekammedis.RMPenilaianAwalMedisRalanOrthopedi;
 import rekammedis.RMPenilaianAwalMedisRalanBedah;
 import rekammedis.RMUjiFungsiKFR;
 import rekammedis.RMMCU;
-
 
 
 
@@ -1227,6 +1227,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         cmbDtk = new widget.ComboBox();
         ChkJln = new widget.CekBox();
         PanelAccor = new widget.PanelBiasa();
+        ChkAccor = new widget.CekBox();
         ScrollMenu = new widget.ScrollPane();
         FormMenu = new widget.PanelBiasa();
         BtnRiwayat = new widget.Button();
@@ -1268,8 +1269,6 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnAwalMedisBedah = new widget.Button();
         BtnUjiFungsiKFR = new widget.Button();
         BtnMedicalCheckUp = new widget.Button();
-        BtnPenilaianPsikolog1 = new widget.Button();
-        ChkAccor = new widget.CekBox();
 
         BagianRS.setEditable(false);
         BagianRS.setText("0");
@@ -3229,14 +3228,34 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         PanelAccor.setPreferredSize(new java.awt.Dimension(205, 43));
         PanelAccor.setLayout(new java.awt.BorderLayout());
 
+        ChkAccor.setBackground(new java.awt.Color(255, 250, 248));
+        ChkAccor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 255, 248)));
+        ChkAccor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kanan.png"))); // NOI18N
+        ChkAccor.setFocusable(false);
+        ChkAccor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChkAccor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ChkAccor.setName("ChkAccor"); // NOI18N
+        ChkAccor.setPreferredSize(new java.awt.Dimension(15, 20));
+        ChkAccor.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kanan.png"))); // NOI18N
+        ChkAccor.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kiri.png"))); // NOI18N
+        ChkAccor.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kiri.png"))); // NOI18N
+        ChkAccor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChkAccorActionPerformed(evt);
+            }
+        });
+        PanelAccor.add(ChkAccor, java.awt.BorderLayout.EAST);
+
         ScrollMenu.setBorder(null);
         ScrollMenu.setName("ScrollMenu"); // NOI18N
         ScrollMenu.setOpaque(true);
+        ScrollMenu.setPreferredSize(new java.awt.Dimension(194, 945));
 
         FormMenu.setBackground(new java.awt.Color(255, 255, 255));
         FormMenu.setBorder(null);
+        FormMenu.setMaximumSize(new java.awt.Dimension(35767, 32767));
         FormMenu.setName("FormMenu"); // NOI18N
-        FormMenu.setPreferredSize(new java.awt.Dimension(115, 43));
+        FormMenu.setPreferredSize(new java.awt.Dimension(180, 583));
         FormMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 1));
 
         BtnRiwayat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
@@ -3902,44 +3921,9 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         });
         FormMenu.add(BtnMedicalCheckUp);
 
-        BtnPenilaianPsikolog1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnPenilaianPsikolog1.setText("Penilaian Psikolog");
-        BtnPenilaianPsikolog1.setFocusPainted(false);
-        BtnPenilaianPsikolog1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnPenilaianPsikolog1.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnPenilaianPsikolog1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnPenilaianPsikolog1.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnPenilaianPsikolog1.setName("BtnPenilaianPsikolog1"); // NOI18N
-        BtnPenilaianPsikolog1.setPreferredSize(new java.awt.Dimension(180, 23));
-        BtnPenilaianPsikolog1.setRoundRect(false);
-        BtnPenilaianPsikolog1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPenilaianPsikolog1ActionPerformed(evt);
-            }
-        });
-        FormMenu.add(BtnPenilaianPsikolog1);
-
         ScrollMenu.setViewportView(FormMenu);
 
         PanelAccor.add(ScrollMenu, java.awt.BorderLayout.CENTER);
-
-        ChkAccor.setBackground(new java.awt.Color(255, 250, 248));
-        ChkAccor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 255, 248)));
-        ChkAccor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kanan.png"))); // NOI18N
-        ChkAccor.setFocusable(false);
-        ChkAccor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ChkAccor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ChkAccor.setName("ChkAccor"); // NOI18N
-        ChkAccor.setPreferredSize(new java.awt.Dimension(15, 20));
-        ChkAccor.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kanan.png"))); // NOI18N
-        ChkAccor.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kiri.png"))); // NOI18N
-        ChkAccor.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kiri.png"))); // NOI18N
-        ChkAccor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChkAccorActionPerformed(evt);
-            }
-        });
-        PanelAccor.add(ChkAccor, java.awt.BorderLayout.EAST);
 
         internalFrame1.add(PanelAccor, java.awt.BorderLayout.WEST);
 
@@ -5994,6 +5978,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }//GEN-LAST:event_tbPemeriksaanGinekologiKeyReleased
 
+    private void ChkAccorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChkAccorActionPerformed
+        isMenu();
+    }//GEN-LAST:event_ChkAccorActionPerformed
+
     private void BtnResepObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnResepObatActionPerformed
         if(TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
@@ -6763,27 +6751,6 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }//GEN-LAST:event_BtnMedicalCheckUpActionPerformed
 
-    private void BtnPenilaianPsikolog1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPenilaianPsikolog1ActionPerformed
-        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
-            TCari.requestFocus();
-        }else{
-            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            RMPenilaianPsikologi form=new RMPenilaianPsikologi(null,false);
-            form.isCek();
-            form.emptTeks();
-            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
-            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-            form.setLocationRelativeTo(internalFrame1);
-            form.setVisible(true);
-            this.setCursor(Cursor.getDefaultCursor());
-        }
-    }//GEN-LAST:event_BtnPenilaianPsikolog1ActionPerformed
-
-    private void ChkAccorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChkAccorActionPerformed
-        isMenu();
-    }//GEN-LAST:event_ChkAccorActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -6840,7 +6807,6 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnMonitoringAsuhanGizi;
     private widget.Button BtnObatBhp;
     private widget.Button BtnPenilaianPsikolog;
-    private widget.Button BtnPenilaianPsikolog1;
     private widget.Button BtnPermintaanLab;
     private widget.Button BtnPermintaanRad;
     private widget.Button BtnPermintaanResepPulang;
