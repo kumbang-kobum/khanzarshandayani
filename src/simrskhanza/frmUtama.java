@@ -740,6 +740,9 @@ import rekammedis.MasterMasalahKeperawatanIGD;
 import rekammedis.MasterMasalahKeperawatanMata;
 import rekammedis.MasterRencanaKeperawatan;
 import rekammedis.MasterRencanaKeperawatanAnak;
+import rekammedis.MasterRencanaKeperawatanGigi;
+import rekammedis.MasterRencanaKeperawatanIGD;
+import rekammedis.MasterRencanaKeperawatanMata;
 import rekammedis.RMTriaseIGD;
 import rekammedis.MasterTriaseMacamKasus;
 import rekammedis.MasterTriasePemeriksaan;
@@ -749,6 +752,7 @@ import rekammedis.MasterTriaseSkala3;
 import rekammedis.MasterTriaseSkala4;
 import rekammedis.MasterTriaseSkala5;
 import rekammedis.RMDataAsuhanGizi;
+import rekammedis.RMDataCatatanKeperawatanRanap;
 import rekammedis.RMDataCatatanObservasiIGD;
 import rekammedis.RMDataCatatanObservasiRanap;
 import rekammedis.RMDataCatatanObservasiRanapKebidanan;
@@ -1777,7 +1781,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09/08/2022" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02/09/2022" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -18932,6 +18936,54 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnCatatanKeperawatanRanapActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMDataCatatanKeperawatanRanap form=new RMDataCatatanKeperawatanRanap(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnMasterRencanaKeperawatanGigiActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        MasterRencanaKeperawatanGigi form=new MasterRencanaKeperawatanGigi(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnMasterRencanaKeperawatanMataActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        MasterRencanaKeperawatanMata form=new MasterRencanaKeperawatanMata(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnMasterRencanaKeperawatanIGDActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        MasterRencanaKeperawatanIGD form=new MasterRencanaKeperawatanIGD(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -19582,7 +19634,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnAuditSterilisasiAlat,btnPersetujuanPenolakanTindakan,btnPenilaianAwalMedisRalanPsikiatri,btnAuditBundleISK,btnAuditBundlePLABSI,
             btnAuditBundleVAP,btnAkunRekeningHtHBankPapua,btnPembayaranBankPapua,btnPenilaianAwalMedisRalanPenyakitDalam,btnPenilaianAwalMedisRalanMata,
             btnPenilaianAwalMedisRalanNeurologi,btnPenilaianAwalMedisRalanOrthopedi,btnPenilaianAwalMedisRalanBedah,btnSOAPRalanAnggotaTNI,btnSOAPRanapAnggotaTNI,
-            btnJumlahPengunjungRalanTNI,btnLaporanPenyakitTNI;
+            btnJumlahPengunjungRalanTNI,btnLaporanPenyakitTNI,btnCatatanKeperawatanRanap,btnMasterRencanaKeperawatanGigi,btnMasterRencanaKeperawatanMata,
+            btnMasterRencanaKeperawatanIGD;
     
     public void isWall(){
         try{            
@@ -22631,6 +22684,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
+            if(akses.getmaster_rencana_keperawatan_gigi()==true){
+                Panelmenu.add(btnMasterRencanaKeperawatanGigi);
+                jmlmenu++;
+            }
+            
             if(akses.getmaster_masalah_keperawatan_anak()==true){
                 Panelmenu.add(btnMasterMasalahKeperawatanAnak);
                 jmlmenu++;
@@ -22646,8 +22704,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
+            if(akses.getmaster_rencana_keperawatan_mata()==true){
+                Panelmenu.add(btnMasterRencanaKeperawatanMata);
+                jmlmenu++;
+            }
+            
             if(akses.getmaster_masalah_keperawatan_igd()==true){
                 Panelmenu.add(btnMasterMasalahKeperawatanIGD);
+                jmlmenu++;
+            }
+            
+            if(akses.getmaster_rencana_keperawatan_igd()==true){
+                Panelmenu.add(btnMasterRencanaKeperawatanIGD);
                 jmlmenu++;
             }
             
@@ -22773,6 +22841,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getcatatan_observasi_ranap_postpartum()==true){
                 Panelmenu.add(btnCatatanObservasiRanapPostPartum);
+                jmlmenu++;
+            }
+            
+            if(akses.getcatatan_keperawatan_ranap()==true){
+                Panelmenu.add(btnCatatanKeperawatanRanap);
                 jmlmenu++;
             }
             
@@ -26897,6 +26970,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
         
+        if(akses.getmaster_rencana_keperawatan_gigi()==true){
+            Panelmenu.add(btnMasterRencanaKeperawatanGigi);
+            jmlmenu++;
+        }
+        
         if(akses.getmaster_masalah_keperawatan_anak()==true){
             Panelmenu.add(btnMasterMasalahKeperawatanAnak);
             jmlmenu++;
@@ -26912,8 +26990,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
         
+        if(akses.getmaster_rencana_keperawatan_mata()==true){
+            Panelmenu.add(btnMasterRencanaKeperawatanMata);
+            jmlmenu++;
+        }
+
         if(akses.getmaster_masalah_keperawatan_igd()==true){
             Panelmenu.add(btnMasterMasalahKeperawatanIGD);
+            jmlmenu++;
+        }
+        
+        if(akses.getmaster_rencana_keperawatan_igd()==true){
+            Panelmenu.add(btnMasterRencanaKeperawatanIGD);
             jmlmenu++;
         }
 
@@ -27039,6 +27127,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getcatatan_observasi_ranap_postpartum()==true){
             Panelmenu.add(btnCatatanObservasiRanapPostPartum);
+            jmlmenu++;
+        }
+        
+        if(akses.getcatatan_keperawatan_ranap()==true){
+            Panelmenu.add(btnCatatanKeperawatanRanap);
             jmlmenu++;
         }
             
@@ -32323,6 +32416,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getmaster_rencana_keperawatan_gigi()==true){
+            if(btnMasterRencanaKeperawatanGigi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnMasterRencanaKeperawatanGigi);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getmaster_masalah_keperawatan_anak()==true){
             if(btnMasterMasalahKeperawatanAnak.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnMasterMasalahKeperawatanAnak);
@@ -32344,9 +32444,23 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getmaster_rencana_keperawatan_mata()==true){
+            if(btnMasterRencanaKeperawatanMata.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnMasterRencanaKeperawatanMata);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getmaster_masalah_keperawatan_igd()==true){
             if(btnMasterMasalahKeperawatanIGD.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnMasterMasalahKeperawatanIGD);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getmaster_rencana_keperawatan_igd()==true){
+            if(btnMasterRencanaKeperawatanIGD.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnMasterRencanaKeperawatanIGD);
                 jmlmenu++;
             }                
         }
@@ -32522,6 +32636,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getcatatan_observasi_ranap_postpartum()==true){
             if(btnCatatanObservasiRanapPostPartum.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnCatatanObservasiRanapPostPartum);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getcatatan_keperawatan_ranap()==true){
+            if(btnCatatanKeperawatanRanap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnCatatanKeperawatanRanap);
                 jmlmenu++;
             }                
         }
@@ -37341,6 +37462,38 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnLaporanPenyakitTNI.setName("btnLaporanPenyakitTNI"); 
         btnLaporanPenyakitTNI.setPreferredSize(new java.awt.Dimension(200, 90));
         btnLaporanPenyakitTNI.addActionListener(this::btnLaporanPenyakitTNIActionPerformed);
+        
+        btnCatatanKeperawatanRanap = new widget.ButtonBig();
+        btnCatatanKeperawatanRanap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6123164_avatar_frontliner_male_medical staff_nurse_icon.png")));
+        btnCatatanKeperawatanRanap.setText("Catatan Keperawatan Ranap");
+        btnCatatanKeperawatanRanap.setIconTextGap(0);
+        btnCatatanKeperawatanRanap.setName("btnCatatanKeperawatanRanap"); 
+        btnCatatanKeperawatanRanap.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnCatatanKeperawatanRanap.addActionListener(this::btnCatatanKeperawatanRanapActionPerformed);
+        
+        btnMasterRencanaKeperawatanGigi = new widget.ButtonBig();
+        btnMasterRencanaKeperawatanGigi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_healthcare_and_medical-hygienic-tooth_paste-toothpaste-toothbrush-health_care_4394831.png"))); 
+        btnMasterRencanaKeperawatanGigi.setText("Master Rencana Keperawatan Gigi");
+        btnMasterRencanaKeperawatanGigi.setIconTextGap(0);
+        btnMasterRencanaKeperawatanGigi.setName("btnMasterRencanaKeperawatanGigi"); 
+        btnMasterRencanaKeperawatanGigi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnMasterRencanaKeperawatanGigi.addActionListener(this::btnMasterRencanaKeperawatanGigiActionPerformed);
+        
+        btnMasterRencanaKeperawatanMata = new widget.ButtonBig();
+        btnMasterRencanaKeperawatanMata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/85364_eye_icon.png"))); 
+        btnMasterRencanaKeperawatanMata.setText("Master Rencana Keperawatan Mata");
+        btnMasterRencanaKeperawatanMata.setIconTextGap(0);
+        btnMasterRencanaKeperawatanMata.setName("btnMasterRencanaKeperawatanMata"); 
+        btnMasterRencanaKeperawatanMata.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnMasterRencanaKeperawatanMata.addActionListener(this::btnMasterRencanaKeperawatanMataActionPerformed);
+        
+        btnMasterRencanaKeperawatanIGD = new widget.ButtonBig();
+        btnMasterRencanaKeperawatanIGD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_30-Doctor_5929214.png"))); 
+        btnMasterRencanaKeperawatanIGD.setText("Master Rencana Keperawatan IGD");
+        btnMasterRencanaKeperawatanIGD.setIconTextGap(0);
+        btnMasterRencanaKeperawatanIGD.setName("btnMasterRencanaKeperawatanIGD"); 
+        btnMasterRencanaKeperawatanIGD.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnMasterRencanaKeperawatanIGD.addActionListener(this::btnMasterRencanaKeperawatanIGDActionPerformed);
     }
     
 }
