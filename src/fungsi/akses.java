@@ -165,7 +165,7 @@ public final class akses {
             surat_buta_warna=false,surat_bebas_tato=false,surat_kewaspadaan_kesehatan=false,grafik_porsidiet_pertanggal=false,grafik_porsidiet_perbulan=false,
             grafik_porsidiet_pertahun=false,grafik_porsidiet_perbangsal=false,penilaian_awal_medis_ralan=false,master_masalah_keperawatan_mata=false,
             penilaian_awal_keperawatan_mata=false,penilaian_awal_medis_ranap=false,penilaian_awal_medis_ranap_kebidanan=false,penilaian_awal_medis_ralan_kebidanan=false,
-            penilaian_awal_medis_igd=false,penilaian_awal_medis_ralan_anak=false,bpjs_referensi_poli_hfis=false,bpjs_referensi_dokter_hfis=false,
+            penilaian_awal_medis_igd=false,penilaian_awal_medis_ralan_anak=false,penilaian_awal_medis_ranap_anak=false,bpjs_referensi_poli_hfis=false,bpjs_referensi_dokter_hfis=false,
             bpjs_referensi_jadwal_hfis=false,penilaian_fisioterapi=false,bpjs_program_prb=false,bpjs_suplesi_jasaraharja=false,bpjs_data_induk_kecelakaan=false,
             bpjs_sep_internal=false,bpjs_klaim_jasa_raharja=false,bpjs_daftar_finger_print=false,bpjs_rujukan_khusus=false,pemeliharaan_gedung=false,
             grafik_perbaikan_inventaris_pertanggal=false,grafik_perbaikan_inventaris_perbulan=false,grafik_perbaikan_inventaris_pertahun=false,
@@ -966,6 +966,7 @@ public final class akses {
                         akses.penilaian_awal_medis_ralan_kebidanan=true;
                         akses.penilaian_awal_medis_igd=true;
                         akses.penilaian_awal_medis_ralan_anak=true;
+                        akses.penilaian_awal_medis_ranap_anak=true;
                         akses.bpjs_referensi_poli_hfis=true;
                         akses.bpjs_referensi_dokter_hfis=true;
                         akses.bpjs_referensi_jadwal_hfis=true;
@@ -1835,6 +1836,7 @@ public final class akses {
                         akses.penilaian_awal_medis_ralan_kebidanan=rs2.getBoolean("penilaian_awal_medis_ralan_kebidanan");
                         akses.penilaian_awal_medis_igd=rs2.getBoolean("penilaian_awal_medis_igd");
                         akses.penilaian_awal_medis_ralan_anak=rs2.getBoolean("penilaian_awal_medis_ralan_anak");
+                        akses.penilaian_awal_medis_ranap_anak=rs2.getBoolean("penilaian_awal_medis_ranap_anak");
                         akses.bpjs_referensi_poli_hfis=rs2.getBoolean("bpjs_referensi_poli_hfis");
                         akses.bpjs_referensi_dokter_hfis=rs2.getBoolean("bpjs_referensi_dokter_hfis");
                         akses.bpjs_referensi_jadwal_hfis=rs2.getBoolean("bpjs_referensi_jadwal_hfis");
@@ -2702,6 +2704,7 @@ public final class akses {
                         akses.penilaian_awal_medis_ralan_kebidanan=false;
                         akses.penilaian_awal_medis_igd=false;
                         akses.penilaian_awal_medis_ralan_anak=false;
+                        akses.penilaian_awal_medis_ranap_anak=false;
                         akses.bpjs_referensi_poli_hfis=false;
                         akses.bpjs_referensi_dokter_hfis=false;
                         akses.bpjs_referensi_jadwal_hfis=false;
@@ -3626,6 +3629,7 @@ public final class akses {
     public static boolean getpenilaian_awal_medis_ralan_kebidanan(){return akses.penilaian_awal_medis_ralan_kebidanan;}
     public static boolean getpenilaian_awal_medis_igd(){return akses.penilaian_awal_medis_igd;}
     public static boolean getpenilaian_awal_medis_ralan_anak(){return akses.penilaian_awal_medis_ralan_anak;}
+    public static boolean getpenilaian_awal_medis_ranap_anak(){return akses.penilaian_awal_medis_ranap_anak;}
     public static boolean getbpjs_referensi_poli_hfis(){return akses.bpjs_referensi_poli_hfis;}
     public static boolean getbpjs_referensi_dokter_hfis(){return akses.bpjs_referensi_dokter_hfis;}
     public static boolean getbpjs_referensi_jadwal_hfis(){return akses.bpjs_referensi_jadwal_hfis;}

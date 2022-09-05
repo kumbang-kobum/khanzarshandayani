@@ -64,7 +64,7 @@ import rekammedis.RMPenilaianAwalMedisRanapKandungan;
 import rekammedis.RMPenilaianFisioterapi;
 import rekammedis.RMPenilaianPsikologi;
 import rekammedis.RMPenilaianAwalKeperawatanBayiAnak;
-import rekammedis.RMPenilaianAwalMedisRalanAnak;
+import rekammedis.RMPenilaianAwalMedisRanapAnak;
 import rekammedis.RMPenilaianAwalMedisRalanTHT;
 import rekammedis.RMPenilaianAwalMedisRalanPsikiatrik;
 import rekammedis.RMPenilaianAwalMedisRalanPenyakitDalam;
@@ -6588,7 +6588,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             TCari.requestFocus();
         }else{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            RMPenilaianAwalMedisRalanAnak form=new RMPenilaianAwalMedisRalanAnak(null,false);
+            RMPenilaianAwalMedisRanapAnak form=new RMPenilaianAwalMedisRanapAnak(null,false);
             form.isCek();
             form.emptTeks();
             form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
