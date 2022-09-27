@@ -1,2 +1,0 @@
-# khanzarshandayani
-# custom rshandayani

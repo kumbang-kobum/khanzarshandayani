@@ -14,10 +14,14 @@ import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.akses;
 import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,14 +47,15 @@ public class DlgSirkulasiBarang6 extends javax.swing.JDialog {
                    totalretpiut=0,totalpasin=0,totalrespulang=0,totalhibah=0,totalstok=0,totalstokawal=0,totalstokakhir=0,
                    ttltotaljual=0,ttltotalbeli=0,ttltotalpesan=0,ttltotalpiutang=0,ttltotalutd=0,ttltotalkeluar=0,ttltotalmutasikeluar=0,
                    ttltotalmutasimasuk=0,ttltotalretbeli=0,ttltotalretjual=0,ttltotalretpiut=0,ttltotalpasin=0,ttltotalrespulang=0,
-                   ttltotalhibah=0,ttltotalstok=0,ttltotalstokawal=0,ttltotalstokakhir=0,rowstokawal=0,harga=0;
+                   ttltotalhibah=0,ttltotalstokawal=0,ttltotalstokakhir=0,harga=0;
     private DlgCariJenis jenis = new DlgCariJenis(null, false);
     private DlgCariKategori kategori = new DlgCariKategori(null, false);
     private DlgCariGolongan golongan = new DlgCariGolongan(null, false);
     private PreparedStatement ps,ps2,ps3;
     private ResultSet rs,rs2,rs3;
-    private String tglopname="";
-    private String qrystok="",hppfarmasi="";
+    private String tglopname="",hppfarmasi="",pilihan="";
+    private StringBuilder htmlContent;
+    private int i=0;
 
     /** 
      * @param parent
@@ -73,7 +78,7 @@ public class DlgSirkulasiBarang6 extends javax.swing.JDialog {
         tbDokter.setPreferredScrollableViewportSize(new Dimension(800,800));
         tbDokter.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 38; i++) {
+        for (i = 0; i < 38; i++) {
             TableColumn column = tbDokter.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(100);
@@ -191,7 +196,6 @@ public class DlgSirkulasiBarang6 extends javax.swing.JDialog {
                 if (bangsal.getTable().getSelectedRow() != -1) {
                     KdGudang.setText(bangsal.getTable().getValueAt(bangsal.getTable().getSelectedRow(),0).toString());
                     NmGudang.setText(bangsal.getTable().getValueAt(bangsal.getTable().getSelectedRow(),1).toString());
-                    prosesCari();
                 }
             }
 
@@ -800,43 +804,274 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
             TCari.requestFocus();
         }else if(tabMode.getRowCount()!=0){
-            Sequel.queryu("delete from temporary where temp37='"+akses.getalamatip()+"'");
-            int row=tabMode.getRowCount();
-            for(int i=0;i<row;i++){  
-                Sequel.menyimpan("temporary","'"+i+"',?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'"+akses.getalamatip()+"'",36,new String[]{
-                    tabMode.getValueAt(i,0).toString(),tabMode.getValueAt(i,1).toString(),tabMode.getValueAt(i,2).toString(),
-                    tabMode.getValueAt(i,3).toString(),tabMode.getValueAt(i,4).toString(),tabMode.getValueAt(i,5).toString(),
-                    tabMode.getValueAt(i,6).toString(),tabMode.getValueAt(i,7).toString(),tabMode.getValueAt(i,8).toString(),
-                    tabMode.getValueAt(i,9).toString(),tabMode.getValueAt(i,10).toString(),tabMode.getValueAt(i,11).toString(),
-                    tabMode.getValueAt(i,12).toString(),tabMode.getValueAt(i,13).toString(),tabMode.getValueAt(i,14).toString(),
-                    tabMode.getValueAt(i,15).toString(),tabMode.getValueAt(i,16).toString(),tabMode.getValueAt(i,17).toString(),
-                    tabMode.getValueAt(i,18).toString(),tabMode.getValueAt(i,19).toString(),tabMode.getValueAt(i,20).toString(),
-                    tabMode.getValueAt(i,21).toString(),tabMode.getValueAt(i,22).toString(),tabMode.getValueAt(i,23).toString(),
-                    tabMode.getValueAt(i,24).toString(),tabMode.getValueAt(i,25).toString(),tabMode.getValueAt(i,26).toString(),
-                    tabMode.getValueAt(i,27).toString(),tabMode.getValueAt(i,28).toString(),tabMode.getValueAt(i,29).toString(),
-                    tabMode.getValueAt(i,30).toString(),tabMode.getValueAt(i,31).toString(),tabMode.getValueAt(i,32).toString(),
-                    tabMode.getValueAt(i,33).toString(),tabMode.getValueAt(i,34).toString(),tabMode.getValueAt(i,35).toString()
-                }); 
-            }
-            
-            Map<String, Object> param = new HashMap<>(); 
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
-                param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            /*if(lokasi.equals("")){
-                Valid.MyReportqry("rptSirkulasi9.jasper","report","::[ Sirkulasi Barang ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
-            }else if(!lokasi.equals("")){
-                param.put("bangsal",lokasi); 
-                Valid.MyReportqry("rptSirkulasi10.jasper","report","::[ Sirkulasi Barang ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
-            } */   
+            try {            
+                File g = new File("file2.css");            
+                BufferedWriter bg = new BufferedWriter(new FileWriter(g));
+                bg.write(
+                        ".isi td{border-right: 1px solid #e2e7dd;font: 11px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                        ".isi2 td{font: 11px tahoma;height:12px;background: #ffffff;color:#323232;}"+                    
+                        ".isi3 td{border-right: 1px solid #e2e7dd;font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"+
+                        ".isi4 td{font: 11px tahoma;height:12px;border-top: 1px solid #e2e7dd;background: #ffffff;color:#323232;}"
+                );
+                bg.close();
+
+                File f;            
+                BufferedWriter bw; 
+
+                pilihan = (String)JOptionPane.showInputDialog(null,"Silahkan pilih laporan..!","Pilihan Cetak",JOptionPane.QUESTION_MESSAGE,null,new Object[]{"Laporan 1 (HTML)","Laporan 2 (WPS)","Laporan 3 (CSV)"},"Laporan 1 (HTML)");
+                switch (pilihan) {
+                    case "Laporan 1 (HTML)":
+                            htmlContent = new StringBuilder();
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kode Barang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>No.Batch</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>No.Faktur</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Barang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Satuan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Tgl.Awal</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Awal</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Awal(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengadaan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengadaan(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penerimaan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penerimaan(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penjualan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penjualan(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Ke Pasien</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Ke Pasien(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Piutang Jual</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Piutang Jual(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Beli</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Beli(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Jual</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Jual(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Piutang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Piutang(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengambilan UTD</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengambilan UTD(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Keluar Medis</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Keluar Medis(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Resep Pulang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Resep Pulang(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Masuk</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Masuk(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Keluar</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Keluar(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Hibah</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Hibah(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Akhir</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Akhir(Rp)</td>"+
+                                "</tr>"
+                            ); 
+                            for(i=0;i<tabMode.getRowCount();i++){  
+                                htmlContent.append(                             
+                                    "<tr class='isi'>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,0)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,1)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,2)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,3)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,4)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,5)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,6)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,7)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,8)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,9)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,10)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,11)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,12)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,13)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,14)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,15)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,16)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,17)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,18)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,19)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,20)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,21)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,22)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,23)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,24)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,25)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,26)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,27)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,28)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,29)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,30)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,31)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,32)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,33)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,34)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,35)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,36)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,37)+"</td>"+
+                                    "</tr>"
+                                ); 
+                            }            
+
+                            f = new File("SirkulasiObat.html");            
+                            bw = new BufferedWriter(new FileWriter(f));            
+                            bw.write("<html>"+
+                                        "<head><link href=\"file2.css\" rel=\"stylesheet\" type=\"text/css\" /></head>"+
+                                        "<body>"+
+                                            "<table width='3600px' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                                "<tr class='isi2'>"+
+                                                    "<td valign='top' align='center'>"+
+                                                        "<font size='4' face='Tahoma'>"+akses.getnamars()+"</font><br>"+
+                                                        akses.getalamatrs()+", "+akses.getkabupatenrs()+", "+akses.getpropinsirs()+"<br>"+
+                                                        akses.getkontakrs()+", E-mail : "+akses.getemailrs()+"<br><br>"+
+                                                        "<font size='2' face='Tahoma'>SIRKULASI OBAT/ALKES/BHP PERIODE "+Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()+"<br><br></font>"+        
+                                                    "</td>"+
+                                               "</tr>"+
+                                            "</table>"+
+                                            "<table width='3600px' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                                htmlContent.toString()+
+                                            "</table>"+
+                                        "</body>"+                   
+                                     "</html>"
+                            );
+
+                            bw.close();                         
+                            Desktop.getDesktop().browse(f.toURI());
+                        break;
+                    case "Laporan 2 (WPS)":
+                            htmlContent = new StringBuilder();
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Kode Barang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>No.Batch</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>No.Faktur</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Nama Barang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Satuan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Tgl.Awal</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Awal</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Awal(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengadaan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengadaan(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penerimaan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penerimaan(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penjualan</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Penjualan(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Ke Pasien</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Ke Pasien(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Piutang Jual</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Piutang Jual(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Beli</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Beli(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Jual</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Jual(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Piutang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Retur Piutang(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengambilan UTD</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Pengambilan UTD(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Keluar Medis</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Keluar Medis(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Resep Pulang</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Resep Pulang(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Masuk</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Masuk(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Keluar</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Mutasi Keluar(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Hibah</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Hibah(Rp)</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Akhir</td>"+
+                                    "<td valign='middle' bgcolor='#FFFAF8' align='center'>Stok Akhir(Rp)</td>"+
+                                "</tr>"
+                            ); 
+                            for(i=0;i<tabMode.getRowCount();i++){  
+                                htmlContent.append(                             
+                                    "<tr class='isi'>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,0)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,1)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,2)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,3)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,4)+"</td>"+
+                                        "<td valign='top'>"+tabMode.getValueAt(i,5)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,6)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,7)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,8)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,9)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,10)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,11)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,12)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,13)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,14)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,15)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,16)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,17)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,18)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,19)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,20)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,21)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,22)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,23)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,24)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,25)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,26)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,27)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,28)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,29)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,30)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,31)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,32)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,33)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,34)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,35)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,36)+"</td>"+
+                                        "<td valign='top' align='right'>"+tabMode.getValueAt(i,37)+"</td>"+
+                                    "</tr>"
+                                ); 
+                            }            
+
+                            f = new File("SirkulasiObat.wps");            
+                            bw = new BufferedWriter(new FileWriter(f));            
+                            bw.write("<html>"+
+                                        "<head><link href=\"file2.css\" rel=\"stylesheet\" type=\"text/css\" /></head>"+
+                                        "<body>"+
+                                            "<table width='3600px' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                                "<tr class='isi2'>"+
+                                                    "<td valign='top' align='center'>"+
+                                                        "<font size='4' face='Tahoma'>"+akses.getnamars()+"</font><br>"+
+                                                        akses.getalamatrs()+", "+akses.getkabupatenrs()+", "+akses.getpropinsirs()+"<br>"+
+                                                        akses.getkontakrs()+", E-mail : "+akses.getemailrs()+"<br><br>"+
+                                                        "<font size='2' face='Tahoma'>DETAIL JM DOKTER PERIODE "+Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()+"<br><br></font>"+        
+                                                    "</td>"+
+                                               "</tr>"+
+                                            "</table>"+
+                                            "<table width='3600px' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                                htmlContent.toString()+
+                                            "</table>"+
+                                        "</body>"+                   
+                                     "</html>"
+                            );
+
+                            bw.close();                         
+                            Desktop.getDesktop().browse(f.toURI());
+                        break;
+                    case "Laporan 3 (CSV)":
+                            htmlContent = new StringBuilder();
+                            htmlContent.append(                             
+                                "\"Kode Barang\";\"No.Batch\";\"No.Faktur\";\"Nama Barang\";\"Satuan\";\"Tgl.Awal\";\"Stok Awal\";\"Stok Awal(Rp)\";\"Pengadaan\";\"Pengadaan(Rp)\";\"Penerimaan\";\"Penerimaan(Rp)\";\"Penjualan\";\"Penjualan(Rp)\";\"Ke Pasien\";\"Ke Pasien(Rp)\";\"Piutang Jual\";\"Piutang Jual(Rp)\";\"Retur Beli\";\"Retur Beli(Rp)\";\"Retur Jual\";\"Retur Jual(Rp)\";\"Retur Piutang\";\"Retur Piutang(Rp)\";\"Pengambilan UTD\";\"Pengambilan UTD(Rp)\";\"Stok Keluar Medis\";\"Stok Keluar Medis(Rp)\";\"Resep Pulang\";\"Resep Pulang(Rp)\";\"Mutasi Masuk\";\"Mutasi Masuk(Rp)\";\"Mutasi Keluar\";\"Mutasi Keluar(Rp)\";\"Hibah\";\"Hibah(Rp)\";\"Stok Akhir\";\"Stok Akhir(Rp)\"\n"
+                            ); 
+                            for(i=0;i<tabMode.getRowCount();i++){  
+                                htmlContent.append(                             
+                                    "\""+tabMode.getValueAt(i,0)+"\";\""+tabMode.getValueAt(i,1)+"\";\""+tabMode.getValueAt(i,2)+"\";\""+tabMode.getValueAt(i,3)+"\";\""+tabMode.getValueAt(i,4)+"\";\""+tabMode.getValueAt(i,5)+"\";\""+tabMode.getValueAt(i,6)+"\";\""+tabMode.getValueAt(i,7)+"\";\""+tabMode.getValueAt(i,8)+"\";\""+tabMode.getValueAt(i,9)+"\";\""+tabMode.getValueAt(i,10)+"\";\""+tabMode.getValueAt(i,11)+"\";\""+tabMode.getValueAt(i,12)+"\";\""+tabMode.getValueAt(i,13)+"\";\""+tabMode.getValueAt(i,14)+"\";\""+tabMode.getValueAt(i,15)+"\";\""+tabMode.getValueAt(i,16)+"\";\""+tabMode.getValueAt(i,17)+"\";\""+tabMode.getValueAt(i,18)+"\";\""+tabMode.getValueAt(i,19)+"\";\""+tabMode.getValueAt(i,20)+"\";\""+tabMode.getValueAt(i,21)+"\";\""+tabMode.getValueAt(i,22)+"\";\""+tabMode.getValueAt(i,23)+"\";\""+tabMode.getValueAt(i,24)+"\";\""+tabMode.getValueAt(i,25)+"\";\""+tabMode.getValueAt(i,26)+"\";\""+tabMode.getValueAt(i,27)+"\";\""+tabMode.getValueAt(i,28)+"\";\""+tabMode.getValueAt(i,29)+"\";\""+tabMode.getValueAt(i,30)+"\";\""+tabMode.getValueAt(i,31)+"\";\""+tabMode.getValueAt(i,32)+"\";\""+tabMode.getValueAt(i,33)+"\";\""+tabMode.getValueAt(i,34)+"\";\""+tabMode.getValueAt(i,35)+"\";\""+tabMode.getValueAt(i,36)+"\";\""+tabMode.getValueAt(i,37)+"\"\n"
+                                ); 
+                            }            
+
+                            f = new File("SirkulasiObat.csv");            
+                            bw = new BufferedWriter(new FileWriter(f));            
+                            bw.write(htmlContent.toString());
+
+                            bw.close();                         
+                            Desktop.getDesktop().browse(f.toURI());
+                        break; 
+                }                 
+            } catch (Exception e) {
+            }   
             this.setCursor(Cursor.getDefaultCursor());
         }
-        
     }//GEN-LAST:event_BtnPrintActionPerformed
 
     private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnPrintKeyPressed
@@ -1088,7 +1323,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             try{   
                 ttltotaljual=0;ttltotalbeli=0;ttltotalpesan=0;ttltotalpiutang=0;ttltotalutd=0;ttltotalkeluar=0;ttltotalmutasikeluar=0;
                 ttltotalmutasimasuk=0;ttltotalretbeli=0;ttltotalretjual=0;ttltotalretpiut=0;ttltotalpasin=0;ttltotalrespulang=0;
-                ttltotalhibah=0;ttltotalstok=0;ttltotalstokawal=0;ttltotalstokakhir=0;
+                ttltotalhibah=0;ttltotalstokawal=0;ttltotalstokakhir=0;
                 ps=koneksi.prepareStatement(
                     "select databarang.kode_brng,databarang.nama_brng,kodesatuan.satuan,databarang."+hppfarmasi+" as harga "+
                     "from databarang inner join kodesatuan on databarang.kode_sat=kodesatuan.kode_sat "+
@@ -1112,13 +1347,13 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             ps2.setString(2,KdGudang.getText());
                             rs2=ps2.executeQuery();
                             while(rs2.next()){
-                                jumlahjual=0;jumlahbeli=0;jumlahpiutang=0;jumlahpesan=0;jumlahretbeli=0;rowstokawal=0;
-                                jumlahretjual=0;jumlahretpiut=0;jumlahpasin=0;stok=0;stokawal=0;jumlahutd=0;
+                                jumlahjual=0;jumlahbeli=0;jumlahpiutang=0;jumlahpesan=0;jumlahretbeli=0;
+                                jumlahretjual=0;jumlahretpiut=0;jumlahpasin=0;stok=0;stokawal=0;jumlahutd=0;stokakhir=0;
                                 jumlahkeluar=0;jumlahrespulang=0;jumlahmutasimasuk=0;jumlahmutasikeluar=0;
                                 jumlahhibah=0;totaljual=0;totalbeli=0;totalpesan=0;totalpiutang=0;totalutd=0;totalkeluar=0;
                                 totalmutasikeluar=0;totalmutasimasuk=0;totalretbeli=0;totalretjual=0;totalretpiut=0;
                                 totalpasin=0;totalrespulang=0;totalhibah=0;totalstok=0;totalstokawal=0;totalstokakhir=0;harga=0;
-                                tglopname=Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:01";
+                                tglopname=Valid.SetTgl(Tgl1.getSelectedItem()+"");
                                 
                                 ps3=koneksi.prepareStatement(
                                     "select riwayat_barang_medis.stok_akhir,riwayat_barang_medis.tanggal,riwayat_barang_medis.jam from riwayat_barang_medis where riwayat_barang_medis.tanggal < ? and "+
@@ -1145,6 +1380,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         ps3.close();
                                     }
                                 }
+                                
                                 harga=Sequel.cariIsiAngka("select data_batch."+hppfarmasi+" from data_batch where data_batch.kode_brng='"+rs.getString("kode_brng")+"' and data_batch.no_batch='"+rs2.getString("no_batch")+"' and data_batch.no_faktur='"+rs2.getString("no_faktur")+"' ");
                                 if(harga<=0){
                                     harga=rs.getDouble("harga");
@@ -1153,7 +1389,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 
                                 //pembelian 
                                 ps3=koneksi.prepareStatement(
-                                    "select sum(detailbeli.jumlah2),sum(detailbeli.subtotal) from pembelian inner join detailbeli on pembelian.no_faktur=detailbeli.no_faktur "+
+                                    "select sum(detailbeli.jumlah2),sum(detailbeli.total) from pembelian inner join detailbeli on pembelian.no_faktur=detailbeli.no_faktur "+
                                     "where detailbeli.kode_brng=? and detailbeli.no_batch=? and detailbeli.no_faktur=? and pembelian.tgl_beli between ? and ? and pembelian.kd_bangsal=?");
                                 try {
                                     ps3.setString(1,rs.getString("kode_brng"));
@@ -1180,7 +1416,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 
                                 //pemesanan 
                                 ps3=koneksi.prepareStatement(
-                                    "select sum(detailpesan.jumlah2),sum(detailpesan.subtotal) from pemesanan inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
+                                    "select sum(detailpesan.jumlah2),sum(detailpesan.total) from pemesanan inner join detailpesan on pemesanan.no_faktur=detailpesan.no_faktur "+
                                     "where detailpesan.kode_brng=? and detailpesan.no_batch=? and detailpesan.no_faktur=? and pemesanan.tgl_pesan between ? and ? and pemesanan.kd_bangsal=?");
                                 try {
                                     ps3.setString(1,rs.getString("kode_brng"));
@@ -1287,15 +1523,306 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         ps3.close();
                                     }
                                 }
-                                tabMode.addRow(new String[]{
-                                    rs.getString("kode_brng"),rs2.getString("no_batch"),rs2.getString("no_faktur"),rs.getString("nama_brng"),rs.getString("satuan"),
-                                    tglopname,Valid.SetAngka(stokawal),Valid.SetAngka(totalstokawal),Valid.SetAngka(jumlahbeli),Valid.SetAngka(totalbeli),
-                                    Valid.SetAngka(jumlahpesan),Valid.SetAngka(totalpesan),Valid.SetAngka(jumlahjual),Valid.SetAngka(totaljual),
-                                    Valid.SetAngka(jumlahpasin),Valid.SetAngka(totalpasin),Valid.SetAngka(jumlahpiutang),Valid.SetAngka(totalpiutang),
-                                    "Retur Beli","Retur Beli(Rp)","Retur Jual","Retur Jual(Rp)","Retur Piutang","Retur Piutang(Rp)",
-                                    "Pengambilan UTD","Pengambilan UTD(Rp)","Stok Keluar Medis","Stok Keluar Medis(Rp)","Resep Pulang","Resep Pulang(Rp)",
-                                    "Mutasi Masuk","Mutasi Masuk(Rp)","Mutasi Keluar","Mutasi Keluar(Rp)","Hibah","Hibah(Rp)","Stok Akhir","Stok Akhir(Rp)"
-                                });
+                                
+                                //returbeli
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(detreturbeli.jml_retur2), sum(detreturbeli.total) from returbeli inner join detreturbeli on returbeli.no_retur_beli=detreturbeli.no_retur_beli "+
+                                    "where detreturbeli.kode_brng=? and detreturbeli.no_batch=? and detreturbeli.no_faktur=? and returbeli.tgl_retur between ? and ? and returbeli.kd_bangsal=?");            
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahretbeli=rs3.getDouble(1);
+                                        totalretbeli=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Note : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                //returjual
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(detreturjual.jml_retur),sum(detreturjual.subtotal) from returjual inner join detreturjual on returjual.no_retur_jual=detreturjual.no_retur_jual "+
+                                    "where detreturjual.kode_brng=? and detreturjual.no_batch=? and detreturjual.no_faktur=? and returjual.tgl_retur between ? and ? and returjual.kd_bangsal=?");            
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahretjual=rs3.getDouble(1);
+                                        totalretjual=rs3.getDouble(2);
+                                    } 
+                                } catch (Exception e) {
+                                    System.out.println("Note : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                //retur piutang
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(detreturpiutang.jml_retur),sum(detreturpiutang.subtotal) from returpiutang inner join detreturpiutang on returpiutang.no_retur_piutang=detreturpiutang.no_retur_piutang "+
+                                    "where detreturpiutang.kode_brng=? and detreturpiutang.no_batch=? and detreturpiutang.no_faktur=? and returpiutang.tgl_retur between ? and ? and returpiutang.kd_bangsal=?");            
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahretpiut=rs3.getDouble(1);
+                                        totalretpiut=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Note : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                //utd
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(utd_pengambilan_medis.jml) as jumlah,sum(utd_pengambilan_medis.total) as jumpas from utd_pengambilan_medis "+
+                                    "where utd_pengambilan_medis.kode_brng=? and utd_pengambilan_medis.no_batch=? and utd_pengambilan_medis.no_faktur=? and "+
+                                    "utd_pengambilan_medis.tanggal between ? and ? and utd_pengambilan_medis.kd_bangsal_dr=?");            
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahutd=rs3.getDouble(1);
+                                        totalutd=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Note : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                //stok keluar
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(detail_pengeluaran_obat_bhp.jumlah),sum(detail_pengeluaran_obat_bhp.total) from pengeluaran_obat_bhp inner join detail_pengeluaran_obat_bhp on pengeluaran_obat_bhp.no_keluar=detail_pengeluaran_obat_bhp.no_keluar "+
+                                    " where detail_pengeluaran_obat_bhp.kode_brng=? and detail_pengeluaran_obat_bhp.no_batch=? and detail_pengeluaran_obat_bhp.no_faktur=? and pengeluaran_obat_bhp.tanggal between ? and ? and pengeluaran_obat_bhp.kd_bangsal=?");
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahkeluar=rs3.getDouble(1);
+                                        totalkeluar=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Note : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }  
+                                
+                                //resep pulang
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(resep_pulang.jml_barang),sum(resep_pulang.total) from resep_pulang where resep_pulang.kode_brng=? and resep_pulang.no_batch=? and resep_pulang.no_faktur=? and resep_pulang.tanggal between ? and ? and resep_pulang.kd_bangsal=?");
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahrespulang=rs3.getDouble(1);
+                                        totalrespulang=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Notifikas Resep Pulang : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                //mutasi
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(mutasibarang.jml),sum(mutasibarang.jml*mutasibarang.harga) from mutasibarang where mutasibarang.kode_brng=? and mutasibarang.no_batch=? and mutasibarang.no_faktur=? and mutasibarang.tanggal between ? and ? and mutasibarang.kd_bangsalke=?");
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahmutasimasuk=rs3.getDouble(1);
+                                        totalmutasimasuk=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Notifikas Mutasi Masuk : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(mutasibarang.jml), sum(mutasibarang.jml*mutasibarang.harga) from mutasibarang where mutasibarang.kode_brng=? and mutasibarang.no_batch=? and mutasibarang.no_faktur=? and mutasibarang.tanggal between ? and ? and mutasibarang.kd_bangsaldari=?");
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahmutasikeluar=rs3.getDouble(1);
+                                        totalmutasikeluar=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Notifikas Mutasi Keluar : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                //hibah
+                                ps3=koneksi.prepareStatement(
+                                    "select sum(detailhibah_obat_bhp.jumlah2),sum(detailhibah_obat_bhp.subtotaldiakui) from hibah_obat_bhp inner join detailhibah_obat_bhp on hibah_obat_bhp.no_hibah=detailhibah_obat_bhp.no_hibah "+
+                                    "where detailhibah_obat_bhp.kode_brng=? and detailhibah_obat_bhp.no_batch=? and detailhibah_obat_bhp.no_hibah=? and hibah_obat_bhp.tgl_hibah between ? and ? and hibah_obat_bhp.kd_bangsal=?");
+                                try {
+                                    ps3.setString(1,rs.getString("kode_brng"));
+                                    ps3.setString(2,rs2.getString("no_batch"));
+                                    ps3.setString(3,rs2.getString("no_faktur"));
+                                    ps3.setString(4,tglopname);
+                                    ps3.setString(5,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                                    ps3.setString(6,KdGudang.getText());
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){                    
+                                        jumlahhibah=rs3.getDouble(1);
+                                        totalhibah=rs3.getDouble(2);
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Note : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                //stok akhir
+                                ps3=koneksi.prepareStatement(
+                                    "select riwayat_barang_medis.stok_akhir from riwayat_barang_medis where riwayat_barang_medis.tanggal < ? and "+
+                                    "riwayat_barang_medis.kode_brng=? and riwayat_barang_medis.kd_bangsal=? and riwayat_barang_medis.no_batch=? and riwayat_barang_medis.no_faktur=? "+
+                                    "order by concat(riwayat_barang_medis.tanggal,' ',riwayat_barang_medis.jam) desc limit 1");
+                                try {
+                                    ps3.setString(1,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59");
+                                    ps3.setString(2,rs.getString("kode_brng"));
+                                    ps3.setString(3,KdGudang.getText());
+                                    ps3.setString(4,rs2.getString("no_batch"));
+                                    ps3.setString(5,rs2.getString("no_faktur"));
+                                    rs3=ps3.executeQuery();
+                                    if(rs3.next()){
+                                        stokakhir=rs3.getDouble("stok_akhir");
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Note : "+e);
+                                } finally{
+                                    if(rs3!=null){
+                                        rs3.close();
+                                    }
+                                    if(ps3!=null){
+                                        ps3.close();
+                                    }
+                                }
+                                
+                                totalstokakhir=harga*stokakhir;
+                    
+                                if((jumlahbeli>0)||(jumlahpesan>0)||(jumlahjual>0)||(jumlahpasin>0)||(jumlahpiutang>0)||(jumlahhibah>0)||(jumlahmutasimasuk>0)||(jumlahmutasikeluar>0)||
+                                    (jumlahutd>0)||(jumlahkeluar>0)||(jumlahretbeli>0)||(jumlahretjual>0)||(jumlahretpiut>0)||(stokawal>0)||(stokakhir>0)||(jumlahrespulang>0)){
+                                    tabMode.addRow(new String[]{
+                                        rs.getString("kode_brng"),rs2.getString("no_batch"),rs2.getString("no_faktur"),rs.getString("nama_brng"),rs.getString("satuan"),
+                                        tglopname,Valid.SetAngka(stokawal),Valid.SetAngka(totalstokawal),Valid.SetAngka(jumlahbeli),Valid.SetAngka(totalbeli),
+                                        Valid.SetAngka(jumlahpesan),Valid.SetAngka(totalpesan),Valid.SetAngka(jumlahjual),Valid.SetAngka(totaljual),
+                                        Valid.SetAngka(jumlahpasin),Valid.SetAngka(totalpasin),Valid.SetAngka(jumlahpiutang),Valid.SetAngka(totalpiutang),
+                                        Valid.SetAngka(jumlahretbeli),Valid.SetAngka(totalretbeli),Valid.SetAngka(jumlahretjual),Valid.SetAngka(totalretjual),
+                                        Valid.SetAngka(jumlahretpiut),Valid.SetAngka(totalretpiut),Valid.SetAngka(jumlahutd),Valid.SetAngka(totalutd),
+                                        Valid.SetAngka(jumlahkeluar),Valid.SetAngka(totalkeluar),Valid.SetAngka(jumlahrespulang),Valid.SetAngka(totalrespulang),
+                                        Valid.SetAngka(jumlahmutasimasuk),Valid.SetAngka(totalmutasimasuk),Valid.SetAngka(jumlahmutasikeluar),Valid.SetAngka(totalmutasikeluar),
+                                        Valid.SetAngka(jumlahhibah),Valid.SetAngka(totalhibah),Valid.SetAngka(stokakhir),Valid.SetAngka(totalstokakhir)
+                                    });
+                                    ttltotaljual=ttltotaljual+totaljual;
+                                    ttltotalbeli=ttltotalbeli+totalbeli;
+                                    ttltotalpesan=ttltotalpesan+totalpesan;
+                                    ttltotalpiutang=ttltotalpiutang+totalpiutang;
+                                    ttltotalutd=ttltotalutd+totalutd;
+                                    ttltotalkeluar=ttltotalkeluar+totalkeluar;
+                                    ttltotalmutasikeluar=ttltotalmutasikeluar+totalmutasikeluar;
+                                    ttltotalmutasimasuk=ttltotalmutasimasuk+totalmutasimasuk;
+                                    ttltotalretbeli=ttltotalretbeli+totalretbeli;
+                                    ttltotalretjual=ttltotalretjual+totalretjual;
+                                    ttltotalretpiut=ttltotalretpiut+totalretpiut;
+                                    ttltotalpasin=ttltotalpasin+totalpasin;
+                                    ttltotalrespulang=ttltotalrespulang+totalrespulang;
+                                    ttltotalhibah=ttltotalhibah+totalhibah;
+                                    ttltotalstokawal=ttltotalstokawal+totalstokawal;
+                                    ttltotalstokakhir=ttltotalstokakhir+totalstokakhir;
+                                }
+                                    
                             }
                         } catch (Exception e) {
                             System.out.println("Note : "+e);
@@ -1318,6 +1845,12 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         ps.close();
                     }
                 }
+                tabMode.addRow(new Object[]{
+                    "<>>","Total :","","","","","",Valid.SetAngka(ttltotalstokawal),"",Valid.SetAngka(ttltotalbeli),"",Valid.SetAngka(ttltotalpesan),"",Valid.SetAngka(ttltotaljual),
+                    "",Valid.SetAngka(ttltotalpasin),"",Valid.SetAngka(ttltotalpiutang),"",Valid.SetAngka(ttltotalretbeli),"",Valid.SetAngka(ttltotalretjual),
+                    "",Valid.SetAngka(ttltotalretpiut),"",Valid.SetAngka(ttltotalutd),"",Valid.SetAngka(ttltotalkeluar),"",Valid.SetAngka(ttltotalrespulang),
+                    "",Valid.SetAngka(ttltotalmutasimasuk),"",Valid.SetAngka(ttltotalmutasikeluar),"",Valid.SetAngka(ttltotalhibah),"",Valid.SetAngka(ttltotalstokakhir)
+                }); 
             }catch(Exception e){
                 System.out.println("Notifikasi : "+e);
             }

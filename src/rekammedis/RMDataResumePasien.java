@@ -680,7 +680,7 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-06-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-03-2022" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -694,7 +694,7 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-06-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-03-2022" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1189,11 +1189,6 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         NamaDokter.setEditable(false);
         NamaDokter.setName("NamaDokter"); // NOI18N
         NamaDokter.setPreferredSize(new java.awt.Dimension(207, 23));
-        NamaDokter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NamaDokterActionPerformed(evt);
-            }
-        });
         FormInput.add(NamaDokter);
         NamaDokter.setBounds(247, 40, 270, 23);
 
@@ -1944,10 +1939,6 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
             Valid.MyReport("rptSBPK3.jasper","report","::[ Surat Bukti Pelayanan Kesehatan ]::",param);
         }
     }//GEN-LAST:event_MnSPBK2ActionPerformed
-
-    private void NamaDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaDokterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NamaDokterActionPerformed
 
     /**
     * @param args the command line arguments

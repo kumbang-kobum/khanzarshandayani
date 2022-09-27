@@ -1,5 +1,8 @@
 <?php
-
+    if(strpos($_SERVER['REQUEST_URI'],"conf")){
+        exit(header("Location:../index.php"));
+    }
+    
     $db_hostname    = "localhost";
     $db_username    = "root";
     $db_password    = "";
@@ -53,6 +56,33 @@
         $save=str_replace("/*","",$save);
         $save=str_replace("*/","",$save);
         $save=str_replace("#","",$save);
+        $save=str_replace("text/html","",$save);
+        $save=str_replace("base64","",$save);
+        $save=str_replace("<script>","",$save);
+        $save=str_replace("</script>","",$save);
+        $save=str_replace("<noscript>","",$save);
+        $save=str_replace("</noscript>","",$save);
+        $save=str_replace("<img","",$save);
+        $save=str_replace("document","",$save);
+        return $save;
+    }
+    
+    function validTeks2($data){
+        $save=str_replace("'","",$data);
+        $save=str_replace("\\","",$save);
+        $save=str_replace(";","",$save);
+        $save=str_replace("`","",$save);
+        $save=str_replace("--","",$save);
+        $save=str_replace("/*","",$save);
+        $save=str_replace("*/","",$save);
+        $save=str_replace("text/html","",$save);
+        $save=str_replace("base64","",$save);
+        $save=str_replace("<script>","",$save);
+        $save=str_replace("</script>","",$save);
+        $save=str_replace("<noscript>","",$save);
+        $save=str_replace("</noscript>","",$save);
+        $save=str_replace("<img","",$save);
+        $save=str_replace("document","",$save);
         return $save;
     }
     
