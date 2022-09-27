@@ -430,6 +430,7 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         BtnDokter2 = new widget.Button();
         BtnDokter3 = new widget.Button();
         BtnDokter4 = new widget.Button();
+        BtnDokter5 = new widget.Button();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -680,7 +681,7 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-03-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-06-2022" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -694,7 +695,7 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-03-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-06-2022" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1276,6 +1277,19 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         });
         FormInput.add(BtnDokter4);
         BtnDokter4.setBounds(212, 616, 28, 23);
+
+        BtnDokter5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        BtnDokter5.setMnemonic('2');
+        BtnDokter5.setToolTipText("Alt+2");
+        BtnDokter5.setName("BtnDokter5"); // NOI18N
+        BtnDokter5.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnDokter5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDokter5ActionPerformed(evt);
+            }
+        });
+        FormInput.add(BtnDokter5);
+        BtnDokter5.setBounds(212, 267, 28, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -1940,6 +1954,10 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_MnSPBK2ActionPerformed
 
+    private void BtnDokter5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDokter5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnDokter5ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1965,6 +1983,7 @@ public final class RMDataResumePasien extends javax.swing.JDialog {
     private widget.Button BtnDokter2;
     private widget.Button BtnDokter3;
     private widget.Button BtnDokter4;
+    private widget.Button BtnDokter5;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnKeluar;
