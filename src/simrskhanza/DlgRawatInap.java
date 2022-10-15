@@ -64,6 +64,7 @@ import rekammedis.RMPenilaianAwalMedisRanapDewasa;
 import rekammedis.RMPenilaianAwalMedisRanapKandungan;
 import rekammedis.RMPenilaianFisioterapi;
 import rekammedis.RMPenilaianPsikologi;
+import rekammedis.RMPenilaianAwalKeperawatanBayiAnak;
 
 /**
  *
@@ -1240,6 +1241,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnAwalFisioterapi = new widget.Button();
         BtnAwalMedis = new widget.Button();
         BtnAwalMedisKandungan = new widget.Button();
+        BtnAwalKeperawatanAnak = new widget.Button();
         BtnPenilaianPsikolog = new widget.Button();
 
         BagianRS.setEditable(false);
@@ -3225,7 +3227,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         FormMenu.setBackground(new java.awt.Color(255, 255, 255));
         FormMenu.setBorder(null);
         FormMenu.setName("FormMenu"); // NOI18N
-        FormMenu.setPreferredSize(new java.awt.Dimension(115, 43));
+        FormMenu.setPreferredSize(new java.awt.Dimension(150, 483));
         FormMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 1));
 
         BtnRiwayat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
@@ -3703,6 +3705,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnAwalMedisKandungan);
+
+        BtnAwalKeperawatanAnak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnAwalKeperawatanAnak.setText("Awal Keperawatan Bayi/Anak");
+        BtnAwalKeperawatanAnak.setFocusPainted(false);
+        BtnAwalKeperawatanAnak.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnAwalKeperawatanAnak.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnAwalKeperawatanAnak.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnAwalKeperawatanAnak.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnAwalKeperawatanAnak.setName("BtnAwalKeperawatanAnak"); // NOI18N
+        BtnAwalKeperawatanAnak.setPreferredSize(new java.awt.Dimension(180, 23));
+        BtnAwalKeperawatanAnak.setRoundRect(false);
+        BtnAwalKeperawatanAnak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAwalKeperawatanAnakActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnAwalKeperawatanAnak);
 
         BtnPenilaianPsikolog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnPenilaianPsikolog.setText("Penilaian Psikolog");
@@ -6382,6 +6401,23 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }//GEN-LAST:event_BtnDokter3ActionPerformed
 
+    private void BtnAwalKeperawatanAnakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAwalKeperawatanAnakActionPerformed
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianAwalKeperawatanBayiAnak form=new RMPenilaianAwalKeperawatanBayiAnak(null,false);
+            form.isCek();
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnAwalKeperawatanAnakActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -6404,6 +6440,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnAll;
     private widget.Button BtnAsuhanGizi;
     private widget.Button BtnAwalFisioterapi;
+    private widget.Button BtnAwalKeperawatanAnak;
     private widget.Button BtnAwalKeperawatanKandungan;
     private widget.Button BtnAwalKeperawatanUmum;
     private widget.Button BtnAwalMedis;
