@@ -123,7 +123,7 @@ public final class RMDataCatatanObservasiIGD extends javax.swing.JDialog {
         RR.setDocument(new batasInput((byte)5).getKata(RR));
         Suhu.setDocument(new batasInput((byte)5).getKata(Suhu));
         SPO.setDocument(new batasInput((byte)3).getKata(SPO));
-        Keterangan.setDocument(new batasInput((byte)30).getKata(Keterangan));
+        Keterangan.setDocument(new batasInput((byte)500).getKata(Keterangan));
         TCari.setDocument(new batasInput((int)100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
