@@ -1492,7 +1492,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 /*tambahan*/
                 Valid.MyReportqry("rptItemResep.jasper","report","::[ Aturan Pakai Obat ]::",
                     "select data_batch.tgl_kadaluarsa,resep_obat.no_resep,resep_obat.tgl_perawatan,resep_obat.jam,pasien.tgl_lahir, "+
-                    "resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng,"+
+                    "resep_obat.no_rawat,pasien.no_rkm_medis,pasien.no_ktp,pasien.nm_pasien,databarang.nama_brng,"+
                     "aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
                     "from data_batch inner join resep_obat inner join reg_periksa inner join pasien inner join "+
                     "aturan_pakai inner join databarang inner join detail_pemberian_obat "+
@@ -2017,6 +2017,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("jam",cmbJam.getSelectedItem()+":"+cmbMnt.getSelectedItem()+":"+cmbDtk.getSelectedItem());
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             param.put("tgl_lahir",Sequel.cariIsi("select tgl_lahir from pasien where no_rkm_medis=?",Sequel.cariIsi("select no_rkm_medis from reg_periksa where no_rawat=?",TNoRw.getText())));
+            param.put("no_ktp",Sequel.cariIsi("select no_ktp from pasien where no_rkm_medis=?",Sequel.cariIsi("select no_rkm_medis from reg_periksa where no_rawat=?",TNoRw.getText())));
             
             Valid.MyReportqry("rptLabelDaftarObat.jasper","report","::[ Label Daftar Obat ]::","select * from temporary_resep where temporary_resep.temp37='"+akses.getalamatip()+"' order by temporary_resep.no",param);
             this.setCursor(Cursor.getDefaultCursor());
